@@ -1,0 +1,22 @@
+.toggle-theme::before {
+    content: "Toggle theme";
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.toggle-theme {
+    display: flex;
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 24px;
+}
+
+.toggle-theme {
+    bottom: -50px;
+    right: 0;
+}
+
+.toggle-theme:hover {
+    cursor: pointer;
+}

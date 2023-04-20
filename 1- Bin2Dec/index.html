@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="plugin/toggle-theme/toggle-theme.css" />
+		<title>Binary to Decimal</title>
+	</head>
+	<body>
+		<fieldset>
+			<button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+			<a href="http://github.com" class="signature">@ofernandoavila | 2023</a>
+			<h2>Bin2Dec Converter</h2>
+			<div class="row" id="data">
+				<div>
+					<input
+						type="number"
+						name="decimal"
+						id="decimal"
+						min="0"
+						placeholder=" "
+					/>
+					<label for="decimal">Decimal</label>
+				</div>
+				<div>
+					<input
+						type="number"
+						name="binary"
+						id="binary"
+						placeholder=" "
+					/>
+					<label for="binary">Binary</label>
+				</div>
+			</div>
+			<button type="submit">Convert</button>
+            <a href="">Invert</a>
+		</fieldset>
+	</body>
+	<script src="main.js"></script>
+	<script src="plugin/toggle-theme/toggle-theme.js"></script>
+</html>
