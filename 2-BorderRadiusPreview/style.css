@@ -1,0 +1,71 @@
+.preview {
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview, .settings {
+    flex: 1;
+}
+
+.preview div {
+	width: 300px;
+	height: 200px;
+	background-color: #ccc;
+}
+
+.values__single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+    column-gap: 10px;
+}
+
+.settings__mode {
+    display: flex;
+}
+
+.settings__values {
+    margin-top: 40px;
+}
+
+.settings__mode .input-group:first-of-type {
+    margin-right: 15px;
+}
+
+.settings__code {
+    font-family: 'Inconsolata', monospace;
+    margin-top: 10px;
+}
+
+.code_preview {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    background-color: #000;
+    color: #65E0FD;
+    font-weight: 800;
+}
+
+.code_preview .line {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.code_preview .line > p::after {
+    content: ":";
+    color: #ff79c6;
+}
+
+.code_preview .line > span {
+    margin-left: 5px;
+    color: #8886F9;
+}
+
+.code_preview .line > span::after {
+    content: "px;";
+    color: #EB4F81;
+}
+

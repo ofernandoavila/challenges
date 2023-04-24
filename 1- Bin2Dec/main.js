@@ -5,7 +5,6 @@ const dataContainer = document.getElementById("data");
 
 let dadoDecimal = document.querySelector('input[name="decimal"]');
 let dadoBinario = document.querySelector('input[name="binary"]');
-let darkTheme = false;
 
 dadoDecimal.addEventListener("onchange", () => {
     validateDecimal(dadoDecimal.value);

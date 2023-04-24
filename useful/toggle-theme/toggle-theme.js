@@ -1,3 +1,5 @@
+let darkTheme = false;
+
 window.onload = () => {
     if (
         window.matchMedia &&

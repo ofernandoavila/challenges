@@ -1,0 +1,7 @@
+:root.dark {
+    --background-color: #000;
+    --font-color: #fff;
+    --border-color: #ccc;
+    --font-color-label: #000;
+    --font-color-label-not-hover: #fff;
+}

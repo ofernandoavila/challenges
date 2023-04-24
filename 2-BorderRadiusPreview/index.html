@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Preview</title>
+    <link rel="stylesheet" href="../useful/toggle-theme/toggle-theme.css">
+    <link rel="stylesheet" href="../useful/toggle-theme/dark.css">
+    <link rel="stylesheet" href="../useful/reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <fieldset>
+        <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+        <h2>Border Radius Previewer</h2>
+        <div class="preview"><div></div></div>
+        <div class="settings">
+            <div class="settings__mode">
+                <div class="input-group">
+                    <input type="radio" onchange="toggleMode()" name="mode" id="all" def value="all" checked>
+                    <label for="all">All edges</label>
+                </div>
+                <div class="input-group">
+                    <input type="radio" onchange="toggleMode()" name="mode" id="single" value="single">
+                    <label for="single">Single</label>
+                </div>
+            </div>
+            <div class="settings__values">
+                <div class="values__all">
+                    <div class="input-group">
+                        <input type="number" name="value_all" id="value_all"min="0" value="0" placeholder=" ">
+                        <label for="value_all">All edges</label>
+                    </div>
+                </div>
+                <div class="values__single hidden">
+                    <div class="input-group">
+                        <input type="number" name="value_topleft" id="value_topleft" placeholder=" " value="0" min="0">
+                        <label for="value_topleft">Top Left</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" name="value_topright" id="value_topright" placeholder=" " value="0" min="0">
+                        <label for="value_topright">Top Right</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" name="value_bottomleft" id="value_bottomleft" placeholder=" " value="0" min="0">
+                        <label for="value_bottomleft">Bottom Left</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" name="value_bottomright" id="value_bottomright" placeholder=" " value="0" min="0">
+                        <label for="value_bottomright">Bottom Right</label>
+                    </div>
+                </div>
+            </div>
+            <div class="settings__code">
+                <div class="code_preview">
+                    <div class="line"><p>border-radius</p><span>0</span></div>
+                    <div class="line"><p>border-top-left-radius</p><span>0</span></div>
+                    <div class="line"><p>border-top-right-radius</p><span>0</span></div>
+                    <div class="line"><p>border-bottom-left-radius</p><span>0</span></div>
+                    <div class="line"><p>border-bottom-right-radius</p><span>0</span></div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</body>
+<script src="main.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
+</html>
