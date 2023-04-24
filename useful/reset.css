@@ -132,3 +132,16 @@ div input[type="radio"] + label {
     width: fit-content;
     white-space: nowrap;
 }
+
+fieldset a.signature,
+div a.signature {
+    display: flex;
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 24px;
+    bottom: -45px;
+    left: 0;
+    font-size: 16px;
+    color: var(--font-color);
+}
