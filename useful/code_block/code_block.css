@@ -1,10 +1,13 @@
 .code_preview {
+    position: relative;
     width: 100%;
     min-height: 80px;
     padding: 10px;
     background-color: #000;
     color: #65E0FD;
     font-weight: 800;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
 }
 
 .code_preview .line {
@@ -12,17 +15,41 @@
     margin-bottom: 5px;
 }
 
-.code_preview .line > p::after {
-    content: ":";
+.code_preview .line > p span.highlighted {
     color: #ff79c6;
 }
 
-.code_preview .line > span {
+.code_preview .line > span.value {
     margin-left: 5px;
     color: #8886F9;
 }
 
-.code_preview .line > span::after {
-    content: "px;";
+.code_preview .line > span.unit {
     color: #EB4F81;
+}
+
+.code_preview button.copy {
+    border-radius: 5px;
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: 1px solid var(--border-color);
+    display: flex;
+}
+
+.code_preview button.copy:hover {
+    cursor: pointer;
+}
+
+.code_preview button.copy i {
+    padding: 5px 10px;
+    color: #fff;
+}
+
+.code_preview button.copy span {
+    background-color: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
