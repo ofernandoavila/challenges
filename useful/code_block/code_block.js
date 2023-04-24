@@ -7,10 +7,30 @@ copyCodeBlock.addEventListener('click', (event) => {
 
     let lines = document.querySelectorAll('.code_preview .line');
 
-    lines.forEach( line => {
+    lines.forEach(line => {
         out += line.textContent + '\n';
     });
 
-    navigator.clipboard.writeText(out);
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(out).then(function () {
+            alert("Texto copiado para a área de transferência.");
+        }, function () {
+            let areaDeTransferencia = document.createElement("textarea");
+            areaDeTransferencia.value = out;
+            document.body.appendChild(areaDeTransferencia);
+            areaDeTransferencia.select();
+            document.execCommand("copy");
+            document.body.removeChild(areaDeTransferencia);
+        });
+    } else {
+        let areaDeTransferencia = document.createElement("textarea");
+        areaDeTransferencia.value = out;
+        document.body.appendChild(areaDeTransferencia);
+        areaDeTransferencia.select();
+        document.execCommand("copy");
+        document.body.removeChild(areaDeTransferencia);
+    }
+
     document.querySelector('.code_preview button.copy span').innerHTML = "Copied!";
 });
