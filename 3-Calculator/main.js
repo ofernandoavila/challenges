@@ -13,8 +13,8 @@ buttons.forEach((button) => {
 function action(value) {
 	switch (value) {
 		case "backspace":
-			number = number.slice(0, -1);
-			updatecurrent();
+			number = number.substr(0, number.length - 1);
+			current.innerHTML = number != "" ? number : "0";
 			break;
 		case "ac":
 			clearAll();
@@ -28,6 +28,21 @@ function action(value) {
 			addValue(number, true);
 			number = "";
 			resolve();
+			break;
+
+		case ".":
+			number += ".";
+			break;
+
+		case "+/-":
+			updateScreen();
+			if(parseFloat(number) > 0) {
+				output = -Math.abs(parseFloat(number));
+			} else {
+				output = Math.abs(parseFloat(number));
+			}
+			number = output.toString();
+			current.innerHTML = number;
 			break;
 
 		default:
@@ -45,7 +60,7 @@ function addValue(value, inEqual = false) {
 		updateScreen();
 		number = "";
 	} else {
-		number += value;
+		if(number.toString().length < 8) number += value;
 		if (inEqual) equation.push(value);
 		current.innerHTML = number;
 	}
@@ -64,7 +79,7 @@ function clear() {
 
 function resolve() {
 	let output = 0;
-	
+
 	for (let i = 0; i < equation.length; i++) {
 		if (!isNaN(parseFloat(equation[i])) && output == 0) {
 			output += parseFloat(equation[i]);
@@ -77,9 +92,28 @@ function resolve() {
 					updateScreen();
 					output = sum(output, equation[i + 1]);
 					break;
+
+				case "-":
+					updateScreen();
+					output = diff(output, equation[i + 1]);
+					break;
+
+				case "/":
+					updateScreen();
+					output = div(output, equation[i + 1]);
+					break;
+
+				case "x":
+					updateScreen();
+					output = times(output, equation[i + 1]);
+					break;
 			}
 			continue;
 		}
+	}
+
+	if(output.toString().length > 8) {
+		output = "ERR";
 	}
 
 	current.innerHTML = output;
@@ -111,13 +145,13 @@ function sum(a, b) {
 }
 
 function diff(a, b) {
-	return b - a;
+	return parseFloat(a) - parseFloat(b);
 }
 
 function times(a, b) {
-	return a * b;
+	return parseFloat(a) * parseFloat(b);
 }
 
 function div(a, b) {
-	return a / b;
+	return parseFloat(a) / parseFloat(b);
 }
