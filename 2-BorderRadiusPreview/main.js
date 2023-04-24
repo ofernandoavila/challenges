@@ -25,7 +25,7 @@ function updateRadius() {
 		let value = 0;
 		value = document.querySelector('input[name="value_all"]').value;
 		
-		let allValues = document.querySelectorAll("div.line span");
+		let allValues = document.querySelectorAll("div.line span.value");
 		allValues.forEach((element) => (element.innerHTML = value));
 
 		let preview = document.querySelector(".preview div");
@@ -43,18 +43,18 @@ function updateRadius() {
 		};
 
 		if (values.topLeft != '')
-			document.querySelector("div.line:nth-child(2) span").innerHTML = values.topLeft;
+			document.querySelector("div.line:nth-child(3) span.value").innerHTML = values.topLeft;
 		
 		if (values.topRight != "")
-			document.querySelector("div.line:nth-child(3) span").innerHTML =
+			document.querySelector("div.line:nth-child(4) span.value").innerHTML =
 				values.topRight;
 		
 		if (values.bottomLeft != "")
-			document.querySelector("div.line:nth-child(4) span").innerHTML =
+			document.querySelector("div.line:nth-child(5) span.value").innerHTML =
 				values.bottomLeft;
 		
 		if (values.bottomRight != "")
-			document.querySelector("div.line:nth-child(5) span").innerHTML =
+			document.querySelector("div.line:nth-child(6) span.value").innerHTML =
 				values.bottomRight;
 		
 		let preview = document.querySelector('.preview div');

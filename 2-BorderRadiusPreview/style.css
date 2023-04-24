@@ -39,33 +39,3 @@
     font-family: 'Inconsolata', monospace;
     margin-top: 10px;
 }
-
-.code_preview {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    background-color: #000;
-    color: #65E0FD;
-    font-weight: 800;
-}
-
-.code_preview .line {
-    display: flex;
-    margin-bottom: 5px;
-}
-
-.code_preview .line > p::after {
-    content: ":";
-    color: #ff79c6;
-}
-
-.code_preview .line > span {
-    margin-left: 5px;
-    color: #8886F9;
-}
-
-.code_preview .line > span::after {
-    content: "px;";
-    color: #EB4F81;
-}
-

@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="../useful/toggle-theme/toggle-theme.css">
     <link rel="stylesheet" href="../useful/toggle-theme/dark.css">
     <link rel="stylesheet" href="../useful/reset.css">
+    <link rel="stylesheet" href="../useful/code_block/code_block.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <fieldset>
         <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-        <h2>Border Radius Previewer</h2>
+        <a href="https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview" class="signature">@ofernandoavila | 2023</a>
+		<h2>Border Radius Previewer</h2>
         <div class="preview"><div></div></div>
         <div class="settings">
             <div class="settings__mode">
@@ -54,16 +56,18 @@
             </div>
             <div class="settings__code">
                 <div class="code_preview">
-                    <div class="line"><p>border-radius</p><span>0</span></div>
-                    <div class="line"><p>border-top-left-radius</p><span>0</span></div>
-                    <div class="line"><p>border-top-right-radius</p><span>0</span></div>
-                    <div class="line"><p>border-bottom-left-radius</p><span>0</span></div>
-                    <div class="line"><p>border-bottom-right-radius</p><span>0</span></div>
+                    <button class="copy" title="Copy to clipboard"><span>Copy to clipboard</span><i class="fa-solid fa-copy"></i></button>
+                    <div class="line"><p>border-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                    <div class="line"><p>border-top-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                    <div class="line"><p>border-top-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                    <div class="line"><p>border-bottom-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                    <div class="line"><p>border-bottom-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
                 </div>
             </div>
         </div>
     </fieldset>
 </body>
 <script src="main.js"></script>
+<script src="../useful/code_block/code_block.js"></script>
 <script src="../useful/toggle-theme/toggle-theme.js"></script>
 </html>
