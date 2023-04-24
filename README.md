@@ -42,12 +42,12 @@ required to complete them while I'm into this challenge.
 
 ## 1️⃣ : Beginner Projects
 
-| Name                                                                              | Rating         | ✔️ |
-| --------------------------------------------------------------------------------- | -------------- | ---
-| [Bin2Dec](./1-%20Bin2Dec/Bin2Dec-App.md)                                          | ⭐⭐⭐        | ✔️ |            
-| [Border Radius Previewer](./Border-Radius-Previewer.md)                           | ⭐⭐⭐⭐      | ✔️ |
-| [Calculator](./Calculator-App.md)                                                 | ⭐⭐⭐⭐⭐    | ✔️ |
-| [Christmas Lights](./Projects/1-Beginner/Christmas-Lights-App.md)                 | -              | 🚧 |
-| [Cause Effect App](./Projects/1-Beginner/Cause-Effect-App.md)                     | -              | ➖ |
-| [Color Cycle](./Projects/1-Beginner/Color-Cycle-App.md)                           | -              | ➖ |
-| [Countdown Timer](./Projects/1-Beginner/Countdown-Timer-App.md)                   | -              | ➖ |
+| Name                                                                                                                                           | Rating         | ✔️ |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---
+| [Bin2Dec]((https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec))                                                             | ⭐⭐⭐        | ✔️ |            
+| [Border Radius Previewer]((https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview))                                    | ⭐⭐⭐⭐      | ✔️ |
+| [Calculator]((https://github.com/ofernandoavila/challenges/tree/master/3-Calculator))                                                          | ⭐⭐⭐⭐⭐    | ✔️ |
+| [Christmas Lights]((https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights))                                               | -              | 🚧 |
+| [Cause Effect App]((https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp))                                                | -              | ➖ |
+| [Color Cycle]((https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle))                                                         | -              | ➖ |
+| [Countdown Timer]((https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer))                                                 | -              | ➖ |
