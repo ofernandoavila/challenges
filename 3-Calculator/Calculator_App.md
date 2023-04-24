@@ -48,4 +48,10 @@ number.
 
 ## Example projects
 
-- [BHMBS - JS-Neumorphic-Calculator](https://barhouum7.github.io/JS-Neumorphic-Calc.github.io/)
+Try not to view this until you've developed your own solution:
+
+- [Calculator by ofernandoavila](http://ofernandoavila.avilamidia.com/challenges/3-Calculator/)
+
+## Versions
+
+[ 24/04/2023 ] - v1.0.0 - Finished project 
