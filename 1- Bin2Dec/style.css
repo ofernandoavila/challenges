@@ -47,21 +47,6 @@ fieldset {
     border: 1px solid var(--border-color);
 }
 
-fieldset a.signature {
-    display: flex;
-    position: absolute;
-    background: none;
-    border: none;
-    font-size: 24px;
-}
-
-fieldset a.signature {
-    bottom: -45px;
-    left: 0;
-    font-size: 16px;
-    color: var(--font-color);
-}
-
 fieldset h2 {
     margin-bottom: 30px;
 }
