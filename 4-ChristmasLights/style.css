@@ -1,0 +1,82 @@
+.lights {
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	position: relative;
+}
+
+.light-grid {
+	margin-top: 50px;
+	width: 100%;
+	min-height: 550px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	gap: 80px;
+}
+
+:root {
+	--light-off-color: #313131;
+	--background-color: #000;
+	--font-color: #fff;
+}
+
+:root.dark {
+	--light-off-color: #313131;
+}
+
+.light-grid .light {
+	display: flex;
+	flex: 1;
+	border: 1px solid var(--border-color);
+	background-color: var(--light-off-color);
+	opacity: .4;
+	border-radius: 50%;
+	position: relative;
+}
+
+.light-grid .light::before {
+	content: "";
+	width: 30%;
+	height: 40px;
+	background-color: #006323;
+	position: absolute;
+	right: 50%;
+	transform: translateX(50%);
+	top: -25px;
+	border: none;
+	z-index: -99;
+}
+
+.light-grid .light::after {
+	content: "";
+	width: 120%;
+	height: 25px;
+	background-color: #006323;
+	position: absolute;
+	right: 50%;
+	transform: translateX(50%);
+	top: 0;
+	border: none;
+
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+
+	z-index: 99;
+}
+
+.light.light-on {
+	border: 1px solid;
+	opacity: 1;
+}
+
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+}
