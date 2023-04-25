@@ -4,6 +4,14 @@
     margin-right: 10px;
 }
 
+.toggle-theme:disabled {
+    color: #414141;
+}
+
+.toggle-theme:disabled:hover {
+    cursor: not-allowed;
+}
+
 .toggle-theme {
     display: flex;
     position: absolute;
