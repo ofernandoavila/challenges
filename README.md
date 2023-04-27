@@ -43,7 +43,7 @@ required to complete them while I'm into this challenge.
 
 <br /><br />
 
-## 1️⃣ : Beginner Projects
+## 1️⃣ : I'm getting confortable with the challenge idea
 
 | Name                                                                                                                                           | Rating         | ✔️ |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---

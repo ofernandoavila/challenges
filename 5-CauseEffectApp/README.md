@@ -62,4 +62,8 @@ const people = [
 
 ## Example project
 
-[Cause Effect App](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[Cause Effect App](http://ofernandoavila.avilamidia.com/challenges/5-CauseEffectApp/)
+
+## Versions
+
+[ 27/04/2023 ] - v1.0.0 - Finished project 

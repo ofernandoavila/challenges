@@ -18,3 +18,8 @@ displayed during the Christmas Holidays.
 ## Example project
 
 [Christmas Lights](http://ofernandoavila.avilamidia.com/challenges/4-ChristmasLights/)
+
+
+## Versions
+
+[ 26/04/2023 ] - v1.0.0 - Finished project 
