@@ -47,7 +47,7 @@ required to complete them while I'm into this challenge.
 | [Bin2Dec](https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec)                                                               | ⭐⭐⭐        | ✔️ |            
 | [Border Radius Previewer](https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview)                                      | ⭐⭐⭐⭐      | ✔️ |
 | [Calculator](https://github.com/ofernandoavila/challenges/tree/master/3-Calculator)                                                            | ⭐⭐⭐⭐⭐    | ✔️ |
-| [Christmas Lights](https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights)                                                 | -              | 🚧 |
+| [Christmas Lights](https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights)                                                 | ⭐⭐⭐⭐      | ✔️ |
 | [Cause Effect App](https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp)                                                  | -              | ➖ |
 | [Color Cycle](https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle)                                                           | -              | ➖ |
 | [Countdown Timer](https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer)                                                   | -              | ➖ |
