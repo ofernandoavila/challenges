@@ -1,0 +1,85 @@
+h1 {
+	font-size: 32px;
+	text-align: center;
+}
+
+h3 {
+	padding: 80px 0px 50px 0px;
+	display: flex;
+}
+
+h3::before {
+	height: inherit;
+	width: 3px;
+	background-color: var(--font-color);
+	margin-right: 10px;
+	content: "";
+}
+
+main {
+	max-width: 45%;
+	padding-top: 80px;
+}
+
+table {
+	width: 100%;
+	margin: 0 auto;
+}
+
+section {
+	padding-bottom: 50px;
+}
+
+p {
+	padding: 10px 0px;
+}
+
+#projects th:nth-child(1),
+#projects tr td:nth-child(1),
+#projects tr td:nth-child(2),
+#projects tr td:nth-child(4) {
+	text-align: left;
+}
+
+#projects tr td ul {
+	display: flex;
+}
+
+#projects tr td ul li {
+	margin-right: 10px;
+}
+
+#projects tr td ul li:last-of-type {
+	margin-right: 0px;
+}
+
+@media only screen and (max-width: 1000px) {
+	main {
+		max-width: 90%;
+		width: 90%;
+	}
+
+	table {
+		transform: scale(0.6);
+	}
+
+	#projects.table .item {
+		grid-template-columns: 40% 40% 20% !important;
+	}
+
+	#projects-legend.table .item {
+		grid-template-columns: 10% 90% !important;
+	}
+
+	#projects.table .item div:last-child {
+		display: none;
+	}
+}
+
+#projects.table .item {
+	grid-template-columns: 40% 20% 15% 25%;
+}
+
+#projects-legend.table .item {
+	grid-template-columns: 10% 90%;
+}
