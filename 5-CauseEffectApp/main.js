@@ -1,11 +1,11 @@
 const peoples = [
 	{
 		name: "Fernando",
-		street: "Djalma Ulrich 229",
+		street: "Rua México 41",
 		city: "Rio de Janeiro",
 		state: "RJ",
 		country: "Brazil",
-		telephone: "+55 (21) 98940-7820",
+		telephone: "+55 (21) 3245-3234",
 		birthday: "12/08/1999",
 	},
 	{
@@ -24,6 +24,24 @@ const peoples = [
 		state: "CA",
 		country: "USA",
 		telephone: "+1 (321) 234-3869",
+		birthday: "12/08/1999",
+	},
+	{
+		name: "Frank",
+		street: "Mountain View 21",
+		city: "Palo Alto",
+		state: "CA",
+		country: "USA",
+		telephone: "+1 (321) 234-3869",
+		birthday: "12/08/1999",
+	},
+	{
+		name: "Bill",
+		street: "500 Yale Ave N",
+		city: "Seattle",
+		state: "WA",
+		country: "USA",
+		telephone: "+1 888-446-2099",
 		birthday: "12/08/1999",
 	},
 ];
