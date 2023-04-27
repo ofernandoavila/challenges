@@ -1,21 +1,3 @@
-.lights {
-	width: 30%;
-	display: flex;
-	flex-direction: column;
-	padding: 10px;
-	position: relative;
-}
-
-.light-grid {
-	margin-top: 50px;
-	width: 100%;
-	min-height: 550px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-	gap: 80px;
-}
-
 :root {
 	--light-off-color: #313131;
 	--background-color: #000;
@@ -26,14 +8,31 @@
 	--light-off-color: #313131;
 }
 
+.lights {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	position: relative;
+}
+
+.light-grid {
+	margin: 100px 0px;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+}
+
 .light-grid .light {
 	display: flex;
-	flex: 1;
-	border: 1px solid var(--border-color);
-	background-color: var(--light-off-color);
-	opacity: .4;
-	border-radius: 50%;
+	width: 30px;
 	position: relative;
+
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .light-grid .light::before {
@@ -52,31 +51,101 @@
 .light-grid .light::after {
 	content: "";
 	width: 120%;
-	height: 25px;
+	height: 30px;
 	background-color: #006323;
 	position: absolute;
 	right: 50%;
 	transform: translateX(50%);
 	top: 0;
 	border: none;
-
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 	z-index: 99;
 }
 
-.light.light-on {
-	border: 1px solid;
-	opacity: 1;
+.input-group {
+	margin: 20px 0px;
 }
 
+.turn-off {
+	background-color: gray !important;
+	animation: none !important;
+}
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+.green {
+	background-color: #01b301;
+	animation: green .5s ease-in-out infinite alternate;
+}
+
+.blue {
+	background-color: #015db3;
+	animation: blue .5s ease-in-out infinite alternate;
+}
+
+.red {
+	background-color: #b30101;
+	animation: red .5s ease-in-out infinite alternate;
+}
+
+.yellow {
+	background-color: #b3a401;
+	animation: yellow .5s ease-in-out infinite alternate;
+}
+
+@keyframes green {
+  0% {
+    box-shadow: 0 0 20px #a7ffa7;
   }
-  to {
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  100% {
+    box-shadow: 0 0 50px #a7ffa7;
   }
+}
+
+@keyframes blue {
+  0% {
+    box-shadow: 0 0 20px #a7b3ff;
+  }
+  100% {
+    box-shadow: 0 0 50px #a7b3ff;
+  }
+}
+
+@keyframes red {
+  0% {
+    box-shadow: 0 0 20px #ffa7a7;
+  }
+  100% {
+    box-shadow: 0 0 50px #ffa7a7;
+  }
+}
+
+@keyframes yellow {
+  0% {
+    box-shadow: 0 0 20px #fff481;
+  }
+  100% {
+    box-shadow: 0 0 50px #fff481;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+    .lights {
+        width: 90%;
+    }
+
+	.light-grid {
+		display: grid;
+		justify-content: space-between;
+		row-gap: 120px;
+		column-gap: 20px;
+		width: 100%;
+		height: 0;
+		flex: 1;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	}
+
+	.light {
+		height: 90px;
+		margin: 0 auto;
+	}
 }
