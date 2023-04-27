@@ -19,6 +19,9 @@ so here we go:
 - forces me to every day add some code to this repo and keep my github pretty 😎
 - Feel free to download and study what ever you want 😁
 
+<p>You can check out all projects using this <a href="http://ofernandoavila.avilamidia.com/challenges/">link</a>.</p>
+<p><a href="http://ofernandoavila.avilamidia.com/challenges/">Click here to see demo.</a></p>
+
 <br />
 
 ## 📜 Projects
@@ -48,6 +51,6 @@ required to complete them while I'm into this challenge.
 | [Border Radius Previewer](https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview)                                      | ⭐⭐⭐⭐      | ✔️ |
 | [Calculator](https://github.com/ofernandoavila/challenges/tree/master/3-Calculator)                                                            | ⭐⭐⭐⭐⭐    | ✔️ |
 | [Christmas Lights](https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights)                                                 | ⭐⭐⭐⭐      | ✔️ |
-| [Cause Effect App](https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp)                                                  | -              | ➖ |
+| [Cause Effect App](https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp)                                                  | ⭐⭐⭐⭐⭐    | ✔️ |
 | [Color Cycle](https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle)                                                           | -              | ➖ |
 | [Countdown Timer](https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer)                                                   | -              | ➖ |
