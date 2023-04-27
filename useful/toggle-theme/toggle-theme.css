@@ -29,3 +29,15 @@
 .toggle-theme:hover {
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 1000px) {
+    header nav ul .toggle-theme {
+        margin: 12px 0px;
+        position: relative;
+        right: unset;
+        transform: none;
+        top: unset;
+        bottom: unset;
+    }
+}

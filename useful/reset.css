@@ -7,7 +7,19 @@
     --border-color: #ccc;
     --font-color-label: #000;
     --font-color-label-not-hover: #000;
+	--menu-header-background: #303030;
+	--menu-header-font: #fff;
+	--container-size: 80%;
+	--link-font: #1e90ff;
     transition: .3s;
+}
+
+a {
+	color: var(--link-font);
+}
+
+h1 {
+	padding: 25px 0px;
 }
 
 h2 {
@@ -20,15 +32,37 @@ h2 {
 	box-sizing: border-box;
 }
 
+li {
+	list-style: none;
+	line-height: 2rem;
+}
+
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--background-color);
+	color: var(--font-color);
+}
+
+th, td {
+	line-height: 1.5rem;
+	text-align: center;
+	padding: 10px 20px;
+}
+
+thead::after {
+	width: 100%;
+	content: "";
+	background-color: var(--border-color);
+	height: 1px;
+	padding: 10px 0px;
+}
+
+.flexbox {
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--background-color);
-	color: var(--font-color);
 }
 
 button {
@@ -64,9 +98,14 @@ fieldset button[type="submit"] {
 .row {
 	width: 100%;
 	display: flex;
-	align-items: center;
 	gap: 50px;
 	margin-bottom: 30px;
+}
+
+.column {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
 }
 
 .hidden {
@@ -97,7 +136,7 @@ button[type="submit"] {
 
 div label {
 	transition: 0.3s;
-	color: var(--font-color);
+	color: var(--font-color-label-not-hover);
 }
 
 div input[type="text"]:focus + label,
@@ -109,6 +148,7 @@ div input[type="number"]:not(:placeholder-shown) + label {
 	left: 0;
 	top: -30px;
 	transform: translateY(0);
+	color: var(--font-color-label-not-hover);
 }
 
 
@@ -156,6 +196,18 @@ div input[type="radio"] + label {
 	margin-right: 0;
 }
 
+.container {
+	width: var(--container-size);
+	margin: 0 auto;
+}
+
+/* LIST STYLES */
+
+ul.list li {
+	list-style: inside;
+	list-style-type: square;
+}
+
 fieldset a.signature,
 div a.signature {
     display: flex;
@@ -176,4 +228,150 @@ hr {
 	height: 1px;
 	background-color: var(--border-color);
 	margin: 50px 0px;
+}
+
+main {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Menu header */
+header {
+	width: 100%;
+	min-height: 50px;
+    position: fixed;
+    background-color: var(--menu-header-background);
+	display: flex;
+	align-items: center;
+	color: var(--menu-header-font);
+}
+
+header .toggle-theme {
+	bottom: 0;
+	right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+	color: #fff;
+}
+
+header h1 {
+	font-size: 20px;
+}
+
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header ul {
+	height: 100%;
+	display: flex;
+}
+
+header ul li {
+	margin-right: 10px;
+}
+
+header ul li:last-of-type {
+	margin-right: 0px;
+}
+
+header button.menu-button {
+	padding: 10px;
+	border: none;
+	font-size: 20px;
+	border-radius: 5px;
+	background: none;
+}
+
+/* Tables */
+
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.table .head {
+    font-weight: bold;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table .item {
+    padding: 10px 0px;
+    display: grid;
+    text-align: center;
+    align-items: center;
+}
+
+.table .item div ul {
+    display: flex;
+}
+
+.table .item div ul li {
+    margin-right: 10px;
+}
+
+.table .item div ul li:last-of-type {
+    margin-right: 0px;
+}
+
+.table .item div:nth-child(1),
+.table .item div:nth-child(2) {
+    text-align: left;
+}
+
+.table .item div:nth-child(2) {
+    margin-left: 10px;
+}
+
+.menu-button {
+    color: var(--menu-header-font);
+	display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    fieldset {
+        width: 90%;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+	header nav {
+		display: none;
+	}
+
+	.container, main {
+		width: 95%;
+	}
+
+	header nav {
+		position: absolute;
+		background-color: var(--menu-header-background);
+		width: 100%;
+		left: 0;
+		padding: 10px 0px;
+		top: 75px;
+	}
+
+	header nav ul {
+		display: flex;
+		flex-direction: column;
+		margin: 0px 10px;
+	}
+
+	header nav ul li {
+		line-height: 3rem;
+	}
+
+	.menu-button {
+		display: flex !important;
+	}
 }
