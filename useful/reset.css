@@ -111,6 +111,12 @@ div input[type="number"]:not(:placeholder-shown) + label {
 	transform: translateY(0);
 }
 
+
+
+div input[type="range"] {
+	margin: 0px 25px;
+}
+
 div input[type="text"] + label,
 div input[type="number"] + label {
 	position: absolute;
@@ -125,12 +131,29 @@ div input[type="radio"] + label {
 
 .input-group {
     display: flex;
+	align-items: center;
     position: relative;
+	margin-bottom: 10px;
 }
 
 .input-group label {
     width: fit-content;
     white-space: nowrap;
+}
+
+.input-group button {
+	border-radius: 5px;
+	padding: 10px 20px;
+	background-color: var(--background-color);
+	border: 1px solid var(--border-color);
+}
+
+.input-group button:first-of-type {
+	margin-right: 10px;
+}
+
+.input-group button:last-of-type {
+	margin-right: 0;
 }
 
 fieldset a.signature,
