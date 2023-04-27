@@ -1,0 +1,39 @@
+.item-list li:hover {
+    cursor: pointer;
+    color: dodgerblue;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.item-selected {
+    font-weight: bold;
+}
+
+.item-selected::before {
+    content: "\F105";
+    font-family: 'Font Awesome 6 Free';
+    margin-right: 5px;
+}
+
+.details .row {
+    margin-bottom: 5px;
+}
+
+.details span.birthday {
+    margin-left: 15px;
+}
+
+.details span.birthday::before {
+    content: "-";
+    margin-right: 15px;
+}
+
+.details .column {
+    flex-direction: row;
+}
+
+.details .column span {
+    margin-right: 10px;
+}
