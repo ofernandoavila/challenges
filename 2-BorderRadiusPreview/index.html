@@ -12,60 +12,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <fieldset>
-        <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-        <a href="https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview" class="signature">@ofernandoavila | 2023</a>
-		<h2>Border Radius Previewer</h2>
-        <div class="preview"><div></div></div>
-        <div class="settings">
-            <div class="settings__mode">
-                <div class="input-group">
-                    <input type="radio" onchange="toggleMode()" name="mode" id="all" def value="all" checked>
-                    <label for="all">All edges</label>
-                </div>
-                <div class="input-group">
-                    <input type="radio" onchange="toggleMode()" name="mode" id="single" value="single">
-                    <label for="single">Single</label>
-                </div>
-            </div>
-            <div class="settings__values">
-                <div class="values__all">
-                    <div class="input-group">
-                        <input type="number" name="value_all" id="value_all"min="0" value="0" placeholder=" ">
-                        <label for="value_all">All edges</label>
-                    </div>
-                </div>
-                <div class="values__single hidden">
-                    <div class="input-group">
-                        <input type="number" name="value_topleft" id="value_topleft" placeholder=" " value="0" min="0">
-                        <label for="value_topleft">Top Left</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" name="value_topright" id="value_topright" placeholder=" " value="0" min="0">
-                        <label for="value_topright">Top Right</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" name="value_bottomleft" id="value_bottomleft" placeholder=" " value="0" min="0">
-                        <label for="value_bottomleft">Bottom Left</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="number" name="value_bottomright" id="value_bottomright" placeholder=" " value="0" min="0">
-                        <label for="value_bottomright">Bottom Right</label>
-                    </div>
-                </div>
-            </div>
-            <div class="settings__code">
-                <div class="code_preview">
-                    <button class="copy" title="Copy to clipboard"><span>Copy to clipboard</span><i class="fa-solid fa-copy"></i></button>
-                    <div class="line"><p>border-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
-                    <div class="line"><p>border-top-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
-                    <div class="line"><p>border-top-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
-                    <div class="line"><p>border-bottom-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
-                    <div class="line"><p>border-bottom-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
-                </div>
-            </div>
+	<header>
+        <div class="container">
+            <a href="file:///C:/dev/challenges/index.html">Go back - Challenges</a>
         </div>
-    </fieldset>
+    </header>
+    <div class="flexbox">
+        <fieldset>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview" class="signature">@ofernandoavila | 2023</a>
+            <h2>Border Radius Previewer</h2>
+            <div class="preview"><div></div></div>
+            <div class="settings">
+                <div class="settings__mode">
+                    <div class="input-group">
+                        <input type="radio" onchange="toggleMode()" name="mode" id="all" def value="all" checked>
+                        <label for="all">All edges</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" onchange="toggleMode()" name="mode" id="single" value="single">
+                        <label for="single">Single</label>
+                    </div>
+                </div>
+                <div class="settings__values">
+                    <div class="values__all">
+                        <div class="input-group">
+                            <input type="number" name="value_all" id="value_all"min="0" value="0" placeholder=" ">
+                            <label for="value_all">All edges</label>
+                        </div>
+                    </div>
+                    <div class="values__single hidden">
+                        <div class="input-group">
+                            <input type="number" name="value_topleft" id="value_topleft" placeholder=" " value="0" min="0">
+                            <label for="value_topleft">Top Left</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" name="value_topright" id="value_topright" placeholder=" " value="0" min="0">
+                            <label for="value_topright">Top Right</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" name="value_bottomleft" id="value_bottomleft" placeholder=" " value="0" min="0">
+                            <label for="value_bottomleft">Bottom Left</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" name="value_bottomright" id="value_bottomright" placeholder=" " value="0" min="0">
+                            <label for="value_bottomright">Bottom Right</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings__code">
+                    <div class="code_preview">
+                        <button class="copy" title="Copy to clipboard"><span>Copy to clipboard</span><i class="fa-solid fa-copy"></i></button>
+                        <div class="line"><p>border-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                        <div class="line"><p>border-top-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                        <div class="line"><p>border-top-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                        <div class="line"><p>border-bottom-left-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                        <div class="line"><p>border-bottom-right-radius<span class="highlighted">:</span></p><span class="value">0</span><span class="unit">px;</span></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
 </body>
 <script src="main.js"></script>
 <script src="../useful/code_block/code_block.js"></script>

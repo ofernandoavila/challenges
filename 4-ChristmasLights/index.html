@@ -11,31 +11,38 @@
     <link rel="stylesheet" href="../useful/reset.css">
 </head>
 <body>
-    <div class="lights">
-        <button class="toggle-theme" disabled><i class="fa-solid fa-moon"></i></button>
-        <a href="https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights" class="signature">@ofernandoavila | 2023</a>
-        <h2>Christmas Lights</h2>
-        <div class="light-grid">
-            <div class="light green"></div>
-            <div class="light blue"></div>
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-            <div class="light blue"></div>
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-            <div class="light blue"></div>
+	<header>
+        <div class="container">
+            <a href="file:///C:/dev/challenges/index.html">Go back - Challenges</a>
         </div>
-        <div class="controls">
-            <div class="input-group">
-                <button value="on" onclick="basicControll('on')">On</button>
-                <button value="off" onclick="basicControll('off')">Off</button>
+    </header>
+    <div class="flexbox">
+        <div class="lights">
+            <button class="toggle-theme" disabled><i class="fa-solid fa-moon"></i></button>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights" class="signature">@ofernandoavila | 2023</a>
+            <h2>Christmas Lights</h2>
+            <div class="light-grid">
+                <div class="light green"></div>
+                <div class="light blue"></div>
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+                <div class="light blue"></div>
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+                <div class="light blue"></div>
             </div>
-            <div class="input-group">
-                <label for="time">Time</label>
-                <input type="range" name="time" id="time" value="2" max="5" min="1">
-                <span id="time-value"></span>
+            <div class="controls">
+                <div class="input-group">
+                    <button value="on" onclick="basicControll('on')">On</button>
+                    <button value="off" onclick="basicControll('off')">Off</button>
+                </div>
+                <div class="input-group">
+                    <label for="time">Time</label>
+                    <input type="range" name="time" id="time" value="2" max="5" min="1">
+                    <span id="time-value"></span>
+                </div>
             </div>
         </div>
     </div>

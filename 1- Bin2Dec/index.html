@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="../useful/toggle-theme/toggle-theme.css" />
-		<link rel="stylesheet" href="../useful/reset.css">
-		<title>Binary to Decimal</title>
-	</head>
-	<body>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../useful/toggle-theme/dark.css">
+	<link rel="stylesheet" href="../useful/toggle-theme/toggle-theme.css" />
+	<link rel="stylesheet" href="../useful/reset.css">
+	<title>Binary to Decimal</title>
+</head>
+<body>
+	<header>
+        <div class="container">
+            <a href="file:///C:/dev/challenges/index.html">Go back - Challenges</a>
+        </div>
+    </header>
+	<div class="flexbox">
 		<fieldset>
 			<button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
 			<a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
 			<h2>Bin2Dec Converter</h2>
 			<div class="row" id="data">
-				<div>
-					<input
-						type="number"
-						name="decimal"
-						id="decimal"
-						min="0"
-						placeholder=" "
-					/>
-					<label for="decimal">Decimal</label>
+				<div class="column">
+					<div class="input-group">
+						<input
+							type="number"
+							name="decimal"
+							id="decimal"
+							min="0"
+							placeholder=" "
+						/>
+						<label for="decimal">Decimal</label>
+					</div>
 				</div>
-				<div>
-					<input
-						type="number"
-						name="binary"
-						id="binary"
-						placeholder=" "
-					/>
-					<label for="binary">Binary</label>
+				<div class="column">
+					<div class="input-group">
+						<input
+							type="number"
+							name="binary"
+							id="binary"
+							placeholder=" "
+						/>
+						<label for="binary">Binary</label>
+					</div>
 				</div>
 			</div>
 			<button type="submit">Convert</button>
-            <a href="">Invert</a>
+			<a href="">Invert</a>
 		</fieldset>
-	</body>
-	<script src="main.js"></script>
-	<script src="../useful/toggle-theme/toggle-theme.js"></script>
+	</div>
+</body>
+<script src="main.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
 </html>
