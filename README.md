@@ -53,4 +53,4 @@ required to complete them while I'm into this challenge.
 | [Christmas Lights](https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights)                                                 | ⭐⭐⭐⭐      | ✔️ |
 | [Cause Effect App](https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp)                                                  | ⭐⭐⭐⭐⭐    | ✔️ |
 | [Color Cycle](https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle)                                                           | -              | ➖ |
-| [Countdown Timer](https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer)                                                   | -              | ➖ |
+| [Countdown Timer](https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer)                                                   | -              | 🚧 |
