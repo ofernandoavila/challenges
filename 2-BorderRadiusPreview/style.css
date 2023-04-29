@@ -39,3 +39,9 @@
     font-family: 'Inconsolata', monospace;
     margin-top: 10px;
 }
+
+@media only screen and (max-width: 1000px) {
+    .flexbox {
+        height: 100vh !important;
+    }
+}

@@ -148,4 +148,8 @@
 		height: 90px;
 		margin: 0 auto;
 	}
+
+	.flexbox {
+		height: 100vh;
+	}
 }

@@ -55,4 +55,8 @@
     .calculator {
         width: 90%;
     }
+
+    .flexbox {
+        height: 100vh !important;
+    }
 }

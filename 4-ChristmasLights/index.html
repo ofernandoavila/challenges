@@ -34,14 +34,18 @@
                 <div class="light blue"></div>
             </div>
             <div class="controls">
-                <div class="input-group">
-                    <button value="on" onclick="basicControll('on')">On</button>
-                    <button value="off" onclick="basicControll('off')">Off</button>
-                </div>
-                <div class="input-group">
-                    <label for="time">Time</label>
-                    <input type="range" name="time" id="time" value="2" max="5" min="1">
-                    <span id="time-value"></span>
+                <div class="row">
+                    <div class="column">
+                        <div class="row flex-row w-60">
+                            <button value="on" class="btn btn-normal" onclick="basicControll('on')">On</button>
+                            <button value="off" class="btn btn-normal" onclick="basicControll('off')">Off</button>
+                        </div>
+                        <div class="input-group input-group-range">
+                            <label for="time">Time</label>
+                            <input type="range" name="time" id="time" value="2" max="5" min="1" placeholder=" ">
+                            <span id="time-value"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

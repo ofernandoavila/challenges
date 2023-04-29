@@ -1,5 +1,5 @@
-const btnConverter = document.querySelector('fieldset button[type="submit"]');
-const btnInverter = document.querySelector("fieldset a");
+const btnConverter = document.querySelector("fieldset .btn.btn-normal");
+const btnInverter = document.querySelector("fieldset .btn.btn-link");
 
 const dataContainer = document.getElementById("data");
 
@@ -37,8 +37,8 @@ btnConverter.addEventListener("click", (e) => {
 btnInverter.addEventListener("click", (e) => {
     e.preventDefault();
     dataContainer.insertBefore(
-        dataContainer.querySelector("div:last-of-type"),
-        dataContainer.querySelector("div:first-of-type"),
+        dataContainer.querySelector("div .column:last-of-type"),
+        dataContainer.querySelector("div .column:first-of-type"),
     );
     dadoBinario.value = "";
     dadoDecimal.value = "";
