@@ -3,8 +3,9 @@
     --font-color: #fff;
     --border-color: #ccc;
     --font-color-label: #000;
-    --font-color-label-not-hover: #fff;
+    --font-color-label-hover: #fff;
     --menu-header-background: #1c1c1c;
 	--menu-header-font: #fff;
-    --link-font: #fff;
+    --link-font: #1e90ff;
+    --link-font-disabled: #6e6e6e;
 }

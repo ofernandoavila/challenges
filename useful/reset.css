@@ -6,11 +6,12 @@
 	--font-color: #000;
 	--border-color: #ccc;
 	--font-color-label: #000;
-	--font-color-label-not-hover: #000;
+	--font-color-label-hover: #000;
 	--menu-header-background: #303030;
 	--menu-header-font: #fff;
 	--container-size: 80%;
 	--link-font: #1e90ff;
+	--link-font-disabled: #ccc;
 
 	--btn-font-color: #fff;
 	--btn-font-secundary-color: #000;
@@ -77,6 +78,29 @@ thead::after {
 	padding: 10px 0px;
 }
 
+.title-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	padding: 0px 0px 50px 0px;
+}
+
+.w-10 {
+	width: 10% !important;
+}
+
+.w-20 {
+	width: 20% !important;
+}
+
+.w-30 {
+	width: 30% !important;
+}
+
+.w-40 {
+	width: 40% !important;
+}
+
 .flexbox {
 	width: 100%;
 	height: 100vh;
@@ -119,7 +143,20 @@ fieldset button[type="submit"] {
 	width: 100%;
 	display: flex;
 	gap: 50px;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
+}
+
+.row .input-group {
+	width: 100%;
+}
+
+.row-flex-column {
+	gap: 10px;
+	flex-direction: column;
+}
+
+.row:last-of-type {
+	margin-bottom: 0;
 }
 
 .column {
@@ -156,7 +193,7 @@ button[type="submit"] {
 
 div label {
 	transition: 0.3s;
-	color: var(--font-color-label-not-hover);
+	color: var(--font-color-label);
 }
 
 div input[type="text"]:focus+label,
@@ -164,11 +201,17 @@ div input[type="text"]:active+label,
 div input[type="text"]:not(:placeholder-shown)+label,
 div input[type="number"]:focus+label,
 div input[type="number"]:active+label,
-div input[type="number"]:not(:placeholder-shown)+label {
+div input[type="number"]:not(:placeholder-shown)+label,
+div input[type="date"]:focus+label,
+div input[type="date"]:active+label,
+div input[type="date"]:not(:placeholder-shown)+label,
+div input[type="datetime-local"]:focus+label,
+div input[type="datetime-local"]:active+label,
+div input[type="datetime-local"]:not(:placeholder-shown)+label  {
 	left: 0;
 	top: -30px;
 	transform: translateY(0);
-	color: var(--font-color-label-not-hover);
+	color: var(--font-color-label-hover);
 }
 
 div input[type="range"] {
@@ -176,7 +219,9 @@ div input[type="range"] {
 }
 
 div input[type="text"]+label,
-div input[type="number"]+label {
+div input[type="number"]+label,
+div input[type="date"]+label,
+div input[type="datetime-local"]+label {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -184,6 +229,16 @@ div input[type="number"]+label {
 }
 
 div input[type="radio"]+label {
+	color: var(--font-color);
+	margin-left: 10px;
+}
+
+div input[type="checkbox"] {
+	width: fit-content;
+}
+
+div input[type="checkbox"] + label {
+	color: var(--font-color-hover);
 	margin-left: 10px;
 }
 
@@ -196,6 +251,18 @@ div input[type="radio"]+label {
 .input-group label {
 	width: fit-content;
 	white-space: nowrap;
+}
+
+.input-radio-mode {
+    flex-direction: row;
+}
+
+.input-radio-mode .input-group {
+    margin-right: 20px;
+}
+
+.input-radio-mode .input-group:last-of-type {
+    margin-right: 0;
 }
 
 .container {
@@ -249,6 +316,7 @@ header {
 	display: flex;
 	align-items: center;
 	color: var(--menu-header-font);
+	z-index: 9999;
 }
 
 header .toggle-theme {
@@ -365,6 +433,10 @@ header button.menu-button {
 	cursor: pointer;
 }
 
+.btn i {
+	margin-right: 10px;
+}
+
 .btn.btn-normal {
 	background-color: var(--btn-normal);
 	border: 1px solid var(--btn-normal-border);
@@ -402,9 +474,26 @@ header button.menu-button {
 	background-color: var(--btn-default-hover);
 }
 
+.btn.btn-link {
+	background: none !important;
+	border: none !important;
+	color: var(--link-font) !important;
+	text-decoration: underline;
+}
+
+.btn.btn-link:hover {
+	cursor: pointer;
+}
+
+.btn.btn-link:disabled {
+	color: var(--link-font-disabled) !important;
+	cursor: not-allowed;
+}
+
 @media only screen and (max-width: 1000px) {
 	fieldset {
-		width: 90%;
+		max-width: 90%;
+		min-width: 90%;
 	}
 
 	.row {
@@ -441,5 +530,10 @@ header button.menu-button {
 
 	.menu-button {
 		display: flex !important;
+	}
+
+	.flexbox {
+		height: auto;
+		padding: 80px 0px;
 	}
 }

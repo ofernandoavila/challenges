@@ -1,14 +1,5 @@
 let darkTheme = false;
 
-window.onload = () => {
-    if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-        toggleTheme();
-    }
-}
-
 const btnToggleTheme = document.querySelector("button.toggle-theme");
 btnToggleTheme.addEventListener("click", e => toggleTheme(e));
 
@@ -25,3 +16,14 @@ function toggleTheme(e = '') {
         document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
     }
 }
+
+function initToggleTheme() {
+    if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        toggleTheme();
+    }
+}
+
+initToggleTheme();
