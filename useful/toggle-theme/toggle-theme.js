@@ -15,14 +15,27 @@ function toggleTheme(e = '') {
         document.querySelector("button.toggle-theme i").classList.add("fa-moon");
         document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
     }
+    
+    SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());
 }
 
 function initToggleTheme() {
+    console.log();
     if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-        toggleTheme();
+        if(
+            GetFromBrowser('ofernandoavila_challenges_prod') != null
+        ) {
+            if(
+                GetFromBrowser('ofernandoavila_challenges_prod') == 'true'
+            ) {
+                toggleTheme();
+            }
+        } else {
+            toggleTheme();
+        }
     }
 }
 
