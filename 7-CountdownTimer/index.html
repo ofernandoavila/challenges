@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header>
+    <header>
         <div class="container">
             <a href="http://ofernandoavila.avilamidia.com/challenges/">Go back - Challenges</a>
         </div>
@@ -19,50 +19,56 @@
     <div class="flexbox">
         <fieldset>
             <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-            <a href="https://github.com/ofernandoavila/challenges/tree/master/3-Calculator" class="signature">@ofernandoavila | 2023</a>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/3-Calculator"
+                class="signature">@ofernandoavila | 2023</a>
             <h2>Countdown Timer</h2>
-            <div class="counter">
-                <span>00:00:00</span>
-            </div>
             <div class="controls">
                 <div class="row">
                     <div class="column">
                         <div class="input-group">
-                            <input type="number" name="hour" id="hour" value="0"  min="0">
-                            <label for="hour">Hour</label>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="input-group">
-                            <input type="number" name="minute" id="minute" value="0" max="59" min="0">
-                            <label for="minute">Minute</label>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="input-group">
-                            <input type="number" name="second" id="second" value="0" max="59" min="0">
-                            <label for="second">Second</label>
+                            <input type="text" name="name" id="name" placeholder=" ">
+                            <label for="name">Timer name</label>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div id="date-input" class="row">
+                    <div class="column row-flex-column">
+                        <div class="input-group">
+                            <input type="datetime-local" name="initialDate" id="initialDate" placeholder=" ">
+                            <label for="initialDate">Initial Date</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="checkbox" onchange="ToggleField('initialDate')" name="startNow" id="startNow"
+                                checked>
+                            <label for="startNow">Starting now</label>
+                        </div>
+                    </div>
                     <div class="column">
                         <div class="input-group">
-                            <button class="btn btn-normal" id="start-pause_button" onclick="StartButton()">Start</button>
+                            <input type="datetime-local" name="endDate" id="endDate" placeholder=" ">
+                            <label for="endDate">End Date</label>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row row-flex-column">
                     <div class="column">
                         <div class="input-group">
-                            <button class="btn btn-default" id="restart_button" onclick="RestartButton()" disabled>Restart</button>
+                            <button class="btn btn-normal" id="start-pause_button" onclick="HandleCreateCountDownTimerItem()"><i class="fa fa-plus"></i> Start counter</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="timer-list">
+                <div class="title-header">
+                    <h3>Timer list</h3>
+                    <button class="btn btn-link w-30" id="clearlist_button" onclick="HandleClearTimerList()">Clear list</button>
+                </div>
+                <ul></ul>
+            </div>
         </fieldset>
     </div>
 </body>
+<script src="../useful/main.js"></script>
 <script src="../useful/forms/forms.js"></script>
 <script src="../useful/toggle-theme/toggle-theme.js"></script>
 <script src="main.js"></script>

@@ -1,126 +1,178 @@
 let isPaused = true;
 let initialTime = '';
 let timer = '';
+let counterList = GetFromBrowser('countdown_timer_itens') ? GetFromBrowser('countdown_timer_itens') : [];
+let dateMode = true;
 
-function StartButton() {
-    isPaused = !isPaused;
-    document.querySelector('#start-pause_button').innerHTML = "Pause";
-    InsertStopButton();
-    SwitchFunction(
-        document.querySelector('#start-pause_button'),
-        'onclick',
-        'PauseButton'
-    );
-    
-    initialTime = GetTimerConfig();
-    timer = StartTimer(GetTimerConfig());
-}
+function Init() {
+    if (isChecked('startNow')) {
+        ToggleField('initialDate');
+    }
 
-function RestartButton() {
-    if(timer != '') {
-        if(isPaused) {
-            isPaused = false;
-            UnPause();
-        }
-        
-        clearInterval(timer);
-        timer = StartTimer(GetTimerConfig());
+    if(counterList.length > 0) {
+        counterList.forEach( item => {
+            let container = CreateTimerItem(item);
+            item.setIntervalId = StartTimer(
+                item, 
+                container.querySelector('span.counter')
+            );
+        });
+    } else {
+        document.getElementById('clearlist_button').disabled = true;
     }
 }
 
-function StartTimer(time) {
-    DefineVisor(time);
-    document.getElementById('restart_button').disabled = false;
+Init();
 
+function StartTimer(item, location) {
+    time = DiffDates(new Date(), new Date(item.endDate));
+    DefineVisor(time, location);
     let counterInterval = setInterval(() => {
-        if(!isPaused) {
-
-            if(time.second == 0) {
-                if(time.minute >= 1) {
-                    time.minute--;
-                    time.second = 59;
-                } else {
-                    if(time.hour >= 1) {
-                        time.hour--;
-                        time.minute = 59;
-                        time.second = 59;
-                    }
-                }
+        time = DiffDates(new Date(), new Date(item.endDate));
+        DefineVisor(time, location);
+        if (time.second == 0) {
+            if (time.minute >= 1) {
+                time.minute--;
+                time.second = 59;
             } else {
-                time.second--;
+                if (time.hour >= 1) {
+                    time.hour--;
+                    time.minute = 59;
+                    time.second = 59;
+                }
             }
-
-            DefineVisor(time);
+        } else {
+            time.second--;
         }
-
-        if(time.hour == 0 && time.minute == 0 && time.second == 0) FinishTimer();
+        DefineVisor(time, location);
+        if (time.hour == 0 && time.minute == 0 && time.second == 0) FinishTimer(counterInterval);
     }, 1000);
 
     return counterInterval;
 }
 
-function FinishTimer() {
-    clearInterval(timer);
-    isPaused = true;
-    document.querySelector('#start-pause_button').innerHTML = "Start";
-    document.querySelector('#start-pause_button').classList.remove('btn-success');
-    document.querySelector('#start-pause_button').classList.add('btn-normal');
-    document.getElementById('stop_button').parentNode.parentNode.remove();
-    document.getElementById('restart_button').disabled = true;
-    DefineVisor({hour: 0, minute: 0, second: 0});
-    SwitchFunction(
-        document.querySelector('#start-pause_button'),
-        'onclick',
-        'StartButton'
-    );
+function FinishTimer(id) {
+    clearInterval(id);
 }
 
-function DefineVisor(time) {
+function DeleteItemButton(id) {
+    let key = 0;
+    if(counterList.length > 1) key = id - 1;
+    let item = counterList[key];
+    console.log(item);
+    document.getElementById('timer-item-' + item.timerId).remove();
+
+    let out = [];
+    counterList.forEach( item => {
+        if(item.timerId != id) out.push(item);
+    });
+
+    console.log(out);
+    SaveInBrowser('countdown_timer_itens', out);
+}
+
+function DefineVisor(time, location = '') {
+    let day = (time.day <= 0) ? '' : time.day.toString() + ":";
     let hour = (time.hour < 10) ? "0" + time.hour.toString() : time.hour.toString();
     let minute = (time.minute < 10) ? "0" + time.minute.toString() : time.minute.toString();
     let second = (time.second < 10) ? "0" + time.second.toString() : time.second.toString();
 
-    document.querySelector('.counter span').innerHTML = hour + ":" + minute + ":" + second;
-}
-
-function GetTimerConfig() {
-    return {
-        hour: !isNaN(parseInt(document.querySelector('input[name="hour"]').value)) ? parseInt(document.querySelector('input[name="hour"]').value) : 0,
-        minute: !isNaN(parseInt(document.querySelector('input[name="minute"]').value)) ? parseInt(document.querySelector('input[name="minute"]').value) : 0,
-        second: !isNaN(parseInt(document.querySelector('input[name="second"]').value)) ? parseInt(document.querySelector('input[name="second"]').value) : 0,
-    }
-}
-
-function InsertStopButton() {
-    return createFormButton(
-        'Stop', 
-        true, 
-        document.querySelector('.controls .row:nth-child(2)'), 
-        ['btn-danger'],
-        [{ event: 'onclick', functionName: 'FinishTimer'}]
-    );
-}
-
-function PauseButton() {
-    if(isPaused) {
-        isPaused = !isPaused;
-        UnPause();
+    if(location != '') {
+        location.innerHTML = day + hour + ":" + minute + ":" + second;
     } else {
-        isPaused = !isPaused;
-        ToggleClass(
-            document.querySelector('#start-pause_button'),
-            'btn-success',
-            'btn-normal'
-        );
-        document.querySelector('#start-pause_button').innerHTML = "Continue";
+        document.querySelector('.counter span').innerHTML = day + hour + ":" + minute + ":" + second;
     }
 }
 
-function UnPause() {
-    document.querySelector('#start-pause_button').innerHTML = "Pause";
-    ToggleClass(
-        document.querySelector('#start-pause_button'),
-        'btn-success',
-        'btn-normal'
+function GetTimerItem() {
+    initialDate = document.getElementById('startNow').checked ? new Date() : new Date(document.getElementById('initialDate').value);
+    endDate = new Date(document.getElementById('endDate').value);
+
+    return {
+        timerId: (counterList.length + 1),
+        name: document.getElementById('name').value,
+        initialDate,
+        endDate,
+        setIntervalId: 0
+    };
+}
+
+function HandleCreateCountDownTimerItem() {
+    let data = GetTimerItem();
+    
+    let tmp = CreateTimerItem(data);
+    counterList.push(data);
+    SaveInBrowser('countdown_timer_itens', counterList);
+
+    data.setIntervalId = StartTimer(
+        data, 
+        tmp.querySelector('span.counter')
     );
+}
+
+function CreateTimerItem(data) {
+    let timerItemContainer = createElement('li', [{ key: 'id', value: 'timer-item-' + data.timerId }]);
+    
+    let info = createElement('div', [{ key: 'class', value: ['info'] }]);
+    let header = createElement('div', [{ key: 'class', value: ['title-header'] }]);
+    
+    header.appendChild(createElement('p', [{ key: 'class', value: ['title'] }, { key: 'content', value: data.name }]));
+    
+    info.appendChild(header);
+    info.appendChild(createElement('span', [{ key: 'class', value: ['counter'] }, { key: 'content', value: '00:00:00' }]));
+
+    timerItemContainer.appendChild(info);
+
+    let description = createElement('div', [{ key: 'class', value: ['description'] }]);
+    let tmpDiv = createElement('div');
+
+    tmpDiv.appendChild(createElement('p', [{ key: 'content', value: 'Initial time' }]));
+    tmpDiv.appendChild(createElement('span', [{ key: 'content', value: DateToString(new Date(data.initialDate)) }]));
+
+    description.appendChild(tmpDiv);
+    tmpDiv = null;
+    tmpDiv = createElement('div');
+
+    tmpDiv.appendChild(createElement('p', [{ key: 'content', value: 'End time' }]));
+    tmpDiv.appendChild(createElement('span', [{ key: 'content', value: DateToString(new Date(data.endDate)) }]));
+    description.appendChild(tmpDiv);
+
+    timerItemContainer.appendChild(description);
+
+    let controls = createElement('div', [{ key: 'class', value: ['controls'] }]);
+
+    let tmpRow = createElement('div', [{ key: 'class', value: ['row'] }]);
+    let tmpColumn = createElement('div', [{ key: 'class', value: ['row'] }]);
+    let tmpInputGroup = createElement('div', [{ key: 'class', value: ['input-group'] }]);
+
+    tmpRow = createElement('div', [{ key: 'class', value: ['row'] }]);
+    tmpColumn = createElement('div', [{ key: 'class', value: ['column'] }]);
+    tmpInputGroup = createElement('div', [{ key: 'class', value: ['input-group'] }]);
+    tmpInputGroup.appendChild(
+        createElement(
+            'button',
+            [
+                { key: 'class', value: ['btn', 'btn-danger'] },
+                { key: 'content', value: 'Delete' },
+                { key: 'id', value: 'delete_button' },
+                { key: 'onclick', value: 'DeleteItemButton(' + data.timerId + ')' }
+            ]
+        )
+    );
+
+    tmpColumn.appendChild(tmpInputGroup);
+    tmpRow.appendChild(tmpColumn);
+    controls.appendChild(tmpRow);
+
+    timerItemContainer.appendChild(controls);
+    document.getElementById('clearlist_button').disabled = false;
+    document.querySelector('.timer-list ul').appendChild(timerItemContainer);
+
+    return timerItemContainer;
+}
+
+function HandleClearTimerList() {
+    SaveInBrowser('countdown_timer_itens', []);
+    document.querySelector('.timer-list ul').innerHTML = '';
+    document.getElementById('clearlist_button').disabled = true;
 }
