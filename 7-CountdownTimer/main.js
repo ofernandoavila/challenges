@@ -27,6 +27,18 @@ Init();
 function StartTimer(item, location) {
     time = DiffDates(new Date(), new Date(item.endDate));
     DefineVisor(time, location);
+
+    console.log(time);
+    if (time.second <= 0) {
+        DefineVisor({
+            day: 0,
+			hour: 0,
+			minute: 0,
+			second: 0,
+        }, location);
+        return;
+    }
+
     let counterInterval = setInterval(() => {
         time = DiffDates(new Date(), new Date(item.endDate));
         DefineVisor(time, location);
@@ -39,13 +51,20 @@ function StartTimer(item, location) {
                     time.hour--;
                     time.minute = 59;
                     time.second = 59;
+                } else {
+                    if (time.day >= 1) {
+                        time.day--;
+                        time.hour = 23;
+                        time.minute = 59;
+                        time.second = 59;
+                    }
                 }
             }
         } else {
             time.second--;
         }
         DefineVisor(time, location);
-        if (time.hour == 0 && time.minute == 0 && time.second == 0) FinishTimer(counterInterval);
+        if (time.hour == 0 && time.minute == 0 && time.second == 0 && time.day == 0) FinishTimer(counterInterval);
     }, 1000);
 
     return counterInterval;
