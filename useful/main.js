@@ -28,8 +28,7 @@ function GetFromBrowser(key) {
 }
 
 function DiffDates(date1, date2) {
-    var diff = Math.abs(date2 - date1);
-    var diffObj = {};
+    var diff = date2 - date1;
 
     second = Math.floor(diff / 1000);
     year = 0;
