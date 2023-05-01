@@ -26,8 +26,8 @@
                 <div class="row">
                     <div class="column">
                         <div class="input-group">
-                            <input type="text" name="name" id="name" placeholder=" ">
-                            <label for="name">Timer name (This input cannot be blank)</label>
+                            <input type="text" oninput="ValidateField(this);" name="name" id="name" placeholder=" " required>
+                            <label for="name">Timer name</label>
                         </div>
                     </div>
                 </div>
@@ -38,14 +38,14 @@
                             <label for="initialDate">Initial Date</label>
                         </div>
                         <div class="input-group">
-                            <input type="checkbox" onchange="ToggleField('initialDate')" name="startNow" id="startNow"
+                            <input type="checkbox" onchange="OnToggleStartDate()" name="startNow" id="startNow"
                                 checked>
                             <label for="startNow">Starting now</label>
                         </div>
                     </div>
                     <div class="column">
                         <div class="input-group">
-                            <input type="datetime-local" name="endDate" id="endDate" placeholder=" ">
+                            <input type="datetime-local" name="endDate" id="endDate" placeholder=" " required>
                             <label for="endDate">End Date</label>
                         </div>
                     </div>
