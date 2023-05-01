@@ -54,3 +54,7 @@ required to complete them while I'm into this challenge.
 | [Cause Effect App](https://github.com/ofernandoavila/challenges/tree/master/5-CauseEffectApp)                                                  | ⭐⭐⭐⭐⭐    | ✔️ |
 | [Color Cycle](https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle)                                                           | -              | ➖ |
 | [Countdown Timer](https://github.com/ofernandoavila/challenges/tree/master/7-CountdownTimer)                                                   | -              | 🚧 |
+| [CSV2JSON](https://github.com/ofernandoavila/challenges/tree/master/8-CSV2JSON)                                                   | -              | 🚧 |
+| [Dollar To Cents](https://github.com/ofernandoavila/challenges/tree/master/9-DollarToCents)                                                   | -              | 🚧 |
+| [Dynamic CSS Variables](https://github.com/ofernandoavila/challenges/tree/master/10-DynamicCSSVariables)                                                   | -              | 🚧 |
+| [JSON2CSV](https://github.com/ofernandoavila/challenges/tree/master/17-JSON2CSV)                                                   | -              | 🚧 |
