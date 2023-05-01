@@ -167,6 +167,7 @@ function CreateTimerItem(data) {
     tmpRow = createElement('div', [{ key: 'class', value: ['row'] }]);
     tmpColumn = createElement('div', [{ key: 'class', value: ['column'] }]);
     tmpInputGroup = createElement('div', [{ key: 'class', value: ['input-group'] }]);
+    let timerID = data.timerId != undefined ? data.timerId : counterList.length - 1;
     tmpInputGroup.appendChild(
         createElement(
             'button',
@@ -174,7 +175,7 @@ function CreateTimerItem(data) {
                 { key: 'class', value: ['btn', 'btn-danger'] },
                 { key: 'content', value: 'Delete' },
                 { key: 'id', value: 'delete_button' },
-                { key: 'onclick', value: 'DeleteItemButton(' + data.timerId + ')' }
+                { key: 'onclick', value: 'DeleteItemButton(' + timerID + ')' }
             ]
         )
     );
