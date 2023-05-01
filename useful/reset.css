@@ -3,39 +3,43 @@
 
 :root {
 	--background-color: #fff;
-	--font-color: #000;
-	--border-color: #ccc;
-	--font-color-label: #000;
-	--font-color-label-hover: #000;
 	--menu-header-background: #303030;
-	--menu-header-font: #fff;
 	--container-size: 80%;
-	--link-font: #1e90ff;
-	--link-font-disabled: #ccc;
 
+	/* Button */
 	--btn-font-color: #fff;
 	--btn-font-secundary-color: #000;
-
 	--btn-normal: #1e90ff;
 	--btn-normal-border: #0d69c5;
 	--btn-normal-hover: #006dda;
-
 	--btn-success: #11e268;
 	--btn-success-border: #02e05f;
 	--btn-success-hover: #00ce56;
-
 	--btn-danger: #ff1e1e;
 	--btn-danger-border: #d60000;
 	--btn-danger-hover: #d30808;
-
 	--btn-default: #dbdbdb;
 	--btn-default-border: #c0c0c0;
 	--btn-default-hover: #aaaaaa;
+
+	/* Border */
+	--border-color-danger: #ff1e1e;
+	--border-color: #ccc;
+
+	/* Fonts */
+	--font-color-danger: #ff1e1e;
+	--font-color: #000;
+	--font-color-label: #000;
+	--font-color-label-hover: #000;
+	--font-color-link: #1e90ff;
+	--font-color-link-disabled: #ccc;
+	--font-color-header-menu: #fff;
+
 	transition: .3s;
 }
 
 a {
-	color: var(--link-font);
+	color: var(--font-color-link);
 }
 
 h1 {
@@ -282,6 +286,34 @@ div input[type="checkbox"] + label {
     margin-right: 0;
 }
 
+.input-group.invalid-group {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.input-group.invalid-group input {
+	border-color: var(--border-color-danger);
+	box-shadow: 0px 0px 5px var(--border-color-danger);
+}
+
+.input-group.invalid-group label {
+	color: var(--border-color-danger);
+	top: 25%;
+}
+
+.input-group.invalid-group p {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	color: var(--font-color-danger);
+}
+
+.input-group.invalid-group p::before {
+	font-family: 'Font Awesome 6 Free Solid';
+	content: "\f05a";
+	margin-right: 10px;
+}
+
 .container {
 	width: var(--container-size);
 	margin: 0 auto;
@@ -332,7 +364,7 @@ header {
 	background-color: var(--menu-header-background);
 	display: flex;
 	align-items: center;
-	color: var(--menu-header-font);
+	color: var(--font-color-header-menu);
 	z-index: 9999;
 }
 
@@ -419,7 +451,7 @@ header button.menu-button {
 }
 
 .menu-button {
-	color: var(--menu-header-font);
+	color: var(--font-color-header-menu);
 	display: none;
 }
 
@@ -494,7 +526,7 @@ header button.menu-button {
 .btn.btn-link {
 	background: none !important;
 	border: none !important;
-	color: var(--link-font) !important;
+	color: var(--font-color-link) !important;
 	text-decoration: underline;
 }
 
@@ -503,7 +535,7 @@ header button.menu-button {
 }
 
 .btn.btn-link:disabled {
-	color: var(--link-font-disabled) !important;
+	color: var(--font-color-link-disabled) !important;
 	cursor: not-allowed;
 }
 
