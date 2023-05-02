@@ -39,7 +39,7 @@ function Convert() {
 		document.querySelector('button[value="copy2clipboard"]'),
 		"onclick",
 		"CopyToClipboard(jsonOutput)",
-	);
+	); 
 
 	AddEventToElement(
 		document.querySelector("#download-csv-button"),
