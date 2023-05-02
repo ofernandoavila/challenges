@@ -3,7 +3,9 @@ function GetCSVData() {
 
 	let output = false;
 	try {
-		output = CSV2JSON(data);
+        if (ValidateCSV(data)) {
+            output = CSV2JSON(data);
+        }
 	} catch (error) {
 		InvalidateField(
 			document.querySelector('textarea[name="csv-input"]').parentNode,
