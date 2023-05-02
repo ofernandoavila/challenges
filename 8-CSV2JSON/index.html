@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV2JSON</title>
+    <link rel="stylesheet" href="../useful/toggle-theme/toggle-theme.css">
+    <link rel="stylesheet" href="../useful/toggle-theme/dark.css">
+    <link rel="stylesheet" href="../useful/reset.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="http://ofernandoavila.avilamidia.com/challenges/">Go back - Challenges</a>
+        </div>
+    </header>
+    <div class="flexbox">
+        <fieldset>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/[CHALLENGE_NAME]" class="signature">@ofernandoavila | 2023</a>
+            <div class="title-header">
+                <h2>CSV to JSON</h2>
+                <button class="btn btn-link" onclick="Clear()">Clear all</button>
+            </div>
+            <div class="row row-flex-column">
+                <div class="row row-converter" id="data-input">
+                    
+                    <div class="column">
+                        <div class="input-group">
+                            <textarea name="csv-input" id="csv-input" cols="30" rows="10" placeholder=" " required></textarea>
+                            <label for="csv-input">CSV</label>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="input-group">
+                            <textarea name="json-output" id="json-output" cols="30" rows="10" placeholder=" " disabled></textarea>
+                            <label for="json-output">JSON</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                    </div>
+                    <div class="column">
+                        <div class="row button-group">
+                            <button class="btn btn-link" value="copy2clipboard" onclick="CopyToClipboard()" disabled>Copy to clipboard</button>
+                            <a id="download-csv-button"><button class="btn btn-default" value="download" disabled>Save</button></a>
+                            <button class="btn btn-normal w-30" value="convert" onclick="Convert()">Convert</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script src="../useful/main.js"></script>
+<script src="../useful/forms/forms.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
+<script src="main.js"></script>
+</html>
