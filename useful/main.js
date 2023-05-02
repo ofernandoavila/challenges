@@ -7,14 +7,20 @@ function toggleMobileMenu() {
 }
 
 function DateToString(date) {
-    let month = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
-    let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-    let year = date.getFullYear() < 10 ? "0" + date.getFullYear() : date.getFullYear();
-    let hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-    let minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    let second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-	
-    return `${month}/${day}/${year} \n 
+	let month =
+		date.getMonth() + 1 < 10
+			? "0" + (date.getMonth() + 1)
+			: date.getMonth() + 1;
+	let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+	let year =
+		date.getFullYear() < 10 ? "0" + date.getFullYear() : date.getFullYear();
+	let hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+	let minute =
+		date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+	let second =
+		date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+
+	return `${month}/${day}/${year} \n 
         ${hour}:${minute}:${second}`;
 }
 
@@ -27,47 +33,46 @@ function GetFromBrowser(key) {
 }
 
 function DiffDates(date1, date2) {
-    var diff = date2 - date1;
+	var diff = date2 - date1;
 
-    second = Math.floor(diff / 1000);
-    year = 0;
-    month = 0;
-    day = 0;
-    hour = 0;
-    minute = 0;
+	second = Math.floor(diff / 1000);
+	year = 0;
+	month = 0;
+	day = 0;
+	hour = 0;
+	minute = 0;
 
-    if(second > 59) {
-        minute = parseInt(second / 60);
-        second = parseInt(second % 60);
+	if (second > 59) {
+		minute = parseInt(second / 60);
+		second = parseInt(second % 60);
 
+		if (minute > 59) {
+			hour = parseInt(minute / 60);
+			minute = parseInt(minute % 60);
 
-        if(minute > 59) {
-            hour = parseInt(minute / 60);
-            minute = parseInt(minute % 60);
+			if (hour > 23) {
+				day = parseInt(hour / 24);
+				hour = parseInt(hour % 24);
+			}
+		}
+	}
 
-            if(hour > 23) {
-                day = parseInt(hour / 24);
-                hour = parseInt(hour % 24);
-            }
-        }
-    }
-
-    return {
-        year,
-        month,
-        day,
-        hour,
-        minute,
-        second
-    };
+	return {
+		year,
+		month,
+		day,
+		hour,
+		minute,
+		second,
+	};
 }
 
 function FirstToUpperCase(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function CopyToClipboard(data) {
-    if (navigator.clipboard) {
+	if (navigator.clipboard) {
 		navigator.clipboard.writeText(data).then(
 			function () {
 				alert("Text copy to clipboard!");
@@ -91,13 +96,90 @@ function CopyToClipboard(data) {
 	}
 }
 
-function CreateCSVFileToDownload(csvContent) {
-	const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-	const file = new File([blob], "JSON2CSV.csv", {
-		type: "text/csv;charset=utf-8;",
+let csvOutput = "";
+function JSON2CSV(json) {
+	let header = "";
+	let content = "";
+
+	Object.keys(json[0]).forEach(
+		(item) => (header += FirstToUpperCase(item) + ","),
+    );
+    
+    header = header.slice(0, -1);
+
+	json.forEach((item) => {
+		let out = "";
+
+		Object.values(item).forEach((value) => {
+			out += value + ",";
+        });
+        out = out.slice(0, -1);
+		content += out + "\n";
 	});
 
-    const fileURL = URL.createObjectURL(file);
-    
-    return fileURL;
+	csvOutput = header + "\n" + content;
+
+	return csvOutput;
+}
+
+let jsonOutput = "";
+function CSV2JSON(data) {
+	let json = data.trim().split("\n");
+
+	if (json.length < 2) throw "The content file must have more than one line";
+
+	let keys = json[0].split(",");
+
+	json.shift();
+
+	let list = [];
+	json.forEach((row) => {
+		let out = {};
+		let rowData = row.split(",");
+
+		rowData.forEach((value, index) => {
+			if (value == "") return;
+			if (keys[index] == "") return;
+			out[keys[index]] = isNaN(parseFloat(value))
+				? value
+				: parseFloat(value);
+		});
+
+		list.push(out);
+	});
+
+	jsonOutput = JSON.stringify(list, null, 4);
+
+	return jsonOutput;
+}
+
+function CreateFileToDownload(data, format, name) {
+	let fileData = {
+		name,
+		data,
+		type: "",
+		extension: "",
+	};
+
+	switch (format) {
+		case "csv":
+			fileData.type = "text/csv;charset=utf-8;";
+			fileData.extension = ".csv";
+			break;
+
+		case "json":
+			fileData.type = "application/json;charset=utf-8;";
+			fileData.extension = ".json";
+	}
+
+	if (fileData.type == "") throw `The format "${format}" is not compatible`;
+
+	let blob = new Blob([data], { type: fileData.type });
+	const file = new File([blob], fileData.name + fileData.extension, {
+		type: fileData.type,
+	});
+
+	const fileURL = URL.createObjectURL(file);
+
+	return fileURL;
 }
