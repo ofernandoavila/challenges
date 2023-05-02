@@ -8,7 +8,7 @@ let dateMode = true;
 
 function Init() {
 	if (isChecked("startNow")) {
-		ToggleField("initialDate");
+		ToggleDisabled("#initialDate");
 	}
 
 	if (counterList.length > 0) {
@@ -135,8 +135,8 @@ function GetTimerItem() {
 }
 
 function OnToggleStartDate() {
-	ToggleField("initialDate");
-	ToggleRequired("initialDate");
+	ToggleDisabled("#initialDate");
+	ToggleRequired("#initialDate");
 
 	let initialDate = document.getElementById("initialDate");
 
