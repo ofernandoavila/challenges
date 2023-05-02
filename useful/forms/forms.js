@@ -139,6 +139,13 @@ function ClearAllInputs() {
 	});
 }
 
+function ClearAllTextareas() {
+	let elements = document.querySelectorAll("textarea");
+	elements.forEach((item) => {
+		item.value = "";
+	});
+}
+
 function CheckForValidField(field) {
 	if (field.value.length < 3) {
 		return false;
@@ -168,7 +175,8 @@ function InvalidateField(item, errorMesage = '') {
 }
 
 function HaveInvalidFields() {
-	let fields = document.querySelectorAll("input[required]");
+	let fields = document.querySelectorAll("[required]");
+
 	let invalid = [];
 
 	fields.forEach((item) => {

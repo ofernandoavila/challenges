@@ -308,13 +308,16 @@ div input[type="checkbox"] + label {
 	align-items: flex-start;
 }
 
-.input-group.invalid-group input {
+.input-group.invalid-group input, .input-group.invalid-group textarea {
 	border-color: var(--border-color-danger);
 	box-shadow: 0px 0px 5px var(--border-color-danger);
 }
 
 .input-group.invalid-group label {
 	color: var(--border-color-danger);
+}
+
+.input-group.invalid-group input + label {
 	top: 25%;
 }
 
@@ -562,6 +565,11 @@ header button.menu-button {
 .row.button-group {
 	gap: 10px;
 	justify-content: flex-end;
+	align-items: center;
+}
+
+.row.button-group a {
+	margin-top: 0;
 }
 
 @media only screen and (max-width: 1000px) {
