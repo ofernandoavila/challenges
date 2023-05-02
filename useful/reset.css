@@ -39,7 +39,19 @@
 	--font-color-link-disabled: #ccc;
 	--font-color-header-menu: #fff;
 
+	/* Textarea */
+	--textarea-background-color: #fff;
+	--textarea-font-label-color: #000;
+	--textarea-font-label-color-active: #000;
+    --textarea-font-color: #000;
+    --textarea-font-color-disabled: #969696;
+	--textarea-background-color-disabled: #efefef;
+
 	transition: .3s;
+}
+
+textarea {
+	background-color: var(--textarea-background-color);
 }
 
 a {
@@ -330,6 +342,31 @@ div input[type="checkbox"] + label {
 	font-family: 'Font Awesome 6 Free Solid';
 	content: "\f05a";
 	margin-right: 10px;
+}
+
+.input-group textarea {
+	resize: none;
+	min-height: 400px;
+	color: var(--textarea-font-color);
+}
+
+.input-group:has(textarea) label{
+	color: var(--textarea-font-color);
+}
+
+.input-group:has(textarea:active) label,
+.input-group:has(textarea:focus) label {
+	color: var(--textarea-font-color-active);
+}
+
+.input-group textarea:disabled {
+	resize: none;
+	min-height: 400px;
+	background-color: var(--textarea-background-color-disabled);
+}
+
+.input-group:has(textarea:disabled) label{
+	color: var(--textarea-font-color-disabled);
 }
 
 .container {

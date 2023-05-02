@@ -12,4 +12,11 @@
 	--btn-disabled-font-color: #999999;
 	--btn-disabled-background: #6e6e6e;
 	--btn-disabled-border-color: #545454;
+
+    --textarea-background-color: #444;
+    --textarea-font-label-color: #fff;
+	--textarea-font-label-color-active: #fff;
+    --textarea-font-color: #fff;
+    --textarea-font-color-disabled: #969696;
+	--textarea-background-color-disabled: #282828;
 }

@@ -96,6 +96,37 @@ function CopyToClipboard(data) {
 	}
 }
 
+function ValidateJSON(data, neasted = false) {
+	let output = true;
+
+	let tmpData = JSON.parse(data);
+
+	tmpData.forEach((item) => {
+		Object.keys(item).forEach((value) => {
+			if (!neasted && typeof item[value] == "object") {
+				output = false;
+				throw "Neasted JSON are not supported in this version!";
+			}
+		});
+	});
+
+	return output;
+}
+
+function ValidateCSV(data) {
+    data = data.trim().split('\n');
+    let keys = data[0].split(',').length;
+    data.shift();
+
+    for (let i = 0; i < data.length; i++) {
+        let tmpRow = data[i].split(',');
+
+        if (tmpRow.length != keys) throw "There is more values than keys on line " + parseInt(i + 1);
+    }
+
+	return true;
+}
+
 let csvOutput = "";
 function JSON2CSV(json) {
 	let header = "";
@@ -103,17 +134,20 @@ function JSON2CSV(json) {
 
 	Object.keys(json[0]).forEach(
 		(item) => (header += FirstToUpperCase(item) + ","),
-    );
-    
-    header = header.slice(0, -1);
+	);
+
+	header = header.slice(0, -1);
 
 	json.forEach((item) => {
 		let out = "";
 
-		Object.values(item).forEach((value) => {
+        Object.values(item).forEach((value) => {
+            if (typeof value == 'string') {
+                if (value.includes(",")) value.replace(",", " ");
+            }
 			out += value + ",";
-        });
-        out = out.slice(0, -1);
+		});
+		out = out.slice(0, -1);
 		content += out + "\n";
 	});
 
@@ -123,7 +157,7 @@ function JSON2CSV(json) {
 }
 
 let jsonOutput = "";
-function CSV2JSON(data) {
+function CSV2JSON(data, nestead = false) {
 	let json = data.trim().split("\n");
 
 	if (json.length < 2) throw "The content file must have more than one line";
@@ -139,10 +173,16 @@ function CSV2JSON(data) {
 
 		rowData.forEach((value, index) => {
 			if (value == "") return;
-			if (keys[index] == "") return;
-			out[keys[index]] = isNaN(parseFloat(value))
-				? value
-				: parseFloat(value);
+            if (keys[index] == "") return;
+            
+            let onlyNumber = /^\d+$/.test(value);
+
+            if (onlyNumber) {
+                out[keys[index]] = parseFloat(value);
+            } else {
+                out[keys[index]] = value;
+            }
+
 		});
 
 		list.push(out);
