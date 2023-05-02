@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Game Stop",
+        "address": {
+            "street": "2430 S Kirkman Rd",
+            "city": "Orlando",
+            "state": "Florida",
+            "zipCode": 32811
+        },
+        "category": "Games"
+    },
+    {
+        "name": "Best Buy",
+        "address": {
+            "street": "4601 E Colonial Dr",
+            "city": "Orlando",
+            "state": "Florida",
+            "zipCode": 32803
+        },
+        "category": "Games"
+    }
+]
