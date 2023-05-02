@@ -61,3 +61,43 @@ function DiffDates(date1, date2) {
         second
     };
 }
+
+function FirstToUpperCase(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function CopyToClipboard(data) {
+    if (navigator.clipboard) {
+		navigator.clipboard.writeText(data).then(
+			function () {
+				alert("Text copy to clipboard!");
+			},
+			function () {
+				let clipboard = document.createElement("textarea");
+				clipboard.value = data;
+				document.body.appendChild(clipboard);
+				clipboard.select();
+				document.execCommand("copy");
+				document.body.removeChild(clipboard);
+			},
+		);
+	} else {
+		let clipboard = document.createElement("textarea");
+		clipboard.value = data;
+		document.body.appendChild(clipboard);
+		clipboard.select();
+		document.execCommand("copy");
+		document.body.removeChild(clipboard);
+	}
+}
+
+function CreateCSVFileToDownload(csvContent) {
+	const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+	const file = new File([blob], "JSON2CSV.csv", {
+		type: "text/csv;charset=utf-8;",
+	});
+
+    const fileURL = URL.createObjectURL(file);
+    
+    return fileURL;
+}

@@ -127,8 +127,8 @@ function ToggleFields(elementParentId) {
 	});
 }
 
-function ToggleField(elementId) {
-	let element = document.getElementById(elementId);
+function ToggleDisabled(elementName) {
+	let element = document.querySelector(elementName);
 	element.disabled = !element.disabled;
 }
 
@@ -187,8 +187,8 @@ function ClearAllInputs() {
     inputs.forEach(item => item.value = '');
 }
 
-function ToggleRequired(elementId) {
-	let element = document.getElementById(elementId);
+function ToggleRequired(elementName) {
+	let element = document.querySelector(elementName);
 	element.required = !element.required;
 }
 
@@ -201,4 +201,12 @@ function SendAlert(mensage) {
     if (mensage == '') return;
 
     alert(mensage);
+}
+
+function AddEventToElement(element, eventType, functionName) {
+	return element.setAttribute(eventType, functionName);
+}
+
+function AddAttributeToElement(element, attribute, value) {
+	return element.setAttribute(attribute, value);
 }

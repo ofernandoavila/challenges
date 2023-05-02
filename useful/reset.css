@@ -22,6 +22,12 @@
 	--btn-default-border: #c0c0c0;
 	--btn-default-hover: #aaaaaa;
 
+	
+    
+	--btn-disabled-font-color: #c3c3c3;
+	--btn-disabled-background: #dfdfdf;
+	--btn-disabled-border-color: #d9d9d9;
+
 	/* Border */
 	--border-color-danger: #ff1e1e;
 	--border-color: #ccc;
@@ -180,6 +186,7 @@ fieldset button[type="submit"] {
 	display: flex;
 	flex: 1;
 	flex-direction: column;
+	position: relative;
 }
 
 .hidden {
@@ -200,6 +207,7 @@ button[type="submit"]:last-of-type {
 }
 
 div input,
+div textarea,
 button[type="submit"] {
 	width: 100%;
 	padding: 10px;
@@ -224,7 +232,9 @@ div input[type="date"]:active+label,
 div input[type="date"]:not(:placeholder-shown)+label,
 div input[type="datetime-local"]:focus+label,
 div input[type="datetime-local"]:active+label,
-div input[type="datetime-local"]:not(:placeholder-shown)+label  {
+div input[type="datetime-local"]:not(:placeholder-shown)+label,
+div textarea:focus+label,
+div textarea:not(:placeholder-shown)+label   {
 	left: 0;
 	top: -30px;
 	transform: translateY(0);
@@ -246,6 +256,13 @@ div input[type="datetime-local"]+label {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	left: 10px;
+}
+
+div textarea ~ label {
+	position: absolute;
+	top: 5%;
+	transform: translateY(-10%);
 	left: 10px;
 }
 
@@ -469,9 +486,9 @@ header button.menu-button {
 }
 
 .btn:disabled {
-	color: var(--btn-font-color) !important;
-	background-color: #e6e6e6 !important;
-	border: 1px solid #d1d1d1 !important;
+	color: var(--btn-disabled-font-color) !important;
+	background-color: var(--btn-disabled-background) !important;
+	border-color: var(--btn-disabled-border-color) !important;
 }
 
 .btn:disabled:hover {
@@ -528,6 +545,9 @@ header button.menu-button {
 	border: none !important;
 	color: var(--font-color-link) !important;
 	text-decoration: underline;
+	width: auto;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .btn.btn-link:hover {
@@ -537,6 +557,11 @@ header button.menu-button {
 .btn.btn-link:disabled {
 	color: var(--font-color-link-disabled) !important;
 	cursor: not-allowed;
+}
+
+.row.button-group {
+	gap: 10px;
+	justify-content: flex-end;
 }
 
 @media only screen and (max-width: 1000px) {

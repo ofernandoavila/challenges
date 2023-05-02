@@ -8,4 +8,8 @@
 	--font-color-header-menu: #fff;
     --font-color-link: #1e90ff;
     --font-color-link-disabled: #6e6e6e;
+    
+	--btn-disabled-font-color: #999999;
+	--btn-disabled-background: #6e6e6e;
+	--btn-disabled-border-color: #545454;
 }
