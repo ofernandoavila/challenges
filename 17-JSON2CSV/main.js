@@ -1,39 +1,17 @@
-let csvOutput = "";
-
 function GetJSONData() {
 	let data = document.querySelector('textarea[name="json-input"]').value;
     
     let output = false;
-    try {
-        output = JSON.parse(data);
+	try {
+		if (ValidateJSON(data)) {
+			output = JSON.parse(data);
+		}
     } catch (error) {
         InvalidateField(
 			document.querySelector('textarea[name="json-input"]').parentNode,
-			error.message,
+			error.message != undefined ? error.message : error,
 		);
     } finally { return output };
-}
-
-function JSON2CSV(json) {
-	let header = "";
-	let content = "";
-
-	Object.keys(json[0]).forEach(
-		(item) => (header += FirstToUpperCase(item) + ","),
-	);
-
-	json.forEach((item) => {
-		let out = "";
-
-		Object.values(item).forEach((value) => {
-			out += value + ",";
-		});
-		content += out + "\n";
-	});
-
-	csvOutput = header + "\n" + content;
-
-	return csvOutput;
 }
 
 function Convert() {
@@ -60,6 +38,7 @@ function Convert() {
 		"onclick",
 		"CopyToClipboard(csvOutput)",
 	);
+	
 
 	AddEventToElement(
 		document.querySelector("#download-csv-button"),
@@ -70,7 +49,7 @@ function Convert() {
 	AddEventToElement(
 		document.querySelector("#download-csv-button"),
 		"href",
-		CreateCSVFileToDownload(JSON2CSV(data)),
+		CreateFileToDownload(JSON2CSV(data), "csv", "JSON2CSV"),
 	);
 }
 
