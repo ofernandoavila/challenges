@@ -570,6 +570,7 @@ header button.menu-button {
 
 .row.button-group a {
 	margin-top: 0;
+	text-decoration: none;
 }
 
 @media only screen and (max-width: 1000px) {
