@@ -1,0 +1,49 @@
+button[value="download"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "\f019";
+    margin-right: 10px;
+}
+
+button[value="convert"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "repeat";
+    margin-right: 10px;
+}
+
+button[value="copy2clipboard"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "copy";
+    margin-right: 10px;
+}
+
+#data-input {
+    margin-bottom: 20px;
+}
+
+#data-input .column:last-of-type::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "arrow-right";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -7.5%;
+}
+
+
+@media only screen and (max-width: 1000px) {     
+    .row-flex-column > .row:last-of-type {
+        margin-bottom: 0;
+        gap: 0;
+    }
+
+    .button-group {
+        flex-direction: row;
+    }
+
+    #data-input .column:last-of-type::before {
+    content: "arrow-down";
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20%;
+}
+}

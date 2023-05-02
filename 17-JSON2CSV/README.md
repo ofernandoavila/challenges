@@ -23,11 +23,11 @@ to generate CSV for the header and data rows.
 
 ## User Stories
 
--   [ ] User can paste JSON syntax into a text box
--   [ ] User can click a 'Convert' button to validate the JSON text box and convert it to CSV
--   [ ] User can see the converted CSV in another text box
--   [ ] User can see an warning message if the JSON text box is empty or if it doesn't contain valid JSON
--   [ ] User can click a 'Clear' button to clear the contents of both the JSON and CSV text boxes.
+-   [x] User can paste JSON syntax into a text box
+-   [x] User can click a 'Convert' button to validate the JSON text box and convert it to CSV
+-   [x] User can see the converted CSV in another text box
+-   [x] User can see an warning message if the JSON text box is empty or if it doesn't contain valid JSON
+-   [x] User can click a 'Clear' button to clear the contents of both the JSON and CSV text boxes.
 
 ## Bonus features
 
@@ -35,22 +35,10 @@ to generate CSV for the header and data rows.
 -   [ ] User can click a 'Open' button to load file containing the JSON into the text box
 -   [ ] User can see a warning message if the JSON file is not found
 -   [ ] User can enter the path the CSV file is to be saved to in a text box
--   [ ] User can click a 'Save' button to save the CSV file to the local file system
+-   [x] User can click a 'Save' button to save the CSV file to the local file system
 -   [ ] User can see a warning message if the CSV text box is empty or if the save operation failed.
--   [ ] User can convert CSV data to JSON. See [CSV2JSON](./CSV2JSON-App.md)
+-   [ ] User can convert CSV data to JSON. See [CSV2JSON](../8-CSV2JSON/README.md)
 
-## Useful links and resources
+## Example project
 
-- [Comma Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values)
-- [JavaScript Object Notation (JSON)](https://www.json.org/)
-- [MDN Javascript Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-- [Saving a file with pure JS](https://codepen.io/davidelrizzo/pen/cxsGb)
-- [Reading files in Javascript](https://codepen.io/jduprey/details/xbale)
-
-## Example projects
-
-Try to complete your JSON2CSV implementation before reviewing the example
-project(s).
-
-- [JSON to CSV Converter](https://codepen.io/JFarrow/pen/umjGF)
-- [JSV Converter](https://gpaiva00.github.io/json-csv)
+[JSON 2 CSV](http://ofernandoavila.avilamidia.com/challenges/17-JSON2CSV/)
