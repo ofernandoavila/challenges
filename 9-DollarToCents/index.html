@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dollar to Cents</title>
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">Go back - Challenges</a>
+        </div>
+    </header>
+    <div class="flexbox">
+        <fieldset>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/[CHALLENGE_NAME]" class="signature">@ofernandoavila | 2023</a>
+            <div class="title-header">
+                <h2>Dollar to Cents</h2>
+            </div>
+            <div class="row row-flex-column justify-center align-self-center w-40">
+                <div class="row">
+                    <span class="currency"></span>
+                    <div class="input-group">
+                        <input type="number" name="total-value" id="total-value" placeholder=" ">
+                        <label for="total-value">Amount</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn btn-normal" id="convert-button">Convert to cents</button>
+                </div>
+            </div>
+            <div class="row justify-center">
+                <div class="row align-items-center row-flex-column">
+                    <span id="coins-out" class="hidden">
+                        <h3>Total</h3>
+                        <ul>
+                            <li class="quarters"></li>
+                            <li class="dimes"></li>
+                            <li class="nickels"></li>
+                            <li class="pennies"></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script src="../useful/main.js"></script>
+<script src="../useful/forms/forms.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
+<script src="main.js"></script>
+</html>
