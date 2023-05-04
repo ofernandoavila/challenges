@@ -57,6 +57,25 @@ function createElement(type, options = []) {
 				__DefineCreateElementOptions(element, options);
 			return element;
 
+		case "color-picker":
+			element = createElement("input-group");
+			element.appendChild(
+				createElement("input-color", options.inputConfig),
+			);
+			element.appendChild(createElement("label", options.labelConfig));
+			element.appendChild(
+				createElement("button", options.buttonConfig)
+			);
+
+			return element;
+
+		case "input-color":
+			element = document.createElement("input");
+			element.setAttribute("type", "color");
+			if (options.length > 0)
+				__DefineCreateElementOptions(element, options);
+			return element;
+
 		default:
 			element = document.createElement(type);
 			if (options.length > 0)
@@ -80,6 +99,14 @@ function __DefineCreateElementOptions(element, options) {
 
 			case "content":
 				element.innerHTML = option.value;
+				break;
+
+			case "name":
+				element.name = option.value;
+				break;
+
+			case "for":
+				element.for = option.value;
 				break;
 
 			default:
@@ -113,17 +140,17 @@ function SwitchFunction(element, event, functionName) {
 
 function SwitchButton(element, type) {
 	switch (type) {
-		case 'start':
-			element.value = 'start';
-			element.innerHTML = 'Start';
-			element.classList.remove('btn-danger');
-			element.classList.add('btn-normal');
+		case "start":
+			element.value = "start";
+			element.innerHTML = "Start";
+			element.classList.remove("btn-danger");
+			element.classList.add("btn-normal");
 			break;
-		
-		case 'stop':
-			element.value = 'stop';
-			element.innerHTML = 'Stop';
-			element.classList.remove('btn-normal');
+
+		case "stop":
+			element.value = "stop";
+			element.innerHTML = "Stop";
+			element.classList.remove("btn-normal");
 			element.classList.add("btn-danger");
 			break;
 	}
@@ -133,9 +160,25 @@ function isChecked(elementId) {
 	return document.getElementById(elementId).value == "on";
 }
 
+function isDisabled(elementId) {
+	return document.getElementById(elementId).disabled;
+}
+
 function disabledField(elementId) {
 	let element = document.getElementById(elementId);
 	element.disabled = true;
+}
+
+function DisabledAll(elementList) {
+	elementList.forEach((item) => {
+		item.disabled = true;
+	});
+}
+
+function ToggleDisabledAll(elementList) {
+	elementList.forEach((item) => {
+		item.disabled = !item.disabled;
+	});
 }
 
 function ToggleFields(elementParentId) {
@@ -177,19 +220,29 @@ function ValidateField(item) {
 
 	if (item.value.length < 3) {
 		if (!inputGroup.classList.contains("invalid-group")) {
-            InvalidateField(inputGroup);
+			InvalidateField(inputGroup);
 		}
 	} else {
-        if (inputGroup.classList.contains("invalid-group")) {
+		if (inputGroup.classList.contains("invalid-group")) {
 			inputGroup.classList.remove("invalid-group");
 			inputGroup.querySelector("p").remove();
 		}
 	}
 }
 
-function InvalidateField(item, errorMesage = '') {
-    item.classList.add("invalid-group");
-	item.appendChild( createElement("p", [ { key: "content", value: errorMesage != '' ? errorMesage : "This field can't be empty!" } ]) );
+function InvalidateField(item, errorMesage = "") {
+	item.classList.add("invalid-group");
+	item.appendChild(
+		createElement("p", [
+			{
+				key: "content",
+				value:
+					errorMesage != ""
+						? errorMesage
+						: "This field can't be empty!",
+			},
+		]),
+	);
 }
 
 function HaveInvalidFields() {
@@ -200,17 +253,17 @@ function HaveInvalidFields() {
 	fields.forEach((item) => {
 		if (!CheckForValidField(item)) {
 			invalid.push(item);
-        }
+		}
 
-        ValidateField(item);
-    });
-    
-    return invalid.length > 0 ? true : false;
+		ValidateField(item);
+	});
+
+	return invalid.length > 0 ? true : false;
 }
 
 function ClearAllInputs() {
-    let inputs = document.querySelectorAll('input');
-    inputs.forEach(item => item.value = '');
+	let inputs = document.querySelectorAll("input");
+	inputs.forEach((item) => (item.value = ""));
 }
 
 function ToggleRequired(elementName) {
@@ -219,14 +272,14 @@ function ToggleRequired(elementName) {
 }
 
 function RemoveInvalidGroup(item) {
-    item.parentNode.classList.remove("invalid-group");
+	item.parentNode.classList.remove("invalid-group");
 	item.parentNode.querySelector("p").remove();
 }
 
 function SendAlert(mensage) {
-    if (mensage == '') return;
+	if (mensage == "") return;
 
-    alert(mensage);
+	alert(mensage);
 }
 
 function AddEventToElement(element, eventType, functionName) {

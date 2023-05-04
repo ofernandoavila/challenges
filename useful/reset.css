@@ -530,40 +530,43 @@ header button.menu-button {
 
 /* BUTTONS */
 
+button:not(:empty)::before {
+	margin-right: 10px;
+}
+
 button[value="download"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "\f019";
-    margin-right: 10px;
 }
 
 button[value="convert"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "repeat";
-    margin-right: 10px;
 }
 
 button[value="copy2clipboard"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "copy";
-    margin-right: 10px;
 }
 
 button[value="play"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "play";
-    margin-right: 10px;
 }
 
 button[value="start"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "play";
-    margin-right: 10px;
 }
 
 button[value="stop"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "stop";
-    margin-right: 10px;
+}
+
+button[value="remove"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "trash";
 }
 
 .btn {
@@ -721,4 +724,8 @@ button[value="stop"]::before {
         transform: translateX(-50%);
         top: -20%;
     }
+}
+
+.mg-left-auto {
+	margin-left: auto;
 }

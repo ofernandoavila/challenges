@@ -223,3 +223,10 @@ function CreateFileToDownload(data, format, name) {
 
 	return fileURL;
 }
+
+
+window.onload = () => {
+	if (typeof StartOnLoadPage == "function") {
+		StartOnLoadPage();
+	}
+}
