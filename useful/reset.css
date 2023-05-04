@@ -230,6 +230,20 @@ button[type="submit"] {
 	background-color: none;
 }
 
+div input[type="color"] {
+	width: revert;
+	padding: 0;
+	border-radius: 0;
+}
+
+div input[type="color"] + label {
+	margin-left: 10px;
+	position: relative;
+	color: var(--font-color);
+}
+
+
+
 div label {
 	transition: 0.3s;
 	color: var(--font-color-label);
@@ -537,6 +551,18 @@ button[value="copy2clipboard"]::before {
 button[value="play"]::before {
     font-family: 'Font Awesome 6 Free Solid';
     content: "play";
+    margin-right: 10px;
+}
+
+button[value="start"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "play";
+    margin-right: 10px;
+}
+
+button[value="stop"]::before {
+    font-family: 'Font Awesome 6 Free Solid';
+    content: "stop";
     margin-right: 10px;
 }
 

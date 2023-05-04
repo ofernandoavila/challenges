@@ -111,6 +111,24 @@ function SwitchFunction(element, event, functionName) {
 	return element.setAttribute(event, functionName + "()");
 }
 
+function SwitchButton(element, type) {
+	switch (type) {
+		case 'start':
+			element.value = 'start';
+			element.innerHTML = 'Start';
+			element.classList.remove('btn-danger');
+			element.classList.add('btn-normal');
+			break;
+		
+		case 'stop':
+			element.value = 'stop';
+			element.innerHTML = 'Stop';
+			element.classList.remove('btn-normal');
+			element.classList.add("btn-danger");
+			break;
+	}
+}
+
 function isChecked(elementId) {
 	return document.getElementById(elementId).value == "on";
 }
