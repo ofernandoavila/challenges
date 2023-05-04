@@ -9,3 +9,93 @@
     background-color: dodgerblue;
     margin-bottom: 20px;
 }
+
+@keyframes switch-1 {
+    0% {
+        background-color: var(--color1);
+    }
+
+    100% {
+        background-color: var(--color2);
+    }
+}
+
+@keyframes switch-2 {
+    0% {
+        background-color: var(--color1);
+    }
+
+    50% {
+        background-color: var(--color2);
+    }
+
+    100% {
+        background-color: var(--color3);
+    }
+}
+
+@keyframes switch-3 {
+    0% {
+        background-color: var(--color1);
+    }
+
+    33% {
+        background-color: var(--color2);
+    }
+
+    66% {
+        background-color: var(--color3);
+    }
+
+    100% {
+        background-color: var(--color4);
+    }
+}
+
+@keyframes switch-5 {
+    0% {
+        background-color: var(--color1);
+    }
+
+    25% {
+        background-color: var(--color2);
+    }
+
+    50% {
+        background-color: var(--color3);
+    }
+
+    75% {
+        background-color: var(--color4);
+    }
+
+    100% {
+        background-color: var(--color4);
+    }
+}
+
+@keyframes switch-6 {
+    0% {
+        background-color: var(--color1);
+    }
+
+    20% {
+        background-color: var(--color2);
+    }
+
+    40% {
+        background-color: var(--color3);
+    }
+
+    60% {
+        background-color: var(--color4);
+    }
+
+    80% {
+        background-color: var(--color4);
+    }
+
+    100% {
+        background-color: var(--color5);
+    }
+}
