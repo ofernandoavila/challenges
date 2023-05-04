@@ -78,3 +78,17 @@
         background-color: var(--color5);
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    fieldset {
+        max-width: none;
+    }
+
+    .btn {
+        padding: 1em 1.5em;
+    }
+
+    .row:first {
+        gap: 25px;
+    }
+}
