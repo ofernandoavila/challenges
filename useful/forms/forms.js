@@ -63,9 +63,7 @@ function createElement(type, options = []) {
 				createElement("input-color", options.inputConfig),
 			);
 			element.appendChild(createElement("label", options.labelConfig));
-			element.appendChild(
-				createElement("button", options.buttonConfig)
-			);
+			element.appendChild(createElement("button", options.buttonConfig));
 
 			return element;
 
@@ -179,6 +177,14 @@ function ToggleDisabledAll(elementList) {
 	elementList.forEach((item) => {
 		item.disabled = !item.disabled;
 	});
+}
+
+function ToggleVisible(element) {
+	if (element.classList.contains('hidden')) {
+		element.classList.remove("hidden");
+	} else {
+		element.classList.add("hidden");
+	}
 }
 
 function ToggleFields(elementParentId) {

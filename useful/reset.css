@@ -729,3 +729,15 @@ button[value="remove"]::before {
 .mg-left-auto {
 	margin-left: auto;
 }
+
+.justify-center {
+	justify-content: center;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.align-self-center {
+	align-self: center;
+}
