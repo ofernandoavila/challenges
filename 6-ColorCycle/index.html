@@ -13,13 +13,13 @@
 <body>
     <header>
         <div class="container">
-            <a href="http://ofernandoavila.avilamidia.com/challenges/">Go back - Challenges</a>
+            <a href="../index.html">Go back - Challenges</a>
         </div>
     </header>
     <div class="flexbox">
         <fieldset>
             <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-            <a href="https://github.com/ofernandoavila/challenges/tree/master/[CHALLENGE_NAME]" class="signature">@ofernandoavila | 2023</a>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/6-ColorCycle" class="signature">@ofernandoavila | 2023</a>
             <h2>Color Cycle</h2>
             <div class="row">
                 <div class="column">
@@ -32,19 +32,20 @@
                     <fieldset class="w-100">
                         <div class="title-header">
                             <h4>Color controll</h4>
-                            <div class="row button-group w-50">
-                                <button class="btn btn-normal"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-normal"><i class="fa fa-plus"></i></button>
+                            <div class="row button-group w-10">
+                                <button class="btn btn-normal" id="add-color-button" onclick="AddColor()"><i class="fa fa-plus"></i></button>
                             </div>
                         </div>
-                        <div class="row row-flex-column">
+                        <div class="row row-flex-column" id="color-list">
                             <div class="input-group">
-                                <input type="color" name="color-1" id="color-1">
+                                <input type="color" name="color-1" id="color-1" onchange="GetColors()">
                                 <label for="color-1">Color 1</label>
+                                <button class="btn btn-danger w-10 mg-left-auto" value="remove" onclick="RemoveColor(1)"></button>
                             </div>
                             <div class="input-group">
-                                <input type="color" name="color-2" id="color-2">
+                                <input type="color" name="color-2" id="color-2" onchange="GetColors()">
                                 <label for="color-2">Color 2</label>
+                                <button class="btn btn-danger w-10 mg-left-auto" value="remove" onclick="RemoveColor(2)"></button>
                             </div>
                         </div>
                     </fieldset>

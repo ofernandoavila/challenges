@@ -1,12 +1,17 @@
 :root {
-    
+    --color1: #000;
+    --color2: #000;
+    --color3: #000;
+    --color4: #000;
+    --color5: #000;
 }
 
 .preview {
+    border: 1px solid var(--border-color);
     width: 100%;
+    min-height: 270px;
     height: 100%;
     border-radius: 5px;
-    background-color: dodgerblue;
     margin-bottom: 20px;
 }
 
@@ -52,7 +57,7 @@
     }
 }
 
-@keyframes switch-5 {
+@keyframes switch-4 {
     0% {
         background-color: var(--color1);
     }
@@ -66,32 +71,6 @@
     }
 
     75% {
-        background-color: var(--color4);
-    }
-
-    100% {
-        background-color: var(--color4);
-    }
-}
-
-@keyframes switch-6 {
-    0% {
-        background-color: var(--color1);
-    }
-
-    20% {
-        background-color: var(--color2);
-    }
-
-    40% {
-        background-color: var(--color3);
-    }
-
-    60% {
-        background-color: var(--color4);
-    }
-
-    80% {
         background-color: var(--color4);
     }
 
