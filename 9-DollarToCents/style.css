@@ -42,3 +42,7 @@ input[name="total-value"] {
 #coins-out ul li::after {
     margin-left: 5px;
 }
+
+.input-group.invalid-group input + label {
+	top: 33%;
+}
