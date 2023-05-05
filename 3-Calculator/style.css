@@ -49,6 +49,11 @@
     flex: 1;
 }   
 
+#keyboard > div:hover{
+    background: #00EEEE;
+    color: #fff;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 1600px) {
