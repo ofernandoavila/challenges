@@ -49,6 +49,10 @@
     flex: 1;
 }   
 
+#keyboard > div{
+    transition: backgorund 0.5s linear 0.1s, color 0.05s linear 0s;
+}
+
 #keyboard > div:hover{
     background: #00EEEE;
     color: #fff;
