@@ -1,0 +1,58 @@
+.currency {
+    display: flex;
+    align-items: center;
+}
+
+.currency::before {
+    content: "$";
+    font-size: 48px;
+    margin-right: 10px;
+}
+
+input[name="total-value"] {
+    font-size: 48px;
+    text-align: right;
+}
+
+.row:has(span.currency, input[name="total-value"]),
+.row:has(span.currency, input[name="total-value"]) {
+    gap: 0px;
+}
+
+#coins-out {
+    text-align: center;
+}
+
+#coins-out ul li:nth-child(1)::after {
+    content: "Quarters";
+}
+
+#coins-out ul li:nth-child(2)::after {
+    content: "Dime";
+}
+
+#coins-out ul li:nth-child(3)::after {
+    content: "Nickel";
+}
+
+#coins-out ul li:nth-child(4)::after {
+    content: "Pennies";
+}
+
+#coins-out ul li::after {
+    margin-left: 5px;
+}
+
+.input-group.invalid-group input + label {
+	top: 33%;
+}
+
+#input-currency {
+    width: 40% !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    #input-currency {
+        width: 100% !important;
+    }
+}

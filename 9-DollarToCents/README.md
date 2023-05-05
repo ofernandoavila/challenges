@@ -11,19 +11,13 @@ The challenge: Try this without using any frameworks.
 
 ## User Stories
 
--   [ ] User can enter a dollar value
--   [ ] User can see the total cents from the converted dollar value
+-   [x] User can enter a dollar value
+-   [x] User can see the total cents from the converted dollar value
 
 ## Bonus features
 
--   [ ] User can see how many were pennies, nickels, quarters and dimes from the total cents
+-   [x] User can see how many were pennies, nickels, quarters and dimes from the total cents
 
-## Useful links and resources
+## Example project
 
--   [Math functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
--   [Loops and iterations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
--   [Money values in JavaScript](https://timleland.com/money-in-javascript/)
-
-## Example projects
-
--   [Dollars to cents converter](https://github.com/LimonJuice322/Dollars-to-cents-converter)
+-   [Dollars to cents converter](https://ofernandoavila.avilamidia.com/challenges/9-DollarToCents)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[CHALLENGE_TITLE]</title>
+    <title>Dollar to Cents</title>
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
@@ -21,7 +21,32 @@
             <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
             <a href="https://github.com/ofernandoavila/challenges/tree/master/[CHALLENGE_NAME]" class="signature">@ofernandoavila | 2023</a>
             <div class="title-header">
-                <h2>[CHALLENGE_TITLE]</h2>
+                <h2>Dollar to Cents</h2>
+            </div>
+            <div class="row row-flex-column justify-center align-self-center" id="input-currency">
+                <div class="row flex-row">
+                    <span class="currency"></span>
+                    <div class="input-group">
+                        <input type="number" name="total-value" id="total-value" required placeholder=" ">
+                        <label for="total-value">Amount</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn btn-normal" id="convert-button">Convert to cents</button>
+                </div>
+            </div>
+            <div class="row justify-center">
+                <div class="row align-items-center row-flex-column">
+                    <span id="coins-out" class="hidden">
+                        <h3>Total of <b></b></h3>
+                        <ul>
+                            <li class="quarters"></li>
+                            <li class="dimes"></li>
+                            <li class="nickels"></li>
+                            <li class="pennies"></li>
+                        </ul>
+                    </span>
+                </div>
             </div>
         </fieldset>
     </div>
