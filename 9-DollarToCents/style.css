@@ -46,3 +46,13 @@ input[name="total-value"] {
 .input-group.invalid-group input + label {
 	top: 33%;
 }
+
+#input-currency {
+    width: 40% !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    #input-currency {
+        width: 100% !important;
+    }
+}
