@@ -63,7 +63,10 @@ function Convert() {
 		coins.quarters + coins.dimes + coins.nickels + coins.pennies;
 
 	document.querySelector("#coins-out b").innerHTML =
-		coins.totalCoins + " coins";
+		coins.totalCoins +
+		" coins (" +
+		parseInt(Math.round(amount * 100)).toString() +
+		" cents)";
 	document.querySelector("li.quarters").innerHTML = coins.quarters;
 	document.querySelector("li.dimes").innerHTML = coins.dimes;
 	document.querySelector("li.nickels").innerHTML = coins.nickels;
