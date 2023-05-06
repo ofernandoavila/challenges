@@ -5,14 +5,3 @@
 h2 {
     margin-bottom: 0 !important;
 }
-
-#logs .title-header,
-.title-header {
-    padding-bottom: 20px;
-}
-
-#logs fieldset{
-    max-height: 300px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}

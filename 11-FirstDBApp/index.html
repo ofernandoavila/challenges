@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First DB App</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/notifications/notifications.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>First DB App</title>
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/notifications/notifications.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/LogSystem/logsystem.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
+    </head>
+    <body>
     <header>
         <div class="container">
             <a href="../index.html">Go back - Challenges</a>
@@ -24,45 +25,28 @@
             <div class="title-header">
                 <h2>First DB App</h2>
             </div>
-            <div class="notifications">
+            <div id="notifications">
             </div>
             <div class="row">
                 <div class="column">
                     <div class="row" id="DB-rows">
-                        <fieldset class="w-100"></fieldset>
+                        <fieldset class="w-100" style="min-height: 200px;"></fieldset>
                     </div>
                     <div class="row">
                         <fieldset class="w-100">
                             <div class="row">
-                                <button class="btn btn-default">Load DB</button>
-                                <button class="btn btn-normal">Query DB</button>
+                                <button class="btn btn-default" onclick="LoadDB()">Load DB</button>
+                                <button class="btn btn-normal" onclick="FetchDB()">Query DB</button>
                                 <button class="btn btn-danger">Clear DB</button>
                             </div>
                         </fieldset>
                     </div>
                 </div>
-                <div class="column" id="logs">
-                    <div class="title-header">
+                <div class="column">
+                    <div class="title-header log-header">
                         <h4>Logs</h4>
                     </div>
-                    <div class="row">
-                        <fieldset class="log-container w-100">
-                            <pre>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                                <p>[05/05/2023 23:29:29] - Query button clicked!</p>
-                            </pre>
-                        </fieldset>
-                    </div>
+                    <div class="row" id="logs"><fieldset class="log-container w-100"><pre></pre></fieldset></div>
                 </div>
             </div>
         </fieldset>
@@ -71,5 +55,8 @@
 <script src="../useful/main.js"></script>
 <script src="../useful/forms/forms.js"></script>
 <script src="../useful/toggle-theme/toggle-theme.js"></script>
+<script src="../useful/LogSystem/logsystem.js"></script>
+<script src="../useful/notifications/notifications.js"></script>
+<script src="./Customer.js"></script>
 <script src="main.js"></script>
 </html>
