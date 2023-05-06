@@ -91,6 +91,7 @@ function __DefineCreateElementOptions(element, options) {
 
 			case "class":
 				option.value.forEach((item) => {
+					if(item == "") return;
 					element.classList.add(item);
 				});
 				break;
@@ -129,6 +130,12 @@ function ToggleClass(element, class1, class2) {
 
 function HasClass(element, className) {
 	return element.classList.contains(className);
+}
+
+function RemoveAllClasses(element) {
+	return element.classList.forEach( item => {
+		element.classList.remove(item);
+	});
 }
 
 function AssociateFunction(element, event, functionName) {

@@ -749,3 +749,11 @@ button[value="remove"]::before {
 .h-auto {
 	height: 100%;
 }
+
+.h-80 {
+	min-height: 80% !important;
+}
+
+.h-20 {
+	min-height: 20% !important;
+}
