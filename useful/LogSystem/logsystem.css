@@ -1,0 +1,17 @@
+.log-header {
+    padding-bottom: 20px !important;
+}
+
+#logs fieldset{
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#logs fieldset p {
+    padding: 10px 0px;
+}
+
+#logs {
+    flex: 1;
+}
