@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic CSS Variables</title>
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html">Go back - Challenges</a>
+        </div>
+    </header>
+    <div class="flexbox">
+        <fieldset>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+            <a href="https://github.com/ofernandoavila/challenges/tree/master/10-DynamicCSSVariables" class="signature">@ofernandoavila | 2023</a>
+            <div class="title-header">
+                <h2>Dynamic CSS Variables</h2>
+            </div>
+            <div class="row justify-center">
+                <fieldset class="login-form">
+                    <div class="title-header align-self-center">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" name="login-input" id="login-input" placeholder=" ">
+                            <label for="login-input">Login</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="password" name="password-input" id="password-input" placeholder=" ">
+                            <label for="password-input">Password</label>
+                        </div>
+                    </div>
+                    <div class="row row-flex-column">
+                        <button class="btn btn-normal" onclick="ValidateLogin()">Login</button>
+                        <button class="btn btn-danger">Cancel</button>
+                    </div>
+                </fieldset>
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script src="../useful/main.js"></script>
+<script src="../useful/forms/forms.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
+<script src="main.js"></script>
+</html>

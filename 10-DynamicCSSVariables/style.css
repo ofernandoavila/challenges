@@ -1,0 +1,16 @@
+:root {
+    --Login-input-background: #fff;
+    --Password-input-background: #fff;
+}
+
+.login-form {
+    width: 40% !important;
+}
+
+.login-form input[id="login-input"] {
+    background-color: var(--Login-input-background) !important;
+}
+
+.login-form input[id="password-input"] {
+    background-color: var(--Password-input-background) !important;
+}
