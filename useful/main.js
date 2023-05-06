@@ -6,7 +6,9 @@ function toggleMobileMenu() {
 	nav.style.display = isMobileMenuShown ? "inline-block" : "none";
 }
 
-function DateToString(date) {
+function DateToString(date = '') {
+	if (date == '') date = new Date();
+
 	let month =
 		date.getMonth() + 1 < 10
 			? "0" + (date.getMonth() + 1)
@@ -20,8 +22,7 @@ function DateToString(date) {
 	let second =
 		date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
-	return `${month}/${day}/${year} \n 
-        ${hour}:${minute}:${second}`;
+	return `${month}/${day}/${year} ${hour}:${minute}:${second}`;
 }
 
 function SaveInBrowser(key, data) {
