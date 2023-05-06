@@ -32,17 +32,19 @@
                         <div class="input-group">
                             <input type="text" name="login-input" id="login-input" placeholder=" ">
                             <label for="login-input">Login</label>
+                            <p class="login-message"></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group">
                             <input type="password" name="password-input" id="password-input" placeholder=" ">
                             <label for="password-input">Password</label>
+                            <p class="password-message"></p>
                         </div>
                     </div>
                     <div class="row row-flex-column">
                         <button class="btn btn-normal" onclick="ValidateLogin()">Login</button>
-                        <button class="btn btn-danger">Cancel</button>
+                        <button class="btn btn-danger" onclick="CancelLogin()">Cancel</button>
                     </div>
                 </fieldset>
             </div>

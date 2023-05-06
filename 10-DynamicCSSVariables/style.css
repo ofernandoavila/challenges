@@ -14,3 +14,7 @@
 .login-form input[id="password-input"] {
     background-color: var(--Password-input-background) !important;
 }
+
+.login-form .invalid-group input {
+    font-size: 20px;
+}

@@ -127,6 +127,10 @@ function ToggleClass(element, class1, class2) {
 	}
 }
 
+function HasClass(element, className) {
+	return element.classList.contains(className);
+}
+
 function AssociateFunction(element, event, functionName) {
 	return element.setAttribute(event, functionName + "()");
 }
