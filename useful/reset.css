@@ -261,6 +261,9 @@ div input[type="date"]:not(:placeholder-shown)+label,
 div input[type="datetime-local"]:focus+label,
 div input[type="datetime-local"]:active+label,
 div input[type="datetime-local"]:not(:placeholder-shown)+label,
+div input[type="password"]:focus+label,
+div input[type="password"]:active+label,
+div input[type="password"]:not(:placeholder-shown)+label,
 div textarea:focus+label,
 div textarea:not(:placeholder-shown)+label   {
 	left: 0;
@@ -280,7 +283,8 @@ div input[type="range"] {
 div input[type="text"]+label,
 div input[type="number"]+label,
 div input[type="date"]+label,
-div input[type="datetime-local"]+label {
+div input[type="datetime-local"]+label,
+div input[type="password"]+label {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -740,4 +744,8 @@ button[value="remove"]::before {
 
 .align-self-center {
 	align-self: center;
+}
+
+.h-auto {
+	height: 100%;
 }
