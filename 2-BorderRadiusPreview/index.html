@@ -5,23 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Border Radius Preview</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/code_block/code_block.css">
+    <link rel="stylesheet" href="../useful/lib/style/style.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
 </head>
 <body>
-	<header>
+	<header class="menu fixed">
         <div class="container">
             <a href="../index.html">Go back - Challenges</a>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
-    <div class="flexbox">
-        <fieldset>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-            <a href="https://github.com/ofernandoavila/challenges/tree/master/2-BorderRadiusPreview" class="signature">@ofernandoavila | 2023</a>
-            <h2>Border Radius Previewer</h2>
+    <div class="viewport h-vh-60 align-items-center justify-center">
+        <fieldset class="w-50">
+            <div class="text-header">
+                <h2>Border Radius Previewer</h2>
+            </div>
             <div class="preview"><div></div></div>
             <div class="settings">
                 <div class="settings__mode">
@@ -73,6 +72,12 @@
             </div>
         </fieldset>
     </div>
+	<footer>
+		<div class="container mg-top-auto">
+			<hr>
+			<a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+		</div>
+	</footer>
 </body>
 <script src="../useful/main.js"></script>
 <script src="../useful/code_block/code_block.js"></script>
