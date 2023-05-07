@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>[CHALLENGE_TITLE]</title>
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../documentation-manager/documentation-manager.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/toggle-theme.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/dark.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../reset.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="style.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <a href="../../../index.html">Go back - Challenges</a>
+                <button class="toggle-theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+        <div class="viewport">
+            <div class="container">
+                <div class="row pd-top-10">
+                    <div class="column flex-1">
+                        <fieldset class="w-100">
+                            <ul id="documentation-menu"></ul>
+                        </fieldset>
+                    </div>
+                    <div class="column flex-3">
+                        <div class="breadcrumb">
+                            <ul>
+                                <li>
+                                    <a href="../../../documentation/index.html"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="./index.html"
+                                        >Documentation Manager</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="./refference.html">Refferences</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h1>Refferences</h1>
+                        </div>
+
+                        <div class="row align-self-center">
+                            <ul id="documentation">
+                                <li class="documentation-item">
+                                    <a
+                                        class="anchor"
+                                        id="GetDocumentationData"
+                                    ></a>
+                                    <h2 class="item-title">
+                                        GetDocumentationData
+                                    </h2>
+                                    <h5 class="item-signature">
+                                        function GetDocumentationData(data)
+                                    </h5>
+                                    <p class="item-description">
+                                        Convert all documentation write into a
+                                        file in an array of objects
+                                    </p>
+                                    <ul class="item-param-list">
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>data</b> Raw file to be
+                                            documented
+                                        </li>
+                                    </ul>
+                                    <p class="item-return">
+                                        @returns {Array} Array of objects
+                                        converted
+                                    </p>
+                                    <div class="item-function-body">
+                                        <pre>
+function GetDocumentationData(data) {
+let out = [];
+let documentation = data.split("/**");
+console.log(documentation);
+documentation.shift();
+
+documentation.forEach((line, index) => {
+    
+    let item = ReturnDocumentationItem(line);
+    item.id = index + 1;
+    out.push(item);
+});
+                                            
+                                            
+return out;
+}
+                                        </pre>
+                                    </div>
+                                </li>
+                                <li class="documentation-item">
+                                    <a
+                                        class="anchor"
+                                        id="GetDocumentationData"
+                                    ></a>
+                                    <h2 class="item-title">
+                                        ReturnDocumentationItem
+                                    </h2>
+                                    <h5 class="item-signature">
+                                        function
+                                        ReturnDocumentationItem(docLine)
+                                    </h5>
+                                    <p class="item-description">
+                                        Convert a line of document line into an
+                                        object
+                                    </p>
+                                    <ul class="item-param-list">
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>docLine</b> Code fragment to be
+                                            documented
+                                        </li>
+                                    </ul>
+                                    <p class="item-return">
+                                        @returns {Object} Object converted
+                                    </p>
+                                    <div class="item-function-body">
+                                        <pre>
+function ReturnDocumentationItem(docLine) {
+    let item = {
+        id: 0,
+        functionSignature: "",
+        functionName: "",
+        function: "",
+        description: "",
+        params: [],
+        return: "",
+    };
+
+    let tmpContent = GetContentBetweenDelimiters(docLine, "*", ") {").split(
+        "\n"
+    );
+
+    let docc = GetContentBetweenDelimiters(docLine, "*", "*/") + "*/\r";
+
+    item.function = RemoveFromString(
+        RemoveFromString(docLine, docc),
+        " *"
+    ).trim();
+
+    tmpContent.forEach((line, index) => {
+        if (line.includes(" *")) {
+            line = GetContentBetweenDelimiters(line, " *", "\r");
+        }
+
+        line = line.trim();
+
+        if (line.includes("@param")) {
+            line = RemoveFromString(line, "@param ");
+
+            let type = GetContentBetweenDelimiters(line, "{", "}");
+
+            line = RemoveFromString(line, `{${type}} `);
+
+            let variable = GetStringFirstWord(line);
+
+            line = RemoveFromString(line, variable + " ");
+
+            let description = line;
+
+            let param = {
+                type,
+                variable,
+                description,
+            };
+
+            item.params.push(param);
+        } else if (line.includes("@returns")) item.return = line;
+        else if (line.includes("@description")) {
+            line = RemoveFromString(line, "@description ");
+
+            item.description = line;
+        } else {
+            if (line != "/") {
+                if (index + 1 == tmpContent.length) {
+                    item.functionSignature += line + ")";
+                } else item.functionSignature += line;
+            }
+        }
+    });
+
+    item.functionName = GetContentBetweenDelimiters(item.functionSignature, "function ", "(")
+
+    return item;
+}
+                                        </pre>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../../main.js"></script>
+    <script src="../../string-manager/string-manager.js"></script>
+    <script src="../../file_manager/file_manager.js"></script>
+    <script src="../../forms/forms.js"></script>
+    <script src="../../toggle-theme/toggle-theme.js"></script>
+</html>
