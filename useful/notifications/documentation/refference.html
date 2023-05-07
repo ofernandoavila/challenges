@@ -1,55 +1,192 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refferences - Notifications</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../reset.css">
-    <link rel="stylesheet" href="../../documentation-manager/documentation-manager.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="../../../index.html">Go back - Challenges</a>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-        </div>
-    </header>
-    <div class="viewport">
-        <div class="container">
-            <div class="row pd-top-10">
-                <div class="column flex-1">
-                    <fieldset class="w-100">
-                        <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                        <nav>
-                            <ul id="documentation-menu"></ul>
-                        </nav>
-                    </fieldset>
-                </div>
-                <div class="column flex-3">
-                    <div class="breadcrumb">
-                        <ul>
-                            <li><a href="../../../documentation/index.html">Home</a></li>
-                            <li><a href="./index.html">Notifications</a></li>
-                            <li><a href="./refference.html">Refferences</a></li>
-                        </ul>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Refferences - Notifications</title>
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/toggle-theme.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/dark.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../reset.css"
+        />
+        <link
+            rel="stylesheet"
+            href="../../documentation-manager/documentation-manager.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <a href="../../../index.html">Go back - Challenges</a>
+                <button class="toggle-theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+        <div class="viewport">
+            <div class="container">
+                <div class="row pd-top-10">
+                    <div class="column flex-1">
+                        <fieldset class="w-100">
+                            <button
+                                onclick="toggleMobileMenu()"
+                                class="btn btn-normal w-20 align-self-end menu-button"
+                            >
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <nav>
+                                <ul id="documentation-menu">
+                                    <li class="documentation-item">
+                                        <a href="#AddNotification"
+                                            >AddNotification</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="#PopMessage">PopMessage</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </fieldset>
                     </div>
-                    <div class="row">
-                        <h1>Refferences</h1>
+                    <div class="column flex-3">
+                        <div class="breadcrumb">
+                            <ul>
+                                <li>
+                                    <a href="../../../documentation/index.html"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="./index.html">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="./refference.html">Refferences</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h1>Refferences</h1>
+                        </div>
+                        <div class="row align-self-center">
+                            <ul id="documentation">
+                                <li class="documentation-item">
+                                    <a class="anchor" id="AddNotification"></a>
+                                    <h2 class="item-title">AddNotification</h2>
+                                    <h5 class="item-signature">
+                                        function AddNotification(message, type =
+                                        "")
+                                    </h5>
+                                    <p class="item-description">
+                                        Add notification container to screen
+                                    </p>
+                                    <ul class="item-param-list">
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>message</b> Message to be added
+                                            into notification container
+                                        </li>
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>type</b> Defines the type of
+                                            message
+                                        </li>
+                                    </ul>
+                                    <p class="item-return">@returns {void}</p>
+                                    <div class="item-function-body">
+                                        <pre>
+function AddNotification(message, type = "") {
+    if (notificationsContainer.innerHTML.trim() == "") {
+        if (notificationsContainer.classList.length &gt; 0)
+            RemoveAllClasses(notificationsContainer);
+    } else {
+        if (notificationsContainer.classList.length &gt; 0)
+            RemoveAllClasses(notificationsContainer);
+
+        notificationsContainer.innerHTML = "";
+    }
+
+    PopMessage(message, type);
+
+    setTimeout(() =&gt; {
+        notificationsContainer.innerHTML = "";
+    }, 8000);
+}</pre
+                                        >
+                                    </div>
+                                </li>
+                                <li class="documentation-item">
+                                    <a class="anchor" id="PopMessage"></a>
+                                    <h2 class="item-title">PopMessage</h2>
+                                    <h5 class="item-signature">
+                                        function PopMessage(message, type)
+                                    </h5>
+                                    <p class="item-description">
+                                        Display the current message into
+                                        noficiation panel
+                                    </p>
+                                    <ul class="item-param-list">
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>message</b> Message to be added
+                                            into notification container
+                                        </li>
+                                        <li class="param-list-item">
+                                            <em class="param-type">string</em> -
+                                            <b>type</b> Defines the type of
+                                            message
+                                        </li>
+                                    </ul>
+                                    <p class="item-return">@returns {void}</p>
+                                    <div class="item-function-body">
+                                        <pre>
+function PopMessage(message, type) {
+    if (
+        type != "danger" &amp;&amp;
+        type != "success" &amp;&amp;
+        type != "warning" &amp;&amp;
+        type != ""
+    )
+        throw "Invalid type for notification message!";
+
+    if (notificationsContainer.innerHTML != "")
+        notificationsContainer.innerHTML = "";
+
+    notificationsContainer.classList.add(type);
+    notificationsContainer.appendChild(
+        createElement("p", [{ key: "content", value: message }])
+    );
+    notificationsContainer.classList.add("pop-notification");
+}
+
+const notificationsContainer = document.getElementById("notifications");</pre
+                                        >
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-<script src="../../main.js"></script>
-<script src="../../string-manager/string-manager.js"></script>
-<script src="../../file_manager/file_manager.js"></script>
-<script src="../../forms/forms.js"></script>
-<script src="../../documentation-manager/documentation-manager.js"></script>
-<script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/notifications/notifications.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/notifications/notifications.js", 'refferences'); }</script>
+
+        <script src="../../main.js"></script>
+        <script src="../../string-manager/string-manager.js"></script>
+        <script src="../../file_manager/file_manager.js"></script>
+        <script src="../../forms/forms.js"></script>
+        <script src="../../documentation-manager/documentation-manager.js"></script>
+        <script src="../../toggle-theme/toggle-theme.js"></script>
+    </body>
 </html>

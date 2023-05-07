@@ -1,58 +1,250 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation - Forms</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../documentation-manager/documentation-manager.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../reset.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <a href="../../../index.html">Go back - Challenges</a>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-        </div>
-    </header>
-    <div class="viewport">
-        <div class="container">
-            <div class="row pd-top-10">
-                <div class="column flex-1">
-                    <fieldset class="w-100">
-                        <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                        <nav>
-                            <ul id="documentation-menu"></ul>
-                        </nav>
-                    </fieldset>
-                </div>
-                <div class="column flex-3">
-                    <div class="breadcrumb">
-                        <ul>
-                            <li><a href="../../../documentation/index.html">Home</a></li>
-                            <li><a href="./index.html">Forms</a></li>
-                        </ul>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Documentation - Forms</title>
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../documentation-manager/documentation-manager.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/toggle-theme.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../toggle-theme/dark.css"
+        />
+        <link
+            rel="stylesheet"
+            cache-control="no-cache"
+            pragma="no-cache"
+            href="../../reset.css"
+        />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <a href="../../../index.html">Go back - Challenges</a>
+                <button class="toggle-theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </header>
+        <div class="viewport">
+            <div class="container">
+                <div class="row pd-top-10">
+                    <div class="column flex-1">
+                        <fieldset class="w-100">
+                            <button
+                                onclick="toggleMobileMenu()"
+                                class="btn btn-normal w-20 align-self-end menu-button"
+                            >
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <nav>
+                                <ul id="documentation-menu">
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#createFormButton"
+                                            >createFormButton</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#createElement"
+                                            >createElement</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#__DefineCreateElementOptions"
+                                            >__DefineCreateElementOptions</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#setId"
+                                            >setId</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#ToggleClass"
+                                            >ToggleClass</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#HasClass"
+                                            >HasClass</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#RemoveAllClasses"
+                                            >RemoveAllClasses</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#AssociateFunction"
+                                            >AssociateFunction</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#SwitchFunction"
+                                            >SwitchFunction</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#SwitchButton"
+                                            >SwitchButton</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#isChecked"
+                                            >isChecked</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#isDisabled"
+                                            >isDisabled</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#disabledField"
+                                            >disabledField</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#DisabledAll"
+                                            >DisabledAll</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ToggleDisabledAll"
+                                            >ToggleDisabledAll</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ToggleVisible"
+                                            >ToggleVisible</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#ToggleFields"
+                                            >ToggleFields</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ToggleDisabled"
+                                            >ToggleDisabled</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ClearAllInputs"
+                                            >ClearAllInputs</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ClearAllTextareas"
+                                            >ClearAllTextareas</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#CheckForValidField"
+                                            >CheckForValidField</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ValidateField"
+                                            >ValidateField</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#InvalidateField"
+                                            >InvalidateField</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#HaveInvalidFields"
+                                            >HaveInvalidFields</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#ToggleRequired"
+                                            >ToggleRequired</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#RemoveInvalidGroup"
+                                            >RemoveInvalidGroup</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a href="./refference.html#SendAlert"
+                                            >SendAlert</a
+                                        >
+                                    </li>
+                                    <li class="documentation-item">
+                                        <a
+                                            href="./refference.html#AddAttributeToElement"
+                                            >AddAttributeToElement</a
+                                        >
+                                    </li>
+                                </ul>
+                            </nav>
+                        </fieldset>
                     </div>
-                    <div class="row">
-                        <h1>Forms</h1>
-                    </div>
-                    <div class="row align-self-center">
-                        <ul>
-                            <li><a href="./refference.html">Refferences</a></li>
-                        </ul>
+                    <div class="column flex-3">
+                        <div class="breadcrumb">
+                            <ul>
+                                <li>
+                                    <a href="../../../documentation/index.html"
+                                        >Home</a
+                                    >
+                                </li>
+                                <li><a href="./index.html">Forms</a></li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <h1>Forms</h1>
+                        </div>
+                        <div class="row align-self-center">
+                            <ul>
+                                <li>
+                                    <a href="./refference.html">Refferences</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-<script src="../../main.js"></script>
-<script src="../../forms/forms.js"></script>
-<script src="../../file_manager/file_manager.js"></script>
-<script src="../../toggle-theme/toggle-theme.js"></script>
-<script src="../../string-manager/string-manager.js"></script>
-<script src="../../documentation-manager/documentation-manager.js"></script>
-<script>function StartOnLoadPage() { LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/forms/forms.js", 'main'); }</script>
+
+        <script src="../../main.js"></script>
+        <script src="../../forms/forms.js"></script>
+        <script src="../../file_manager/file_manager.js"></script>
+        <script src="../../toggle-theme/toggle-theme.js"></script>
+        <script src="../../string-manager/string-manager.js"></script>
+        <script src="../../documentation-manager/documentation-manager.js"></script>
+    </body>
 </html>

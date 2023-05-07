@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +22,7 @@
                     <fieldset class="w-100">
                         <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
                         <nav>
-                            <ul id="documentation-menu"></ul>
+                            <ul id="documentation-menu"><li class="documentation-item"><a href="#GetFileContentAsString">GetFileContentAsString</a></li></ul>
                         </nav>
                     </fieldset>
                 </div>
@@ -39,17 +37,34 @@
                     <div class="row">
                         <h1>Refferences</h1>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
+                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="GetFileContentAsString"></a><h2 class="item-title">GetFileContentAsString</h2><h5 class="item-signature">async function GetFileContentAsString(path, callback)</h5><p class="item-description">Get a file and return callback with file data</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>path</b> Path to the file</li><li class="param-list-item"><em class="param-type">function</em> - <b>callback</b> Callback function</li></ul><p class="item-return"></p><div class="item-function-body"><pre>async function GetFileContentAsString(path, callback) {
+    if (path == undefined || path == null || path == "")
+        throw new Error("Path cannot be null!");
+
+    await fetch(path)
+        .then((response) =&gt; {
+            if (!response.ok)
+                throw new Error("Cannot get the file with the path given");
+
+            return response.arrayBuffer();
+        })
+        .then((buffer) =&gt; {
+            var conteudo = new TextDecoder().decode(buffer);
+    		callback(conteudo);
+        })
+        .catch((error) =&gt; {
+            console.error("An error ocurred: ", error);
+        });
+}</pre></div></li></ul></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
 <script src="../../main.js"></script>
 <script src="../../string-manager/string-manager.js"></script>
 <script src="../../file_manager/file_manager.js"></script>
 <script src="../../forms/forms.js"></script>
 <script src="../../documentation-manager/documentation-manager.js"></script>
 <script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/file_manager/file_manager.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/file_manager/file_manager.js", 'refferences'); }</script>
-</html>
+</body></html>

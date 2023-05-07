@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +22,7 @@
                     <fieldset class="w-100">
                         <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
                         <nav>
-                            <ul id="documentation-menu"></ul>
+                            <ul id="documentation-menu"><li class="documentation-item"><a href="#GetContentBetweenDelimiters">GetContentBetweenDelimiters</a></li><li class="documentation-item"><a href="#RemoveFromString">RemoveFromString</a></li><li class="documentation-item"><a href="#GetStringFirstWord">GetStringFirstWord</a></li></ul>
                         </nav>
                     </fieldset>
                 </div>
@@ -39,17 +37,45 @@
                     <div class="row">
                         <h1>Refferences</h1>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
+                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="GetContentBetweenDelimiters"></a><h2 class="item-title">GetContentBetweenDelimiters</h2><h5 class="item-signature">function GetContentBetweenDelimiters(text,delimiterInitial,delimiterFinal)</h5><p class="item-description">Function that returns a string searched between two intervals</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>text</b> The content that you want to search in</li><li class="param-list-item"><em class="param-type">string</em> - <b>delimiterInitial</b> The initial string delimiter</li><li class="param-list-item"><em class="param-type">string</em> - <b>delimiterFinal</b> The final string delimiter</li></ul><p class="item-return">@returns {string} The search result</p><div class="item-function-body"><pre>function GetContentBetweenDelimiters(
+    text,
+    delimiterInitial,
+    delimiterFinal
+) {
+    var initialPosition = text.indexOf(delimiterInitial);
+    
+    if (initialPosition === -1) {
+        return null;
+    }
+    
+    var finalPosition = text.indexOf(
+        delimiterFinal,
+        initialPosition + delimiterInitial.length
+    );
+
+    if (finalPosition === -1) {
+        return null;
+    }
+    
+    return text.substring(
+        initialPosition + delimiterInitial.length,
+        finalPosition
+    );
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="RemoveFromString"></a><h2 class="item-title">RemoveFromString</h2><h5 class="item-signature">function RemoveFromString(a, b)</h5><p class="item-description">Returns a string without content given by the user</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>a</b> main text</li><li class="param-list-item"><em class="param-type">string</em> - <b>b</b> to be remove</li></ul><p class="item-return">@returns string</p><div class="item-function-body"><pre>function RemoveFromString(a, b) {
+    return a.replace(b, "");
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="GetStringFirstWord"></a><h2 class="item-title">GetStringFirstWord</h2><h5 class="item-signature">function GetStringFirstWord(a)</h5><p class="item-description">Get the first word by string</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>a</b> text that you want the first word</li></ul><p class="item-return">@returns string</p><div class="item-function-body"><pre>function GetStringFirstWord(a) {
+    var words = a.split(" ");
+    return words[0];
+}</pre></div></li></ul></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
 <script src="../../main.js"></script>
 <script src="../../string-manager/string-manager.js"></script>
 <script src="../../file_manager/file_manager.js"></script>
 <script src="../../forms/forms.js"></script>
 <script src="../../documentation-manager/documentation-manager.js"></script>
 <script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/string-manager/string-manager.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/string-manager/string-manager.js", 'refferences'); }</script>
-</html>
+</body></html>

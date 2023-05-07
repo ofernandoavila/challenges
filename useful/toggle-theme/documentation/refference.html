@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +22,7 @@
                     <fieldset class="w-100">
                         <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
                         <nav>
-                            <ul id="documentation-menu"></ul>
+                            <ul id="documentation-menu"><li class="documentation-item"><a href="#toggleTheme">toggleTheme</a></li><li class="documentation-item"><a href="#initToggleTheme">initToggleTheme</a></li></ul>
                         </nav>
                     </fieldset>
                 </div>
@@ -39,17 +37,55 @@
                     <div class="row">
                         <h1>Refferences</h1>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
+                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="toggleTheme"></a><h2 class="item-title">toggleTheme</h2><h5 class="item-signature">function toggleTheme(e = '')</h5><p class="item-description">Toggle current theme</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string?</em> - <b>e</b> (optional) Event object</li></ul><p class="item-return">@returns {void}</p><div class="item-function-body"><pre>function toggleTheme(e = '') {
+    e != '' ?? e.preventDefault();
+    darkTheme = !darkTheme;
+    if (darkTheme) {
+        document.querySelector("button.toggle-theme i").classList.remove("fa-moon");
+        document.querySelector("button.toggle-theme i").classList.add("fa-sun");
+        document.querySelector(":root").classList.add("dark");
+    } else {
+        document.querySelector(":root").classList.remove("dark");
+        document.querySelector("button.toggle-theme i").classList.add("fa-moon");
+        document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
+    }
+    
+    SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="initToggleTheme"></a><h2 class="item-title">initToggleTheme</h2><h5 class="item-signature">function initToggleTheme()</h5><p class="item-description">Toggle theme by device preference</p><ul class="item-param-list"></ul><p class="item-return">@returns {void}</p><div class="item-function-body"><pre>function initToggleTheme() {
+    console.log();
+    if (
+        window.matchMedia &amp;&amp;
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        if(
+            GetFromBrowser('ofernandoavila_challenges_prod') != null
+        ) {
+            if(
+                GetFromBrowser('ofernandoavila_challenges_prod') == 'true'
+            ) {
+                toggleTheme();
+            }
+        } else {
+            toggleTheme();
+        }
+    }
+}
+
+let darkTheme = false;
+
+initToggleTheme();
+
+const btnToggleTheme = document.querySelector("button.toggle-theme");
+btnToggleTheme.addEventListener("click", e =&gt; toggleTheme(e));</pre></div></li></ul></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
 <script src="../../main.js"></script>
 <script src="../../string-manager/string-manager.js"></script>
 <script src="../../file_manager/file_manager.js"></script>
 <script src="../../forms/forms.js"></script>
 <script src="../../documentation-manager/documentation-manager.js"></script>
 <script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/toggle-theme/toggle-theme.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/toggle-theme/toggle-theme.js", 'refferences'); }</script>
-</html>
+</body></html>

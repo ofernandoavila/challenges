@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +12,7 @@
     <header>
         <div class="container">
             <a href="../../../index.html">Go back - Challenges</a>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+            <button class="toggle-theme"><i class="fa-solid fa-sun"></i></button>
         </div>
     </header>
     <div class="viewport">
@@ -24,7 +22,7 @@
                     <fieldset class="w-100">
                         <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
                         <nav>
-                            <ul id="documentation-menu"></ul>
+                            <ul id="documentation-menu"><li class="documentation-item"><a href="#createFormButton">createFormButton</a></li><li class="documentation-item"><a href="#createElement">createElement</a></li><li class="documentation-item"><a href="#__DefineCreateElementOptions">__DefineCreateElementOptions</a></li><li class="documentation-item"><a href="#setId">setId</a></li><li class="documentation-item"><a href="#ToggleClass">ToggleClass</a></li><li class="documentation-item"><a href="#HasClass">HasClass</a></li><li class="documentation-item"><a href="#RemoveAllClasses">RemoveAllClasses</a></li><li class="documentation-item"><a href="#AssociateFunction">AssociateFunction</a></li><li class="documentation-item"><a href="#SwitchFunction">SwitchFunction</a></li><li class="documentation-item"><a href="#SwitchButton">SwitchButton</a></li><li class="documentation-item"><a href="#isChecked">isChecked</a></li><li class="documentation-item"><a href="#isDisabled">isDisabled</a></li><li class="documentation-item"><a href="#disabledField">disabledField</a></li><li class="documentation-item"><a href="#DisabledAll">DisabledAll</a></li><li class="documentation-item"><a href="#ToggleDisabledAll">ToggleDisabledAll</a></li><li class="documentation-item"><a href="#ToggleVisible">ToggleVisible</a></li><li class="documentation-item"><a href="#ToggleFields">ToggleFields</a></li><li class="documentation-item"><a href="#ToggleDisabled">ToggleDisabled</a></li><li class="documentation-item"><a href="#ClearAllInputs">ClearAllInputs</a></li><li class="documentation-item"><a href="#ClearAllTextareas">ClearAllTextareas</a></li><li class="documentation-item"><a href="#CheckForValidField">CheckForValidField</a></li><li class="documentation-item"><a href="#ValidateField">ValidateField</a></li><li class="documentation-item"><a href="#InvalidateField">InvalidateField</a></li><li class="documentation-item"><a href="#HaveInvalidFields">HaveInvalidFields</a></li><li class="documentation-item"><a href="#ToggleRequired">ToggleRequired</a></li><li class="documentation-item"><a href="#RemoveInvalidGroup">RemoveInvalidGroup</a></li><li class="documentation-item"><a href="#SendAlert">SendAlert</a></li><li class="documentation-item"><a href="#AddAttributeToElement">AddAttributeToElement</a></li></ul>
                         </nav>
                     </fieldset>
                 </div>
@@ -39,17 +37,388 @@
                     <div class="row">
                         <h1>Refferences</h1>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
+                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="createFormButton"></a><h2 class="item-title">createFormButton</h2><h5 class="item-signature">function createFormButton(buttonName,inColumn = false,location,classes = [],functions = [],)</h5><p class="item-description">Create and display a button in the screen</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Create and display a button in the screen
+ * @param {string} buttonName Name to insert in the button
+ * @param {bool?} inColumn If true will be added into a column div
+ * @param {DOMElement} location Element to be insert the button
+ * @param {Array} classes Array of classes CSS to be insert into the button
+ * @param {Array} functions Array of objects { event: "event name", functionName: "function to be hooked" }
+ * @returns {DOMElement}
+ */
+function createFormButton(
+	buttonName,
+	inColumn = false,
+	location,
+	classes = [],
+	functions = [],
+) {
+	let column = createElement("column");
+	let inputGroup = createElement("input-group");
+	let button = createElement("button");
+
+	button.classList.add("btn");
+	button.setAttribute("id", buttonName.toLowerCase() + "_button");
+	button.innerHTML = buttonName;
+
+	if (classes.length &gt; 0) {
+		classes.forEach((item) =&gt; {
+			button.classList.add(item);
+		});
+	}
+
+	if (functions.length &gt; 0) {
+		functions.forEach((item) =&gt; {
+			AssociateFunction(button, item.event, item.functionName);
+		});
+	}
+
+	inputGroup.appendChild(button);
+	let out = inputGroup;
+
+	if (inColumn) {
+		column.appendChild(inputGroup);
+		out = column;
+	}
+
+	if (location != undefined) {
+		return location.appendChild(out);
+	}
+
+	return out;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="createElement"></a><h2 class="item-title">createElement</h2><h5 class="item-signature">function createElement(type, options = [])</h5><p class="item-description">Create a DOMElement</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Create a DOMElement
+ * @param {string} type The type of the element
+ * @param {Array} options Array of objects to be attached to the element
+ * @returns {DOMElement}
+ */
+function createElement(type, options = []) {
+	let element = "";
+	switch (type) {
+		case "column":
+			element = document.createElement("div");
+			element.classList.add("column");
+			if (options.length &gt; 0)
+				__DefineCreateElementOptions(element, options);
+			return element;
+
+		case "input-group":
+			element = document.createElement("div");
+			element.classList.add("input-group");
+			if (options.length &gt; 0)
+				__DefineCreateElementOptions(element, options);
+			return element;
+
+		case "color-picker":
+			element = createElement("input-group");
+			element.appendChild(
+				createElement("input-color", options.inputConfig),
+			);
+			element.appendChild(createElement("label", options.labelConfig));
+			element.appendChild(createElement("button", options.buttonConfig));
+
+			return element;
+
+		case "input-color":
+			element = document.createElement("input");
+			element.setAttribute("type", "color");
+			if (options.length &gt; 0)
+				__DefineCreateElementOptions(element, options);
+			return element;
+
+		default:
+			element = document.createElement(type);
+			if (options.length &gt; 0)
+				__DefineCreateElementOptions(element, options);
+			return element;
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="__DefineCreateElementOptions"></a><h2 class="item-title">__DefineCreateElementOptions</h2><h5 class="item-signature">function __DefineCreateElementOptions(element, options)</h5><p class="item-description">Modify the element given</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Modify the element given
+ * @param {DOMElement} element The element to be edited
+ * @param {Array} options Array of objects to be attached to the element 
+ */
+function __DefineCreateElementOptions(element, options) {
+	options.forEach((option) =&gt; {
+		switch (option.key) {
+			case "id":
+				element.setAttribute("id", option.value);
+				break;
+
+			case "class":
+				option.value.forEach((item) =&gt; {
+					if(item == "") return;
+					element.classList.add(item);
+				});
+				break;
+
+			case "content":
+				if(typeof option.value == "object") {
+					option.value.forEach( item =&gt; {
+						element.innerHTML += item;
+					});
+				} else element.innerHTML = option.value;
+				break;
+
+			case "name":
+				element.name = option.value;
+				break;
+
+			case "for":
+				element.for = option.value;
+				break;
+
+			default:
+				element.setAttribute(option.key, option.value);
+		}
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="setId"></a><h2 class="item-title">setId</h2><h5 class="item-signature">function setId(element, elementId)</h5><p class="item-description">Change DOM Element ID</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Change DOM Element ID
+ * @param {DOMElement} element Given element
+ * @param {string} elementId ID value
+ */
+function setId(element, elementId) {
+	element.setAttribute("id", elementId);
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleClass"></a><h2 class="item-title">ToggleClass</h2><h5 class="item-signature">function ToggleClass(element, class1, class2)</h5><p class="item-description">Toggle classes of the given element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle classes of the given element
+ * @param {DOMElement} element Given element
+ * @param {string} class1 Current class
+ * @param {string} class2 Destination class
+ */
+function ToggleClass(element, class1, class2) {
+	if (element.classList.contains(class1)) {
+		element.classList.remove(class1);
+		element.classList.add(class2);
+	} else {
+		element.classList.remove(class2);
+		element.classList.add(class1);
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="HasClass"></a><h2 class="item-title">HasClass</h2><h5 class="item-signature">function HasClass(element, className)</h5><p class="item-description">Check if given element has the class given</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Check if given element has the class given
+ * @param {DOMElement} element Element to be checked
+ * @param {string} className Class to be searched
+ * @returns {bool}
+ */
+function HasClass(element, className) {
+	return element.classList.contains(className);
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="RemoveAllClasses"></a><h2 class="item-title">RemoveAllClasses</h2><h5 class="item-signature">function RemoveAllClasses(element)</h5><p class="item-description">Remove all classes of element given</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Remove all classes of element given
+ * @param {DOMElement} element Given element
+ * @returns {void}
+ */
+function RemoveAllClasses(element) {
+	return element.classList.forEach( item =&gt; {
+		element.classList.remove(item);
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="AssociateFunction"></a><h2 class="item-title">AssociateFunction</h2><h5 class="item-signature">function AssociateFunction(element, event, functionName)</h5><p class="item-description">Associate an event to a created function</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Associate an event to a created function
+ * @param {DOMElement} element Given element
+ * @param {string} event Name of event
+ * @param {string} functionName Function name to be hooked
+ * @returns {void}
+ */
+function AssociateFunction(element, event, functionName) {
+	return element.setAttribute(event, functionName + "()");
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="SwitchFunction"></a><h2 class="item-title">SwitchFunction</h2><h5 class="item-signature">function SwitchFunction(element, event, functionName)</h5><p class="item-description">Change the current function when an event is called</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Change the current function when an event is called
+ * @param {DOMElement} element Given element
+ * @param {strin} event Event name
+ * @param {string} functionName Function to be added
+ * @returns {void}
+ */
+function SwitchFunction(element, event, functionName) {
+	element.setAttribute(event, "");
+	return element.setAttribute(event, functionName + "()");
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="SwitchButton"></a><h2 class="item-title">SwitchButton</h2><h5 class="item-signature">function SwitchButton(element, type)</h5><p class="item-description">Switch the type of a button</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Switch the type of a button
+ * @param {DOMElement} element Given element
+ * @param {string} type State to toggle button
+ * @returns {void}
+ */
+function SwitchButton(element, type) {
+	switch (type) {
+		case "start":
+			element.value = "start";
+			element.innerHTML = "Start";
+			element.classList.remove("btn-danger");
+			element.classList.add("btn-normal");
+			break;
+
+		case "stop":
+			element.value = "stop";
+			element.innerHTML = "Stop";
+			element.classList.remove("btn-normal");
+			element.classList.add("btn-danger");
+			break;
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="isChecked"></a><h2 class="item-title">isChecked</h2><h5 class="item-signature">function isChecked(elementId)</h5><p class="item-description">Check if and element is checked</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Check if and element is checked
+ * @param {string} elementId ID of DOM element to be found
+ * @returns {bool}
+ */
+function isChecked(elementId) {
+	return document.getElementById(elementId).value == "on";
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="isDisabled"></a><h2 class="item-title">isDisabled</h2><h5 class="item-signature">function isDisabled(elementId)</h5><p class="item-description">Check if and element is disabled</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Check if and element is disabled
+ * @param {string} elementId ID of DOM element to be found
+ * @returns {bool} 
+ */
+function isDisabled(elementId) {
+	return document.getElementById(elementId).disabled;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="disabledField"></a><h2 class="item-title">disabledField</h2><h5 class="item-signature">function disabledField(elementId)</h5><p class="item-description">Disable a DOM element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Disable a DOM element
+ * @param {string} elementId ID of DOM element to be disable
+ * @returns {void}
+ */
+function disabledField(elementId) {
+	let element = document.getElementById(elementId);
+	element.disabled = true;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="DisabledAll"></a><h2 class="item-title">DisabledAll</h2><h5 class="item-signature">function DisabledAll(elementList)</h5><p class="item-description">Disable a list of DOM Elements</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Disable a list of DOM Elements
+ * @param {DOMElement[]} elementList Array of DOM element to be disable
+ * @returns {void}
+ */
+function DisabledAll(elementList) {
+	elementList.forEach((item) =&gt; {
+		item.disabled = true;
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleDisabledAll"></a><h2 class="item-title">ToggleDisabledAll</h2><h5 class="item-signature">function ToggleDisabledAll(elementList)</h5><p class="item-description">Toggle disable a list of DOM Elements</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle disable a list of DOM Elements
+ * @param {DOMElement[]} elementList Array of DOM element to be disable
+ * @returns {void}
+ */
+function ToggleDisabledAll(elementList) {
+	elementList.forEach((item) =&gt; {
+		item.disabled = !item.disabled;
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleVisible"></a><h2 class="item-title">ToggleVisible</h2><h5 class="item-signature">function ToggleVisible(element)</h5><p class="item-description">Toggle the visibility of a DOM Element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle the visibility of a DOM Element
+ * @param {DOMElement} element Element to be toggle
+ * @returns {void}
+ */
+function ToggleVisible(element) {
+	if (element.classList.contains('hidden')) {
+		element.classList.remove("hidden");
+	} else {
+		element.classList.add("hidden");
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleFields"></a><h2 class="item-title">ToggleFields</h2><h5 class="item-signature">function ToggleFields(elementParentId)</h5><p class="item-description">Toggle fields by parent</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle fields by parent
+ * @param {string} elementParentId ID of parent fields to be toggle
+ * @returns {void}
+ */
+function ToggleFields(elementParentId) {
+	let elements = document.querySelectorAll(`#${elementParentId} input`);
+	elements.forEach((item) =&gt; {
+		item.disabled = !item.disabled;
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleDisabled"></a><h2 class="item-title">ToggleDisabled</h2><h5 class="item-signature">function ToggleDisabled(elementName)</h5><p class="item-description">Toggle disable a DOM Element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle disable a DOM Element
+ * @param {string} elementName Identifier of element
+ * @returns {void}
+ */
+function ToggleDisabled(elementName) {
+	let element = document.querySelector(elementName);
+	element.disabled = !element.disabled;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ClearAllInputs"></a><h2 class="item-title">ClearAllInputs</h2><h5 class="item-signature">function ClearAllInputs()</h5><p class="item-description">Clear all inputs</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Clear all inputs
+ * @returns {void}
+ */
+function ClearAllInputs() {
+	let elements = document.querySelectorAll("input");
+	elements.forEach((item) =&gt; {
+		item.value = "";
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ClearAllTextareas"></a><h2 class="item-title">ClearAllTextareas</h2><h5 class="item-signature">function ClearAllTextareas()</h5><p class="item-description">Clear all textareas</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Clear all textareas
+ * @returns {void}
+ */
+function ClearAllTextareas() {
+	let elements = document.querySelectorAll("textarea");
+	elements.forEach((item) =&gt; {
+		item.value = "";
+	});
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="CheckForValidField"></a><h2 class="item-title">CheckForValidField</h2><h5 class="item-signature">function CheckForValidField(field)</h5><p class="item-description">Check if the field has content</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Check if the field has content
+ * @param {DOMElement} field Element to be checked
+ * @returns {bool}
+ */
+function CheckForValidField(field) {
+	if (field.value.length &lt; 3) {
+		return false;
+	} else {
+		return true;
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ValidateField"></a><h2 class="item-title">ValidateField</h2><h5 class="item-signature">function ValidateField(item)</h5><p class="item-description">Validate a input</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Validate a input
+ * @param {DOMElement} item Element to be validated
+ * @returns {void}
+ */
+function ValidateField(item) {
+	let inputGroup = item.parentNode;
+
+	if (item.value.length &lt; 3) {
+		if (!inputGroup.classList.contains("invalid-group")) {
+			InvalidateField(inputGroup);
+		}
+	} else {
+		if (inputGroup.classList.contains("invalid-group")) {
+			inputGroup.classList.remove("invalid-group");
+			inputGroup.querySelector("p").remove();
+		}
+	}
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="InvalidateField"></a><h2 class="item-title">InvalidateField</h2><h5 class="item-signature">function InvalidateField(item, errorMesage = "")</h5><p class="item-description">Set an input group as invalid group</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Set an input group as invalid group
+ * @param {DOMElement} item Element to be invalidated
+ * @param {string} errorMesage Message to be display
+ * @returns {void}
+ */
+function InvalidateField(item, errorMesage = "") {
+	item.classList.add("invalid-group");
+	item.appendChild(
+		createElement("p", [
+			{
+				key: "content",
+				value:
+					errorMesage != ""
+						? errorMesage
+						: "This field can't be empty!",
+			},
+		]),
+	);
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="HaveInvalidFields"></a><h2 class="item-title">HaveInvalidFields</h2><h5 class="item-signature">function HaveInvalidFields()</h5><p class="item-description">Check if has invalid fields</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Check if has invalid fields
+ * @returns {bool}
+ */
+function HaveInvalidFields() {
+	let fields = document.querySelectorAll("[required]");
+
+	let invalid = [];
+
+	fields.forEach((item) =&gt; {
+		if (!CheckForValidField(item)) {
+			invalid.push(item);
+		}
+
+		ValidateField(item);
+	});
+
+	return invalid.length &gt; 0 ? true : false;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="ToggleRequired"></a><h2 class="item-title">ToggleRequired</h2><h5 class="item-signature">function ToggleRequired(elementName)</h5><p class="item-description">Toggle required a DOM Element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Toggle required a DOM Element
+ * @param {string} elementName Identifier of element
+ * @returns {void}
+ */
+function ToggleRequired(elementName) {
+	let element = document.querySelector(elementName);
+	element.required = !element.required;
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="RemoveInvalidGroup"></a><h2 class="item-title">RemoveInvalidGroup</h2><h5 class="item-signature">function RemoveInvalidGroup(item)</h5><p class="item-description">Remove an invalid group from input group</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Remove an invalid group from input group
+ * @param {DOMElement} item Element to be invalidated
+ * @returns {void}
+ */
+function RemoveInvalidGroup(item) {
+	item.parentNode.classList.remove("invalid-group");
+	item.parentNode.querySelector("p").remove();
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="SendAlert"></a><h2 class="item-title">SendAlert</h2><h5 class="item-signature">function SendAlert(mensage)</h5><p class="item-description">Show an alert box in browser</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Show an alert box in browser
+ * @param {string} mensage Message to be show in the alert
+ * @returns {void}
+ */
+function SendAlert(mensage) {
+	if (mensage == "") return;
+
+	alert(mensage);
+}</pre></div></li><li class="documentation-item"><a class="anchor" id="AddAttributeToElement"></a><h2 class="item-title">AddAttributeToElement</h2><h5 class="item-signature">function AddAttributeToElement(element, attribute, value)</h5><p class="item-description">Add an attribute into DOM Element</p><ul class="item-param-list"></ul><p class="item-return"></p><div class="item-function-body"><pre>@description Add an attribute into DOM Element
+ * @param {DOMElement} element Given element
+ * @param {string} attribute Attribute to be added
+ * @param {strin} value Value to insert in the attribute
+ * @returns {void}
+ */
+function AddAttributeToElement(element, attribute, value) {
+	return element.setAttribute(attribute, value);
+}</pre></div></li></ul></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
 <script src="../../main.js"></script>
 <script src="../../string-manager/string-manager.js"></script>
 <script src="../../file_manager/file_manager.js"></script>
 <script src="../../forms/forms.js"></script>
 <script src="../../documentation-manager/documentation-manager.js"></script>
 <script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/forms/forms.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/forms/forms.js", 'refferences'); }</script>
-</html>
+</body></html>

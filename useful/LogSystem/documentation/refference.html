@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +22,7 @@
                     <fieldset class="w-100">
                         <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
                         <nav>
-                            <ul id="documentation-menu"></ul>
+                            <ul id="documentation-menu"><li class="documentation-item"><a href="#AddLogMessage">AddLogMessage</a></li></ul>
                         </nav>
                     </fieldset>
                 </div>
@@ -39,17 +37,39 @@
                     <div class="row">
                         <h1>Refferences</h1>
                     </div>
-                    <div class="row align-self-center"><ul id="documentation"></ul></div>
+                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="AddLogMessage"></a><h2 class="item-title">AddLogMessage</h2><h5 class="item-signature">function AddLogMessage(message)</h5><p class="item-description">Add log message into log container</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>message</b> Log message to be added into log container</li></ul><p class="item-return">@returns {void}</p><div class="item-function-body"><pre>function AddLogMessage(message) {
+    if(document.querySelector('p.empty-log') == undefined) throw new Error("Log container not foud!");
+    if(document.querySelector('p.empty-log') != undefined) document.querySelector('p.empty-log').remove();
+    let finalMessage = "[" + DateToString() + "] " + message;
+
+    if(logContainer.querySelectorAll('p').length &gt; 0) {
+        logContainer.insertBefore(createElement('p', [
+            { key: 'content', value: finalMessage}
+        ]), logContainer.querySelector('p:first-of-type'));
+    } else {
+        logContainer.appendChild(createElement('p', [
+            { key: 'content', value: finalMessage}
+        ]));
+    }    
+}
+
+const logContainer = document.querySelector('.log-container pre');
+
+if(logContainer.innerHTML.trim() == "") {
+    logContainer.appendChild(createElement('p', [
+        { key: 'content', value: "Empty log"},
+        { key: 'class', value: ['empty-log']}
+    ]));
+}</pre></div></li></ul></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+
 <script src="../../main.js"></script>
 <script src="../../string-manager/string-manager.js"></script>
 <script src="../../file_manager/file_manager.js"></script>
 <script src="../../forms/forms.js"></script>
 <script src="../../documentation-manager/documentation-manager.js"></script>
 <script src="../../toggle-theme/toggle-theme.js"></script>
-<script>function StartOnLoadPage() { LoadRefferences("http://ofernandoavila.avilamidia.com/challenges/useful/LogSystem/logsystem.js"); LoadMenu("http://ofernandoavila.avilamidia.com/challenges/useful/LogSystem/logsystem.js", 'refferences'); }</script>
-</html>
+</body></html>
