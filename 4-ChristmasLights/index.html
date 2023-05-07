@@ -6,21 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christmas Lights</title>
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" id="main-style-file" href="style.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
-</head>
+    <link rel="stylesheet" href="../useful/lib/style/style.css">
 <body>
-	<header>
+	<header class="menu fixed">
         <div class="container">
             <a href="../index.html">Go back - Challenges</a>
+            <button class="toggle-theme" disabled><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
-    <div class="flexbox">
+    <div class="viewport h-vh-60 align-items-center justify-center">
         <div class="lights">
-            <button class="toggle-theme" disabled><i class="fa-solid fa-moon"></i></button>
-            <a href="https://github.com/ofernandoavila/challenges/tree/master/4-ChristmasLights" class="signature">@ofernandoavila | 2023</a>
-            <h2>Christmas Lights</h2>
+            <div class="text-header">
+                <h2>Christmas Lights</h2>
+            </div>
             <div class="light-grid">
                 <div class="light green"></div>
                 <div class="light blue"></div>
@@ -50,6 +48,12 @@
             </div>
         </div>
     </div>
+    <footer>
+		<div class="container mg-top-auto">
+			<hr>
+			<a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+		</div>
+	</footer>
 </body>
 
 <script src="../useful/main.js"></script>

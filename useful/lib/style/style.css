@@ -537,7 +537,7 @@ footer {
 .input-group input[type=range] {
   margin: 0px 25px;
 }
-.input-group .input-group-range label {
+.input-group.input-group-range label {
   color: var(--font-color-label-hover);
 }
 .input-group input[type=text] + label, .input-group input[type=number] + label, .input-group input[type=date] + label, .input-group input[type=datetime-local] + label, .input-group input[type=password] + label {
