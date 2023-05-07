@@ -1,0 +1,44 @@
+ul#documentation {
+    display: flex;
+    flex-direction: column;
+}
+
+ul#documentation li.documentation-item {
+    padding: 20px 0px;
+    padding-bottom: 40px;
+}
+
+ul#documentation pre {
+    padding: 10px;
+    color: var(--font-color);
+    background-color: var(--textarea-background-color-disabled);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+ul#documentation li.documentation-item p.item-description,
+ul#documentation li.documentation-item ul.item-param-list,
+ul#documentation li.documentation-item .item-signature{
+    padding: 15px 0px;
+}
+
+ul#documentation li.documentation-item p.item-return {
+    margin-bottom: 15px;
+}
+
+ul#documentation li.documentation-item a.anchor {
+    padding-top: 60px;
+    display: flex;
+}
+
+ul#documentation li.documentation-item::before {
+    content: "";
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+ul#documentation li.documentation-item:first-of-type::before {
+    content: none;
+}
