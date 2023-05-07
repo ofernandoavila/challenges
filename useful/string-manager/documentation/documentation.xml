@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<documentation><title>String Manager</title><description>String Manager documentation</description><itens><item><function>function RemoveFromString(a, b) {&#xD;
+    return a.replace(b, "");&#xD;
+}</function><params><param type="string" variable="a" description="main text"/><param type="string" variable="b" description="to be remove"/></params><signature>function RemoveFromString(a, b)</signature><description>Returns a string without content given by the user</description><return>@returns string</return><title>RemoveFromString</title></item><item><function>function GetStringFirstWord(a) {&#xD;
+    var words = a.split(" ");&#xD;
+    return words[0];&#xD;
+}</function><params><param type="string" variable="a" description="text that you want the first word"/></params><signature>function GetStringFirstWord(a)</signature><description>Get the first word by string</description><return>@returns string</return><title>GetStringFirstWord</title></item></itens></documentation>

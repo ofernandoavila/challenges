@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<documentation><title>File Manager</title><description>File Manager documentation</description><itens><item><function>async function GetFileContentAsString(path, callback) {&#xD;
+    if (path == undefined || path == null || path == "")&#xD;
+        throw new Error("Path cannot be null!");&#xD;
+&#xD;
+    await fetch(path)&#xD;
+        .then((response) =&gt; {&#xD;
+            if (!response.ok)&#xD;
+                throw new Error("Cannot get the file with the path given");&#xD;
+&#xD;
+            return response.arrayBuffer();&#xD;
+        })&#xD;
+        .then((buffer) =&gt; {&#xD;
+            var conteudo = new TextDecoder().decode(buffer);&#xD;
+    		callback(conteudo);&#xD;
+        })&#xD;
+        .catch((error) =&gt; {&#xD;
+            console.error("An error ocurred: ", error);&#xD;
+        });&#xD;
+}</function><params><param type="string" variable="path" description="Path to the file"/><param type="function" variable="callback" description="Callback function"/></params><signature>async function GetFileContentAsString(path, callback)</signature><description>Get a file and return callback with file data</description><return/><title>GetFileContentAsString</title></item></itens></documentation>

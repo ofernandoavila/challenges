@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<documentation><title>LogSystem</title><description>LogSystem documentation</description><itens><item><function>function AddLogMessage(message) {&#xD;
+    if(document.querySelector('p.empty-log') == undefined) throw new Error("Log container not foud!");&#xD;
+    if(document.querySelector('p.empty-log') != undefined) document.querySelector('p.empty-log').remove();&#xD;
+    let finalMessage = "[" + DateToString() + "] " + message;&#xD;
+&#xD;
+    if(logContainer.querySelectorAll('p').length&amp;gt; 0) {&#xD;
+        logContainer.insertBefore(createElement('p', [&#xD;
+            { key: 'content', value: finalMessage}&#xD;
+        ]), logContainer.querySelector('p:first-of-type'));&#xD;
+    } else {&#xD;
+        logContainer.appendChild(createElement('p', [&#xD;
+            { key: 'content', value: finalMessage}&#xD;
+        ]));&#xD;
+    }   &amp;#xD;
+}&#xD;
+&#xD;
+const logContainer = document.querySelector('.log-container pre');&#xD;
+&#xD;
+if(logContainer.innerHTML.trim() == "") {&#xD;
+    logContainer.appendChild(createElement('p', [&#xD;
+        { key: 'content', value: "Empty log"},&#xD;
+        { key: 'class', value: ['empty-log']}&#xD;
+    ]));&#xD;
+}</function><params><param type="string" variable="message" description="Log to be added into log container"/></params><signature>function AddLogMessage(message)</signature><description>Add log message into log container</description><return>@returns {void}</return><title>AddLogMessage</title></item></itens></documentation>

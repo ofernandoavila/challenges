@@ -1,70 +1,106 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refferences - File Manager</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../reset.css">
-    <link rel="stylesheet" href="../../documentation-manager/documentation-manager.css">
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="File Manager documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challengesFile Manager">
+    <link rel="stylesheet" href="../../../useful/documentation-manager/documentation-manager.css" />
+    <link rel="stylesheet" href="../../../useful/toggle-theme/toggle-theme.css" />
+    <link rel="stylesheet" href="../../../useful/toggle-theme/dark.css" />
+    <link rel="stylesheet" href="../../../useful/reset.css" />
+    <title>Documentation - File Manager</title>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <a href="../../../index.html">Go back - Challenges</a>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-        </div>
-    </header>
-    <div class="viewport">
-        <div class="container">
-            <div class="row pd-top-10">
-                <div class="column flex-1">
-                    <fieldset class="w-100">
-                        <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                        <nav>
-                            <ul id="documentation-menu"><li class="documentation-item"><a href="#GetFileContentAsString">GetFileContentAsString</a></li></ul>
-                        </nav>
-                    </fieldset>
+<header>
+    <div class="container">
+        <a href="../../../index.html">Go back - Challenges</a>
+        <button class="toggle-theme">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+</header>
+<div class="viewport">
+    <div class="container">
+        <div class="row pd-top-10">
+            <div class="column flex-1">
+                <fieldset class="w-100">
+                    <ul id="documentation-menu">
+                            <li class="documentation-item">
+        <a href="#GetFileContentAsString">GetFileContentAsString</a>
+    </li>
+                    </ul>
+                </fieldset>
+            </div>
+            <div class="column flex-3">
+                <div class="breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="../../../documentation/index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="./index.html">Documentation Manager</a>
+                        </li>
+                        <li>
+                            <a href="./refference.html">Refferences</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="column flex-3">
-                    <div class="breadcrumb">
-                        <ul>
-                            <li><a href="../../../documentation/index.html">Home</a></li>
-                            <li><a href="./index.html">File Manager</a></li>
-                            <li><a href="./refference.html">Refferences</a></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h1>Refferences</h1>
-                    </div>
-                    <div class="row align-self-center"><ul id="documentation"><li class="documentation-item"><a class="anchor" id="GetFileContentAsString"></a><h2 class="item-title">GetFileContentAsString</h2><h5 class="item-signature">async function GetFileContentAsString(path, callback)</h5><p class="item-description">Get a file and return callback with file data</p><ul class="item-param-list"><li class="param-list-item"><em class="param-type">string</em> - <b>path</b> Path to the file</li><li class="param-list-item"><em class="param-type">function</em> - <b>callback</b> Callback function</li></ul><p class="item-return"></p><div class="item-function-body"><pre>async function GetFileContentAsString(path, callback) {
+                <div class="row">
+                    <h1>Refferences</h1>
+                </div>
+
+                <div class="row align-self-center">
+                    <ul id="documentation">
+                            <li class="documentation-item">
+        <a class="anchor" id="GetFileContentAsString"></a>
+        <h2 class="item-title">GetFileContentAsString</h2>
+        <h5 class="item-signature">async function GetFileContentAsString(path, callback)</h5>
+        <p class="item-description">Get a file and return callback with file data</p>
+        <ul class="item-param-list">
+                                            <li class="param-list-item">
+                    <em class="param-type">string</em> -
+                    <b>path</b> Path to the file                </li>
+                    </ul>
+        <p class="item-return"></p>
+        <div class="item-function-body">
+            <pre>async function GetFileContentAsString(path, callback) {
     if (path == undefined || path == null || path == "")
         throw new Error("Path cannot be null!");
 
     await fetch(path)
-        .then((response) =&gt; {
+        .then((response) => {
             if (!response.ok)
                 throw new Error("Cannot get the file with the path given");
 
             return response.arrayBuffer();
         })
-        .then((buffer) =&gt; {
+        .then((buffer) => {
             var conteudo = new TextDecoder().decode(buffer);
     		callback(conteudo);
         })
-        .catch((error) =&gt; {
+        .catch((error) => {
             console.error("An error ocurred: ", error);
         });
-}</pre></div></li></ul></div>
+}</pre>
+        </div>
+    </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-<script src="../../main.js"></script>
-<script src="../../string-manager/string-manager.js"></script>
-<script src="../../file_manager/file_manager.js"></script>
-<script src="../../forms/forms.js"></script>
-<script src="../../documentation-manager/documentation-manager.js"></script>
-<script src="../../toggle-theme/toggle-theme.js"></script>
-</body></html>
+</body>
+<script src="../../../useful/main.js"></script>
+<script src="../../../useful/forms/forms.js"></script>
+<script src="../../../useful/file_manager/file_manager.js"></script>
+<script src="../../../useful/toggle-theme/toggle-theme.js"></script>
+<script src="../../../useful/string-manager/string-manager.js"></script>
+<script src="../../../useful/documentation-manager/documentation-manager.js"></script>
+
+</html>

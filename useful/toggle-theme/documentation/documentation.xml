@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<documentation><title>Toggle Theme</title><description>Toggle Theme documentation</description><itens><item><function>function toggleTheme(e = '') {&#xD;
+    e != '' ?? e.preventDefault();&#xD;
+    darkTheme = !darkTheme;&#xD;
+    if (darkTheme) {&#xD;
+        document.querySelector("button.toggle-theme i").classList.remove("fa-moon");&#xD;
+        document.querySelector("button.toggle-theme i").classList.add("fa-sun");&#xD;
+        document.querySelector(":root").classList.add("dark");&#xD;
+    } else {&#xD;
+        document.querySelector(":root").classList.remove("dark");&#xD;
+        document.querySelector("button.toggle-theme i").classList.add("fa-moon");&#xD;
+        document.querySelector("button.toggle-theme i").classList.remove("fa-sun");&#xD;
+    }&#xD;
+   &amp;#xD;
+    SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());&#xD;
+}</function><params><param type="string?" variable="e" description="(optional) Event object"/></params><signature>function toggleTheme(e = '')</signature><description>Toggle current theme</description><return>@returns {void}</return><title>toggleTheme</title></item><item><function>function initToggleTheme() {&#xD;
+    console.log();&#xD;
+    if (&#xD;
+        window.matchMedia&amp;
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        if(
+            GetFromBrowser('ofernandoavila_challenges_prod') != null
+        ) {
+            if(
+                GetFromBrowser('ofernandoavila_challenges_prod') == 'true'
+            ) {
+                toggleTheme();&#xD;
+            }&#xD;
+        } else {&#xD;
+            toggleTheme();&#xD;
+        }&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+let darkTheme = false;&#xD;
+&#xD;
+initToggleTheme();&#xD;
+&#xD;
+const btnToggleTheme = document.querySelector("button.toggle-theme");&#xD;
+btnToggleTheme.addEventListener("click", e =&gt; toggleTheme(e));</function><params/><signature>function initToggleTheme()</signature><description>Toggle theme by device preference</description><return>@returns {void}</return><title>initToggleTheme</title></item></itens></documentation>

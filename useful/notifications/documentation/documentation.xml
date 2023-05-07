@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<documentation><title>Notifications</title><description>Notifications documentation</description><itens><item><function>function AddNotification(message, type = "") {&#xD;
+    if (notificationsContainer.innerHTML.trim() == "") {&#xD;
+        if (notificationsContainer.classList.length&amp;gt; 0)&#xD;
+            RemoveAllClasses(notificationsContainer);&#xD;
+    } else {&#xD;
+        if (notificationsContainer.classList.length&amp;gt; 0)&#xD;
+            RemoveAllClasses(notificationsContainer);&#xD;
+&#xD;
+        notificationsContainer.innerHTML = "";&#xD;
+    }&#xD;
+&#xD;
+    PopMessage(message, type);&#xD;
+&#xD;
+    setTimeout(() =&gt; {&#xD;
+        notificationsContainer.innerHTML = "";&#xD;
+    }, 8000);&#xD;
+}</function><params><param type="string" variable="message" description="Message to be added into notification container"/><param type="string" variable="type" description="Defines the of message"/></params><signature>function AddNotification(message, type = "")</signature><description>Add notification container to screen</description><return>@returns {void}</return><title>AddNotification</title></item><item><function>function PopMessage(message, type) {&#xD;
+    if (&#xD;
+        type != "danger"&amp;
+        type != "success"&amp;amp;
+        type != "warning"&amp;amp;
+        type != ""
+    )
+        throw "Invalid type for notification message!";&#xD;
+&#xD;
+    if (notificationsContainer.innerHTML != "")&#xD;
+        notificationsContainer.innerHTML = "";&#xD;
+&#xD;
+    notificationsContainer.classList.add(type);&#xD;
+    notificationsContainer.appendChild(&#xD;
+        createElement("p", [{ key: "content", value: message }])&#xD;
+    );&#xD;
+    notificationsContainer.classList.add("pop-notification");&#xD;
+}&#xD;
+&#xD;
+const notificationsContainer = document.getElementById("notifications");</function><params><param type="string" variable="message" description="Message to be added into notification container"/><param type="string" variable="type" description="Defines the of message"/></params><signature>function PopMessage(message, type)</signature><description>Display the current message into noficiation panel</description><return>@returns {void}</return><title>PopMessage</title></item></itens></documentation>
