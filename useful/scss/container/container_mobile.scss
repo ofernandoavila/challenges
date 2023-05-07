@@ -15,4 +15,8 @@
         transform: translateX(-50%);
         top: -20%;
     }
+
+    .viewport:has(fieldset) fieldset {
+        margin-top: 30px;
+    }
 }
