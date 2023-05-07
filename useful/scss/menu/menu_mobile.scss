@@ -23,5 +23,28 @@
         .menu-button {
             display: flex !important;
         }
+
+        &.menu-mobile-spry {
+            position: fixed;
+            overflow: unset;
+
+            max-height: 6rem;
+            min-height: 6rem;
+            
+            nav {
+                display: none;
+                width: 100vw;
+                position: absolute;
+                background-color: black;
+                padding: 20px;
+                left: 0;
+                margin-left: 0;
+                top: 5rem;
+            }
+
+            & + .viewport {
+                padding-top: 7rem;
+            }
+        }
     }
 }
