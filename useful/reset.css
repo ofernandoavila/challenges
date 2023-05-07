@@ -741,13 +741,13 @@ button[value="remove"]::before {
     }
 
     nav {
-        border: 1px solid var(--border-color);
+        border: none;
         position: fixed;
         background-color: var(--menu-header-background);
         width: 100%;
         left: 0;
         padding: 10px 0px;
-        top: 5rem;
+        top: 4.8rem;
         z-index: 999;
         max-height: 80vh;
         overflow: auto;
