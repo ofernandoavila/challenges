@@ -41,13 +41,18 @@
         
     }
     
-    &.row-converter:has(.column:last-of-type::before) {
-        font-family: var(--font-family-icons);
-        content: var(--icon-arrow-right);
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: -7.5%;
+    &.row-converter {
+        gap: 5rem;
+        
+        .column:last-of-type::before {
+            font-family: var(--font-family-icons);
+            content: var(--icon-arrow-right);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -4.8rem;
+            
+        }
     }
 }
 

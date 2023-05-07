@@ -7,13 +7,18 @@
 
     .row {
         flex-direction: column;
+        gap: 10px;
+
+        &.button-group {
+            flex-direction: row;
+        }
     }
 
     .row.row-converter .column:last-of-type::before {
         content: "arrow-down";
         left: 50%;
         transform: translateX(-50%);
-        top: -20%;
+        top: -10%;
     }
 
     .viewport:has(fieldset) fieldset {
