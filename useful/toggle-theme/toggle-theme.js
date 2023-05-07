@@ -1,8 +1,8 @@
-let darkTheme = false;
-
-const btnToggleTheme = document.querySelector("button.toggle-theme");
-btnToggleTheme.addEventListener("click", e => toggleTheme(e));
-
+/**
+ * @description Toggle current theme
+ * @param {string?} e (optional) Event object
+ * @returns {void}
+ */
 function toggleTheme(e = '') {
     e != '' ?? e.preventDefault();
     darkTheme = !darkTheme;
@@ -19,6 +19,10 @@ function toggleTheme(e = '') {
     SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());
 }
 
+/**
+ * @description Toggle theme by device preference
+ * @returns {void}
+ */
 function initToggleTheme() {
     console.log();
     if (
@@ -39,4 +43,9 @@ function initToggleTheme() {
     }
 }
 
+let darkTheme = false;
+
 initToggleTheme();
+
+const btnToggleTheme = document.querySelector("button.toggle-theme");
+btnToggleTheme.addEventListener("click", e => toggleTheme(e));

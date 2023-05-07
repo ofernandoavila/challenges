@@ -4,6 +4,7 @@
  * @returns {Array} Array of objects converted
  */
 function GetDocumentationData(data) {
+    console.log(data);
     let out = [];
     let documentation = data.split("/**");
     console.log(documentation);
