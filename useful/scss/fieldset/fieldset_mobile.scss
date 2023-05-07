@@ -3,7 +3,7 @@
         max-width: 90%;
         min-width: 90%;
 
-        &:has(nav, button.menu-button) {
+        &:has(nav.menu, button.menu-button) {
             max-width: 100% !important;
             background: none;
             border: none;
@@ -22,7 +22,7 @@
             display: flex !important;
         }
     
-        &:has(nav, button.menu-button) nav {
+        &:has(nav, button.menu-button) nav.menu {
             border: 1px solid var(--border-color);
             position: fixed;
             background-color: var(--menu-header-background);

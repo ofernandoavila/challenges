@@ -910,7 +910,7 @@ footer {
     max-width: 90%;
     min-width: 90%;
   }
-  fieldset:has(nav, button.menu-button) {
+  fieldset:has(nav.menu, button.menu-button) {
     max-width: 100% !important;
     background: none;
     border: none;
@@ -926,7 +926,7 @@ footer {
   fieldset:has(nav, button.menu-button) button {
     display: flex !important;
   }
-  fieldset:has(nav, button.menu-button) nav {
+  fieldset:has(nav, button.menu-button) nav.menu {
     border: 1px solid var(--border-color);
     position: fixed;
     background-color: var(--menu-header-background);
