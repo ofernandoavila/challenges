@@ -4,10 +4,8 @@
  * @returns {Array} Array of objects converted
  */
 function GetDocumentationData(data) {
-    console.log(data);
     let out = [];
     let documentation = data.split("/**");
-    console.log(documentation);
     documentation.shift();
     
     documentation.forEach((line, index) => {
@@ -52,6 +50,8 @@ function ReturnDocumentationItem(docLine) {
         if (line.includes(" *")) {
             line = GetContentBetweenDelimiters(line, " *", "\r");
         }
+
+        if(line == null) return;
 
         line = line.trim();
 
