@@ -708,7 +708,7 @@ button[value="remove"]::before {
         width: 95%;
     }
 
-    fieldset:has(nav) {
+    fieldset:has(nav, button.menu-button) {
         max-width: 100% !important;
         background: none;
         border: none;
@@ -717,7 +717,7 @@ button[value="remove"]::before {
         z-index: 99;
     }
 
-    fieldset:has(nav) .btn {
+    fieldset:has(nav, button.menu-button) .btn {
         width: 64px !important;
         height: 64px !important;
         border-radius: 50%;
@@ -727,7 +727,7 @@ button[value="remove"]::before {
         display: flex !important;
     }
 
-    nav {
+    fieldset:has(nav, button.menu-button) nav {
         border: 1px solid var(--border-color);
         position: fixed;
         background-color: var(--menu-header-background);
@@ -735,6 +735,19 @@ button[value="remove"]::before {
         left: 0;
         padding: 10px 0px;
         bottom: 6rem;
+        z-index: 999;
+        max-height: 80vh;
+        overflow: auto;
+    }
+
+    nav {
+        border: 1px solid var(--border-color);
+        position: fixed;
+        background-color: var(--menu-header-background);
+        width: 100%;
+        left: 0;
+        padding: 10px 0px;
+        top: 5rem;
         z-index: 999;
         max-height: 80vh;
         overflow: auto;
