@@ -60,7 +60,7 @@
 
 .h {
     &-auto {
-        height: 100%;
+        height: auto !important;
     }
     
     &-80 {
@@ -109,6 +109,18 @@
     
     &-60 {
         width: 60% !important;
+    }
+
+    &-70 {
+        width: 70% !important;
+    }
+
+    &-80 {
+        width: 80% !important;
+    }
+
+    &-90 {
+        width: 80% !important;
     }
     
     &-100 {
