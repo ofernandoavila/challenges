@@ -21,9 +21,13 @@ use function ofernandoavila\challenges\helpers\GetHeader;
         <div class="row pd-top-10">
             <div class="column flex-1">
                 <fieldset class="w-100">
-                    <ul id="documentation-menu">
-                        <?php require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/doc_menu_item.php'; ?>
-                    </ul>
+                    
+                    <button onclick="toggleMobileMenu()" class="btn btn-normal align-self-end menu-button"><i class="fa fa-bars"></i></button>
+                    <nav>
+                        <ul id="documentation-menu">
+                            <?php require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/doc_menu_item.php'; ?>
+                        </ul>
+                    </nav>
                 </fieldset>
             </div>
             <div class="column flex-3">

@@ -73,7 +73,7 @@
 				element.setAttribute(option.key, option.value);&#xD;
 		}&#xD;
 	});&#xD;
-}</function><params><param type="DOMElement" variable="element" description="The to be edited"/><param type="Array" variable="options" description="Array of objects to be attached to the element"/></params><signature>function __DefineCreateElementOptions(element, options)</signature><description>Modify the element given</description><return>@returns {void}</return><title>__DefineCreateElementOptions</title></item><item><function>function setId(element, elementId) {&#xD;
+}</function><params><param type="DOMElement" variable="element" description="The to be edited"/><param type="Array" variable="options" description="Array of objects to be attached to the element"/></params><signature>function __DefineCreateElementOptions(element, options)</signature><description>Modify the element given</description><return/><title>__DefineCreateElementOptions</title></item><item><function>function setId(element, elementId) {&#xD;
 	element.setAttribute("id", elementId);&#xD;
 }</function><params><param type="DOMElement" variable="element" description="Given element"/><param type="string" variable="elementId" description="ID value"/></params><signature>function setId(element, elementId)</signature><description>Change DOM Element ID</description><return/><title>setId</title></item><item><function>function ToggleClass(element, class1, class2) {&#xD;
 	if (element.classList.contains(class1)) {&#xD;
