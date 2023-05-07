@@ -1,3 +1,9 @@
+/**
+ * Create a button and insert into a 
+ * parent element
+ * 
+ * @returns input group with the button
+ */
 function createFormButton(
 	buttonName,
 	inColumn = false,
@@ -97,7 +103,11 @@ function __DefineCreateElementOptions(element, options) {
 				break;
 
 			case "content":
-				element.innerHTML = option.value;
+				if(typeof option.value == "object") {
+					option.value.forEach( item => {
+						element.innerHTML += item;
+					});
+				} else element.innerHTML = option.value;
 				break;
 
 			case "name":
