@@ -1,0 +1,17 @@
+{
+    "name": "ofernandoavila/challenges",
+    "description": "Documentation manager of Challenges project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "ofernandoavila\\challenges\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Avila",
+            "email": "fernandoavilajunior@gmail.com"
+        }
+    ],
+    "require": {}
+}

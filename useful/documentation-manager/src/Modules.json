@@ -1,0 +1,50 @@
+[
+    {
+        "name": "String Manager",
+        "path": "string-manager",
+        "file": "string-manager",
+        "slug": "string-manager-refferences",
+        "description": "String Manager documentation",
+        "extension": "js"
+    },
+    {
+        "name": "Toggle Theme",
+        "path": "toggle-theme",
+        "file": "toggle-theme",
+        "slug": "toggle-theme-refferences",
+        "description": "Toggle Theme documentation",
+        "extension": "js"
+    },
+    {
+        "name": "Notifications",
+        "path": "notifications",
+        "file": "notifications",
+        "slug": "notifications-refferences",
+        "description": "Notifications documentation",
+        "extension": "js"
+    },
+    {
+        "name": "LogSystem",
+        "path": "LogSystem",
+        "file": "logsystem",
+        "slug": "logsystem-refferences",
+        "description": "LogSystem documentation",
+        "extension": "js"
+    },
+    {
+        "name": "Forms",
+        "path": "forms",
+        "file": "forms",
+        "slug": "forms-refferences",
+        "description": "Forms documentation",
+        "extension": "js"
+    },
+    {
+        "name": "File Manager",
+        "path": "file_manager",
+        "file": "file_manager",
+        "slug": "file_manager-refferences",
+        "description": "File Manager documentation",
+        "extension": "js"
+    }
+]
