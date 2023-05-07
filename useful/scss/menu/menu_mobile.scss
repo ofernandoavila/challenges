@@ -1,0 +1,27 @@
+@media only screen and (max-width: 1000px) {
+    .menu {
+        border: none;
+        position: fixed;
+        background-color: var(--menu-header-background);
+        width: 100%;
+        left: 0;
+        padding: 10px 0px;
+        z-index: 999;
+        max-height: 80vh;
+        overflow: auto;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            margin: 0px 10px;
+
+            li {
+                line-height: 3rem;
+            }
+        }
+
+        .menu-button {
+            display: flex !important;
+        }
+    }
+}

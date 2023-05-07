@@ -1,0 +1,26 @@
+:root {
+    --buttons-font-color: #fff;
+    --buttons-font-secundary-color: #000;
+    --buttons-normal: #1e90ff;
+    --buttons-normal-border: #0d69c5;
+    --buttons-normal-hover: #006dda;
+    --buttons-success: #11e268;
+    --buttons-success-border: #02e05f;
+    --buttons-success-hover: #00ce56;
+    --buttons-danger: #ff1e1e;
+    --buttons-danger-border: #d60000;
+    --buttons-danger-hover: #d30808;
+    --buttons-default: #dbdbdb;
+    --buttons-default-border: #c0c0c0;
+    --buttons-default-hover: #aaaaaa;
+
+    --buttons-disabled-font-color: #c3c3c3;
+    --buttons-disabled-background: #dfdfdf;
+    --buttons-disabled-border-color: #d9d9d9;
+}
+
+:root.dark {
+	--buttons-disabled-font-color: #999999;
+	--buttons-disabled-background: #6e6e6e;
+	--buttons-disabled-border-color: #545454;
+}

@@ -1,0 +1,10 @@
+:root {
+    --border-default-radius: 5px;
+    --border-color-danger: #ff1e1e;
+    --border-color: #ccc;
+    --border-color-primary: #ccc;
+}
+
+:root.dark {
+    --border-color: #ccc;
+}

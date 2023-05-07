@@ -1,0 +1,9 @@
+:root {
+    --footer-padding-top: 20px;
+    --footer-padding-bottom: 30px;
+    --footer-background-color: transparent;
+}
+
+:root.dark {
+    --footer-background-color: transparent;
+}

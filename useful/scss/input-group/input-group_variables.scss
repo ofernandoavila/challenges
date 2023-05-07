@@ -1,0 +1,17 @@
+:root {
+    --input-group-textarea-background-color: #fff;
+    --input-group-textarea-font-label-color: #000;
+    --input-group-textarea-font-label-color-active: #000;
+    --input-group-textarea-font-color: #000;
+    --input-group-textarea-font-color-disabled: #969696;
+    --input-group-textarea-background-color-disabled: #efefef;
+}
+
+:root.dark {
+    --input-group-textarea-background-color: #444;
+    --input-group-textarea-font-label-color: #fff;
+	--input-group-textarea-font-label-color-active: #fff;
+    --input-group-textarea-font-color: #fff;
+    --input-group-textarea-font-color-disabled: #969696;
+	--input-group-textarea-background-color-disabled: #282828;
+}

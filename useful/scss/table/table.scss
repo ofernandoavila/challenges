@@ -1,0 +1,48 @@
+/**
+ * @title Table
+ * @description The best way to deal with tables!
+*/
+.table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .head {
+        font-weight: bold;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .item {
+        padding: 10px 0px;
+        display: grid;
+        text-align: center;
+        align-items: center;
+
+        div {
+            ul {
+                display: flex;
+
+                li {
+                    margin-right: 10px;
+
+                    &:last-of-type {
+                        margin-right: 0px;
+                    }
+                }
+            }
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                text-align: left;
+            }
+
+            &:nth-child(2) {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+

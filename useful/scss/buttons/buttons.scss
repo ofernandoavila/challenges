@@ -1,0 +1,125 @@
+/**
+ * @title Buttons
+ * @description Best way to deal with buttons
+*/
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    width: 100%;
+    color: var(--buttons-font-color);
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+    text-align: center;
+
+    &:disabled {
+        color: var(--buttons-disabled-font-color) !important;
+        background-color: var(--buttons-disabled-background) !important;
+        border-color: var(--buttons-disabled-border-color) !important;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.btn-normal {
+        background-color: var(--buttons-normal);
+        border: 1px solid var(--buttons-normal-border);
+
+        &:hover {
+            background-color: var(--buttons-normal-hover);
+        }
+    }
+
+    &.btn-success {
+        background-color: var(--buttons-success);
+        border: 1px solid var(--buttons-success-border);
+    
+        &:hover {
+            background-color: var(--buttons-success-hover);
+        }
+    }
+    
+    &.btn-danger {
+        background-color: var(--buttons-danger);
+        border: 1px solid var(--buttons-danger-border);
+    
+        &:hover {
+            background-color: var(--buttons-danger-hover);
+        }
+    }
+    
+    &.btn-default {
+        color: var(--buttons-font-secundary-color);
+        background-color: var(--buttons-default);
+        border: 1px solid var(--buttons-default-border);
+    
+        &:hover {
+            background-color: var(--buttons-default-hover);
+        }
+    }
+    
+    &.btn-link {
+        background: none !important;
+        border: none !important;
+        color: var(--font-color-link) !important;
+        text-decoration: underline;
+        width: auto;
+        padding-right: 0;
+        padding-left: 0;
+    
+        &disabled {
+            color: var(--font-color-link-disabled) !important;
+            cursor: not-allowed;
+        }
+    }
+}
+
+button {
+    color: var(--font-color);
+    
+    &:not(:empty)::before {
+        margin-right: 10px;
+    }
+
+    &[value="download"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-download);
+    }
+    
+    &[value="convert"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-convert);
+    }
+    
+    &[value="copy2clipboard"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-copy2clipboard);
+    }
+    
+    &[value="play"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-play);
+    }
+    
+    &[value="start"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-start);
+    }
+    
+    &[value="stop"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-stop);
+    }
+    
+    &[value="remove"]::before {
+        font-family: var(--font-family-icons);
+        content: var(--icon-remove);
+    }
+}
+

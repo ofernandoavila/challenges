@@ -1,0 +1,38 @@
+.menu .toggle-theme {
+    bottom: 0;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.toggle-theme {
+    display: flex;
+    position: absolute;
+    background: none;
+    align-items: center;
+    border: none;
+    font-size: 24px;
+    bottom: -50px;
+    right: 0;
+
+    &::before {
+        content: "Toggle theme";
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        color: #414141;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+}

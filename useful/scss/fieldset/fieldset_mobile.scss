@@ -1,0 +1,38 @@
+@media only screen and (max-width: 1000px) {
+    fieldset {
+        max-width: 90%;
+        min-width: 90%;
+
+        &:has(nav, button.menu-button) {
+            max-width: 100% !important;
+            background: none;
+            border: none;
+            position: fixed;
+            bottom: 0;
+            z-index: 99;
+        }
+
+        &:has(nav, button.menu-button) .btn {
+            width: 64px !important;
+            height: 64px !important;
+            border-radius: 50%;
+        }
+    
+        &:has(nav, button.menu-button) button {
+            display: flex !important;
+        }
+    
+        &:has(nav, button.menu-button) nav {
+            border: 1px solid var(--border-color);
+            position: fixed;
+            background-color: var(--menu-header-background);
+            width: 98%;
+            left: 0;
+            padding: 10px 0px;
+            bottom: 6rem;
+            z-index: 999;
+            max-height: 80vh;
+            overflow: auto;
+        }
+    }
+}

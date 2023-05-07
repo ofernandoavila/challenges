@@ -1,0 +1,10 @@
+.position {
+    &-absolute {
+        position: absolute;
+    }
+
+    &-fixed {
+        width: auto !important;
+        position: fixed;
+    }
+}
