@@ -13,13 +13,18 @@ ul#documentation pre {
     color: var(--font-color);
     background-color: var(--textarea-background-color-disabled);
     border: 1px solid var(--border-color);
+    white-space: pre-wrap;
     border-radius: 5px;
 }
 
 ul#documentation li.documentation-item p.item-description,
 ul#documentation li.documentation-item ul.item-param-list,
-ul#documentation li.documentation-item .item-signature{
+ul#documentation li.documentation-item .item-signature {
     padding: 15px 0px;
+}
+
+ul#documentation li.documentation-item .item-signature {
+    word-break: break-all;
 }
 
 ul#documentation li.documentation-item p.item-return {
@@ -41,4 +46,8 @@ ul#documentation li.documentation-item::before {
 
 ul#documentation li.documentation-item:first-of-type::before {
     content: none;
+}
+
+fieldset:has(nav, button.menu-button) button {
+    display: none;
 }

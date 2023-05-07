@@ -1,7 +1,7 @@
 let isMobileMenuShown = false;
 
 function toggleMobileMenu() {
-	let nav = document.querySelector("header nav");
+	let nav = document.querySelector("nav");
 	isMobileMenuShown = !isMobileMenuShown;
 	nav.style.display = isMobileMenuShown ? "inline-block" : "none";
 }
