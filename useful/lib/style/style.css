@@ -956,6 +956,8 @@ footer {
     z-index: 999;
     max-height: 80vh;
     overflow: auto;
+    max-height: 6rem;
+    min-height: 6rem;
   }
   .menu ul {
     display: flex;
@@ -982,10 +984,13 @@ footer {
     padding: 20px;
     left: 0;
     margin-left: 0;
-    top: 5rem;
+    top: 6rem;
   }
   .menu.menu-mobile-spry + .viewport {
-    padding-top: 7rem;
+    padding-top: 10rem;
+  }
+  .menu.fixed + .viewport {
+    padding-top: 10rem;
   }
 }
 * {
