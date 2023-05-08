@@ -12,7 +12,7 @@
 <body>
 <header class="menu fixed">
     <div class="container">
-        <h1><a href="../../../index.html">Go back - Challenges</a></h1>
+        <h1><a href="<?= $data['settings_css_path']; ?>/index.html">Go back - Challenges</a></h1>
         <button class="toggle-theme"></button>
     </div>
 </header>
