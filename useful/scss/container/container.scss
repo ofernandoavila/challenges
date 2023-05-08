@@ -1,6 +1,6 @@
 .viewport {
     width: 100%;
-    padding-top: 50px;
+    padding-top: 8rem;
     display: flex;
     flex-direction: column;
 }
@@ -39,6 +39,10 @@
             text-decoration: none;
         }
         
+    }
+
+    &.flex-column {
+        flex-direction: column !important;
     }
     
     &.row-converter {

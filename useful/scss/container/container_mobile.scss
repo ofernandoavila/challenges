@@ -12,6 +12,10 @@
         &.button-group {
             flex-direction: row;
         }
+
+        &.flex {
+            flex-direction: row !important;
+        }
     }
 
     .row.row-converter .column:last-of-type::before {

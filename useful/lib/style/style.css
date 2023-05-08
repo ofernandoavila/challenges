@@ -251,7 +251,7 @@ button[value=remove]::before {
 
 .viewport {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 8rem;
   display: flex;
   flex-direction: column;
 }
@@ -285,6 +285,9 @@ button[value=remove]::before {
 .row.button-group a {
   margin-top: 0;
   text-decoration: none;
+}
+.row.flex-column {
+  flex-direction: column !important;
 }
 .row.row-converter {
   gap: 5rem;
@@ -901,6 +904,9 @@ footer {
   }
   .row.button-group {
     flex-direction: row;
+  }
+  .row.flex {
+    flex-direction: row !important;
   }
   .row.row-converter .column:last-of-type::before {
     content: "arrow-down";

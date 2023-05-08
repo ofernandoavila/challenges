@@ -10,6 +10,7 @@
     &.fixed {
         position: fixed;
         z-index: 9999;
+        //padding: 2rem 0;
 
         & + .viewport fieldset {
             margin-top: 30px;

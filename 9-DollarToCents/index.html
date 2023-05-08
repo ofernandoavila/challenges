@@ -5,51 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dollar to Cents</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../useful/reset.css">
+    <link rel="stylesheet" href="../useful/lib/style/style.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
 </head>
 <body>
-    <header>
+    <header class="menu fixed">
         <div class="container">
-            <a href="../index.html">Go back - Challenges</a>
+            <h1><a href="../index.html">Go back - Challenges</a></h1>
+            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
-    <div class="flexbox">
+    <div class="viewport h-vh-60 align-items-center justify-center" id="input-currency">
         <fieldset>
-            <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
-            <a href="https://github.com/ofernandoavila/challenges/tree/master/[CHALLENGE_NAME]" class="signature">@ofernandoavila | 2023</a>
-            <div class="title-header">
+            <div class="text-header">
                 <h2>Dollar to Cents</h2>
             </div>
-            <div class="row row-flex-column justify-center align-self-center" id="input-currency">
-                <div class="row flex-row">
-                    <span class="currency"></span>
-                    <div class="input-group">
-                        <input type="number" name="total-value" id="total-value" required placeholder=" ">
-                        <label for="total-value">Amount</label>
+            <div class="row flex-column justify-center align-self-center">
+                <div class="row flex-column">
+                    <div class="row flex">
+                        <span class="currency"></span>
+                        <div class="input-group">
+                            <input type="number" name="total-value" id="total-value" required placeholder=" ">
+                            <label for="total-value">Amount</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-normal" id="convert-button">Convert to cents</button>
                     </div>
                 </div>
-                <div class="row">
-                    <button class="btn btn-normal" id="convert-button">Convert to cents</button>
-                </div>
-            </div>
-            <div class="row justify-center">
-                <div class="row align-items-center row-flex-column">
-                    <span id="coins-out" class="hidden">
-                        <h3>Total of <b></b></h3>
-                        <ul>
-                            <li class="quarters"></li>
-                            <li class="dimes"></li>
-                            <li class="nickels"></li>
-                            <li class="pennies"></li>
-                        </ul>
-                    </span>
+                <div class="row justify-center">
+                    <div class="row align-items-center row-flex-column">
+                        <span id="coins-out" class="hidden">
+                            <h3>Total of <b></b></h3>
+                            <ul>
+                                <li class="quarters"></li>
+                                <li class="dimes"></li>
+                                <li class="nickels"></li>
+                                <li class="pennies"></li>
+                            </ul>
+                        </span>
+                    </div>
                 </div>
             </div>
         </fieldset>
     </div>
+    <footer>
+		<div class="container mg-top-auto">
+			<hr>
+			<a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+		</div>
+	</footer>
 </body>
 <script src="../useful/main.js"></script>
 <script src="../useful/forms/forms.js"></script>
