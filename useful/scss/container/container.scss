@@ -16,6 +16,10 @@
     gap: 50px;
     margin-bottom: 40px;
 
+    &.no-gap {
+        gap: 0;
+    }
+
     .input-group {
         width: 100%;
     }

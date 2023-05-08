@@ -10570,6 +10570,9 @@ button[value=home]::before {
   gap: 50px;
   margin-bottom: 40px;
 }
+.row.no-gap {
+  gap: 0;
+}
 .row .input-group {
   width: 100%;
 }
@@ -10758,6 +10761,9 @@ fieldset {
 
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 
 .align-items-center {

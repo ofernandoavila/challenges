@@ -11,3 +11,5 @@ define('ROOT_CSS_LIB_PATH', '../../lib/style');
 define('ROOT_ROOT_PATH', '../../..');
 define('ROOT_JS_LIB_PATH', '../..');
 define('ROOT_DOCUMENTATION_DIR_PATH', __DIR__ . '/../../../documentation');
+
+date_default_timezone_set('America/Sao_Paulo');

@@ -3,6 +3,7 @@
 use ofernandoavila\challenges\core\FileManager;
 use ofernandoavila\challenges\core\XMLFactory;
 
+use function ofernandoavila\challenges\helpers\Debug;
 use function ofernandoavila\challenges\helpers\DebugMessage;
 
 require_once '../config.php';
@@ -14,7 +15,7 @@ $modules = FileManager::GetJSON(DOCUMENTATION_MANAGER_SRC_PATH . '/Modules.json'
 
 $data = $documentation;
 $data['modules'] = $modules;
-
+$data['settings_build_date'] = date("m/d/Y H:i:s");
 
 foreach($modules as $module) {
     DebugMessage("Generating module '" . $module['name'] . "' ...", true);
