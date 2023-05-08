@@ -22,12 +22,12 @@ function DebugMessage($message, $console = false) {
 
 function GetHeader($data = array()) {
     extract($data);
-    require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/header.php';
+    require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/common/header.php';
 }
 
 function GetFooter($data = array()) {
     extract($data);
-    require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/footer.php';
+    require DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/common/footer.php';
 }
 
 function GetFile($path, $data = []) {

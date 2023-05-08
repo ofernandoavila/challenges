@@ -12,10 +12,6 @@
         &.button-group {
             flex-direction: row;
         }
-
-        &.flex {
-            flex-direction: row !important;
-        }
     }
 
     .row.row-converter .column:has(textarea):last-of-type::before {

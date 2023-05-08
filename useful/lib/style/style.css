@@ -10381,6 +10381,8 @@ readers do not read off random characters that represent icons */
   --icon-menu: "bars";
   --icon-moon: "moon";
   --icon-sun: "sun";
+  --icon-home: "home";
+  --icon-angle-right: "angle-right";
 }
 
 :root {
@@ -10403,10 +10405,12 @@ readers do not read off random characters that represent icons */
 
 :root {
   --menu-header-background: #303030;
+  --menu-collapse-background: #fff;
 }
 
 :root.dark {
   --menu-header-background: #1c1c1c;
+  --menu-collapse-background: #2c2c2c;
 }
 
 :root {
@@ -10417,8 +10421,14 @@ readers do not read off random characters that represent icons */
 .breadcrumb ul {
   display: flex;
 }
+.breadcrumb ul li {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
 .breadcrumb ul li::after {
-  content: ">";
+  font-family: var(--icon-font-family-icons);
+  content: var(--icon-angle-right);
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -10536,6 +10546,10 @@ button[value=remove]::before {
 button[value=menu]::before {
   font-family: var(--icon-font-family-icons);
   content: var(--icon-menu);
+}
+button[value=home]::before {
+  font-family: var(--icon-font-family-icons);
+  content: var(--icon-home);
 }
 
 .viewport {
@@ -10976,11 +10990,14 @@ footer {
   align-items: center;
   position: relative;
 }
+.menu.menu-mobile-collapse {
+  background-color: var(--menu-collapse-background);
+}
 .menu.fixed {
   position: fixed;
   z-index: 9999;
 }
-.menu.fixed + .viewport fieldset {
+.menu.fixed .viewport fieldset {
   margin-top: 30px;
 }
 .menu h1 {
@@ -11193,9 +11210,6 @@ footer {
   .row.button-group {
     flex-direction: row;
   }
-  .row.flex {
-    flex-direction: row !important;
-  }
   .row.row-converter .column:has(textarea):last-of-type::before {
     content: "arrow-down";
     left: 50%;
@@ -11229,16 +11243,24 @@ footer {
     width: 64px !important;
     height: 64px !important;
     border-radius: 50%;
+    position: absolute;
+    right: 4rem;
+    bottom: 2rem;
+    background-color: var(--buttons-normal);
+    border-color: var(--buttons-normal-border);
   }
   fieldset:has(nav, button.menu-button) button {
     display: flex !important;
   }
   fieldset:has(nav, button.menu-button) nav.menu {
+    display: none;
     border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--menu-collapse-background);
     position: fixed;
-    background-color: var(--menu-header-background);
-    width: 98%;
-    left: 0;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 10px 0px;
     bottom: 6rem;
     z-index: 999;
@@ -11314,6 +11336,10 @@ body {
 
 textarea {
   background-color: var(--input-group-textarea-background-color);
+}
+
+pre {
+  white-space: pre-wrap;
 }
 
 a {

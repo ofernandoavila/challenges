@@ -126,5 +126,10 @@ button {
         font-family: var(--icon-font-family-icons);
         content: var(--icon-menu);
     }
+
+    &[value="home"]::before {
+        font-family: var(--icon-font-family-icons);
+        content: var(--icon-home);
+    }
 }
 

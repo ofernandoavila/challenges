@@ -22,11 +22,12 @@ foreach($modules as $module) {
 }
 
 DebugMessage("Generating home.html file", true);
+$data['settings_css_path'] = '../useful/lib/style';
 GenerateHomeHTML($data);
 
 function GenerateHomeHTML($data) {
-    $html = FileManager::GetContentAsString(DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/home.php', true, $data);
-    DebugMessage(FileManager::ExportToHTML(HOME_DIR_URL . "/index", $html) !== false ? "Created!" : "Error\n", true);
+    $html = FileManager::GetContentAsString(DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/pages/home.php', true, $data);
+    DebugMessage(FileManager::ExportToHTML(ROOT_DOCUMENTATION_DIR_PATH . "/index", $html) !== false ? "Created!" : "Error\n", true);
 }
 
 foreach($modules as $module) {
@@ -39,7 +40,19 @@ foreach($modules as $module) {
     $data['description'] = $xml->description;
     $data['documentation_list'] = $xml->itens;
     $data['meta_description'] = $xml->title . " documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challenges";
+    $data['settings_css_path'] = ROOT_CSS_LIB_PATH;
+    $data['module'] = $module;
 
-    $html = FileManager::GetContentAsString(DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/refference_template.php', true, $data);
+    GenerateRefferenceHTML($data, $module);
+    GenerateMainHTML($data, $module);
+}
+
+function GenerateRefferenceHTML($data, $module) {
+    $html = FileManager::GetContentAsString(DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/pages/refference_template.php', true, $data);
     DebugMessage(FileManager::ExportToHTML(USEFUL_LIB_PATH . '/' . $module['path'] . '/documentation' . "/refference", $html) !== false ? "Created!" : "Error\n", true);
+}
+
+function GenerateMainHTML($data, $module) {
+    $html = FileManager::GetContentAsString(DOCUMENTATION_MANAGER_TEMPLATE_PATH . '/pages/main_docitem_page.php', true, $data);
+    DebugMessage(FileManager::ExportToHTML(USEFUL_LIB_PATH . '/' . $module['path'] . '/documentation' . "/index", $html) !== false ? "Created!" : "Error\n", true);
 }

@@ -1,3 +1,9 @@
+<footer>
+    <div class="container mg-top-auto">
+        <hr>
+        <a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+    </div>
+</footer>
 </body>
 <script src="../../../useful/main.js"></script>
 <script src="../../../useful/forms/forms.js"></script>

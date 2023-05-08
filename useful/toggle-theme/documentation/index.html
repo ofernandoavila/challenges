@@ -1,56 +1,71 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Toggle Theme documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challengesToggle Theme">
+    <link rel="stylesheet" href="../../lib/style/style.css">
+    <link rel="stylesheet" href="../../lib/style/documentation.css">
     <title>Documentation - Toggle Theme</title>
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../documentation-manager/documentation-manager.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/toggle-theme.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../toggle-theme/dark.css">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="../../reset.css">
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <a href="../../../index.html">Go back - Challenges</a>
-            <button class="toggle-theme"></button>
+<header class="menu fixed">
+    <div class="container">
+        <h1><a href="../../../index.html">Go back - Challenges</a></h1>
+        <button class="toggle-theme"></button>
+    </div>
+</header><div class="viewport h-vh-60 w-80 align-items-center justify-center">
+    <div class="row pd-top-10">
+        <div class="flex flex-1">
+            <fieldset class="w-100">
+                <button onclick="toggleMobileMenu()" class="btn btn-normal menu-button" value="menu"></button>
+                <nav class="menu menu-mobile-collapse">
+                    <ul id="documentation-menu">
+                            <li class="documentation-item">
+        <a href="refference.html#toggleTheme">toggleTheme</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#initToggleTheme">initToggleTheme</a>
+    </li>
+                    </ul>
+                </nav>
+            </fieldset>
         </div>
-    </header>
-    <div class="viewport">
-        <div class="container">
-            <div class="row pd-top-10">
-                <div class="column flex-1">
-                    <fieldset class="w-100">
-                        <button onclick="toggleMobileMenu()" class="btn btn-normal w-20 align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                        <nav>
-                            <ul id="documentation-menu"><li class="documentation-item"><a href="./refference.html#toggleTheme">toggleTheme</a></li><li class="documentation-item"><a href="./refference.html#initToggleTheme">initToggleTheme</a></li></ul>
-                        </nav>
-                    </fieldset>
-                </div>
-                <div class="column flex-3">
-                    <div class="breadcrumb">
-                        <ul>
-                            <li><a href="../../../documentation/index.html">Home</a></li>
-                            <li><a href="./index.html">Toggle Theme</a></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <h1>Toggle Theme</h1>
-                    </div>
-                    <div class="row align-self-center">
-                        <ul>
-                            <li><a href="./refference.html">Refferences</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="flex row flex-column flex-3">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="../../../documentation/index.html"><button class="btn btn-link" value="home"></button></a></li>
+                    <li><a href="./index.html">Toggle Theme</a></li>
+                    <li><a href="./refference.html">Refferences</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <h1>Toggle Theme</h1>
+            </div>
+            <div class="row align-self-center">
+                <ul>
+                    <li>
+                        <a href="./refference.html">Refferences</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
+<footer>
+    <div class="container mg-top-auto">
+        <hr>
+        <a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+    </div>
+</footer>
+</body>
+<script src="../../../useful/main.js"></script>
+<script src="../../../useful/forms/forms.js"></script>
+<script src="../../../useful/file_manager/file_manager.js"></script>
+<script src="../../../useful/toggle-theme/toggle-theme.js"></script>
+<script src="../../../useful/string-manager/string-manager.js"></script>
+<script src="../../../useful/documentation-manager/documentation-manager.js"></script>
 
-<script src="../../main.js"></script>
-<script src="../../forms/forms.js"></script>
-<script src="../../file_manager/file_manager.js"></script>
-<script src="../../toggle-theme/toggle-theme.js"></script>
-<script src="../../string-manager/string-manager.js"></script>
-<script src="../../documentation-manager/documentation-manager.js"></script>
-<script>function StartOnLoadPage() { LoadMenu("http://localhost/challenges/useful/toggle-theme/toggle-theme.js", 'main'); }</script>
-</body></html>
+</html>

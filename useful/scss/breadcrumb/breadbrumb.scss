@@ -2,8 +2,13 @@
     display: flex;
 
     & li {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        
         &::after {
-            content: ">";
+            font-family: var(--icon-font-family-icons);
+            content: var(--icon-angle-right);
             margin-left: 10px;
             margin-right: 10px;
         }

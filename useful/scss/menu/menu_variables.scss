@@ -1,7 +1,9 @@
 :root {
     --menu-header-background: #303030;
+    --menu-collapse-background: #fff;
 }
 
 :root.dark {
     --menu-header-background: #1c1c1c;
+    --menu-collapse-background: #2c2c2c;
 }

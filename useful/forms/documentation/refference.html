@@ -6,137 +6,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Forms documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challengesForms">
-    <link rel="stylesheet" href="../../../useful/documentation-manager/documentation-manager.css" />
-    <link rel="stylesheet" href="../../../useful/toggle-theme/toggle-theme.css" />
-    <link rel="stylesheet" href="../../../useful/toggle-theme/dark.css" />
-    <link rel="stylesheet" href="../../../useful/reset.css" />
+    <link rel="stylesheet" href="../../lib/style/style.css">
+    <link rel="stylesheet" href="../../lib/style/documentation.css">
     <title>Documentation - Forms</title>
 </head>
 
 <body>
-<header>
+<header class="menu fixed">
     <div class="container">
-        <a href="../../../index.html">Go back - Challenges</a>
-        <button class="toggle-theme">
-            <i class="fa-solid fa-moon"></i>
-        </button>
+        <h1><a href="../../../index.html">Go back - Challenges</a></h1>
+        <button class="toggle-theme"></button>
     </div>
-</header>
-<div class="viewport">
-    <div class="container">
-        <div class="row pd-top-10">
-            <div class="column flex-1">
-                <fieldset class="w-100">
-                    
-                    <button onclick="toggleMobileMenu()" class="btn btn-normal align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                    <nav>
-                        <ul id="documentation-menu">
-                                <li class="documentation-item">
-        <a href="#createElement">createElement</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#__DefineCreateElementOptions">__DefineCreateElementOptions</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#setId">setId</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleClass">ToggleClass</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#HasClass">HasClass</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#RemoveAllClasses">RemoveAllClasses</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#AssociateFunction">AssociateFunction</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#SwitchFunction">SwitchFunction</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#SwitchButton">SwitchButton</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#isChecked">isChecked</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#isDisabled">isDisabled</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#disabledField">disabledField</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#DisabledAll">DisabledAll</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleDisabledAll">ToggleDisabledAll</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleVisible">ToggleVisible</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleFields">ToggleFields</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleDisabled">ToggleDisabled</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ClearAllInputs">ClearAllInputs</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ClearAllTextareas">ClearAllTextareas</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#CheckForValidField">CheckForValidField</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ValidateField">ValidateField</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#InvalidateField">InvalidateField</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#HaveInvalidFields">HaveInvalidFields</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#ToggleRequired">ToggleRequired</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#RemoveInvalidGroup">RemoveInvalidGroup</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#SendAlert">SendAlert</a>
-    </li>
-    <li class="documentation-item">
-        <a href="#AddAttributeToElement">AddAttributeToElement</a>
-    </li>
-                        </ul>
-                    </nav>
-                </fieldset>
-            </div>
-            <div class="column flex-3">
-                <div class="breadcrumb">
-                    <ul>
-                        <li>
-                            <a href="../../../documentation/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./index.html">Documentation Manager</a>
-                        </li>
-                        <li>
-                            <a href="./refference.html">Refferences</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <h1>Refferences</h1>
-                </div>
-
-                <div class="row align-self-center">
-                    <ul id="documentation">
+</header><div class="viewport h-vh-60 w-80 align-items-center justify-center">
+    <div class="row pd-top-10">
+        <div class="flex flex-1">
+            <fieldset class="w-100">
+                <button onclick="toggleMobileMenu()" class="btn btn-normal menu-button" value="menu"></button>
+                <nav class="menu menu-mobile-collapse">
+                    <ul id="documentation-menu">
                             <li class="documentation-item">
+        <a href="refference.html#createElement">createElement</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#__DefineCreateElementOptions">__DefineCreateElementOptions</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#setId">setId</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleClass">ToggleClass</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#HasClass">HasClass</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#RemoveAllClasses">RemoveAllClasses</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#AssociateFunction">AssociateFunction</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#SwitchFunction">SwitchFunction</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#SwitchButton">SwitchButton</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#isChecked">isChecked</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#isDisabled">isDisabled</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#disabledField">disabledField</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#DisabledAll">DisabledAll</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleDisabledAll">ToggleDisabledAll</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleVisible">ToggleVisible</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleFields">ToggleFields</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleDisabled">ToggleDisabled</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ClearAllInputs">ClearAllInputs</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ClearAllTextareas">ClearAllTextareas</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#CheckForValidField">CheckForValidField</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ValidateField">ValidateField</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#InvalidateField">InvalidateField</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#HaveInvalidFields">HaveInvalidFields</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#ToggleRequired">ToggleRequired</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#RemoveInvalidGroup">RemoveInvalidGroup</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#SendAlert">SendAlert</a>
+    </li>
+    <li class="documentation-item">
+        <a href="refference.html#AddAttributeToElement">AddAttributeToElement</a>
+    </li>
+                    </ul>
+                </nav>
+            </fieldset>
+        </div>
+        <div class="flex row flex-column flex-3">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="../../../documentation/index.html"><button class="btn btn-link" value="home"></button></a></li>
+                    <li><a href="./index.html">Forms</a></li>
+                    <li><a href="./refference.html">Refferences</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <h1>Refferences</h1>
+            </div>
+            <div class="row align-self-center">
+                <ul id="documentation">
+                        <li class="documentation-item">
         <a class="anchor" id="createElement"></a>
         <h2 class="item-title">createElement</h2>
         <h5 class="item-signature">function createElement(type, options = [])</h5>
@@ -776,13 +762,18 @@
         </div>
     </li>
 
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
+<footer>
+    <div class="container mg-top-auto">
+        <hr>
+        <a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+    </div>
+</footer>
 </body>
 <script src="../../../useful/main.js"></script>
 <script src="../../../useful/forms/forms.js"></script>

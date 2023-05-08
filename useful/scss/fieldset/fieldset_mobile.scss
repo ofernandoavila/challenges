@@ -18,18 +18,26 @@
             width: 64px !important;
             height: 64px !important;
             border-radius: 50%;
+            position: absolute;
+            right: 4rem;
+            bottom: 2rem;
+            background-color: var(--buttons-normal);
+            border-color: var(--buttons-normal-border);
         }
-    
+
         &:has(nav, button.menu-button) button {
             display: flex !important;
         }
-    
+
         &:has(nav, button.menu-button) nav.menu {
+            display: none;
             border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--menu-collapse-background);
             position: fixed;
-            background-color: var(--menu-header-background);
-            width: 98%;
-            left: 0;
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px 0px;
             bottom: 6rem;
             z-index: 999;

@@ -6,62 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Toggle Theme documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challengesToggle Theme">
-    <link rel="stylesheet" href="../../../useful/documentation-manager/documentation-manager.css" />
-    <link rel="stylesheet" href="../../../useful/toggle-theme/toggle-theme.css" />
-    <link rel="stylesheet" href="../../../useful/toggle-theme/dark.css" />
-    <link rel="stylesheet" href="../../../useful/reset.css" />
+    <link rel="stylesheet" href="../../lib/style/style.css">
+    <link rel="stylesheet" href="../../lib/style/documentation.css">
     <title>Documentation - Toggle Theme</title>
 </head>
 
 <body>
-<header>
+<header class="menu fixed">
     <div class="container">
-        <a href="../../../index.html">Go back - Challenges</a>
-        <button class="toggle-theme">
-            <i class="fa-solid fa-moon"></i>
-        </button>
+        <h1><a href="../../../index.html">Go back - Challenges</a></h1>
+        <button class="toggle-theme"></button>
     </div>
-</header>
-<div class="viewport">
-    <div class="container">
-        <div class="row pd-top-10">
-            <div class="column flex-1">
-                <fieldset class="w-100">
-                    
-                    <button onclick="toggleMobileMenu()" class="btn btn-normal align-self-end menu-button"><i class="fa fa-bars"></i></button>
-                    <nav>
-                        <ul id="documentation-menu">
-                                <li class="documentation-item">
-        <a href="#toggleTheme">toggleTheme</a>
+</header><div class="viewport h-vh-60 w-80 align-items-center justify-center">
+    <div class="row pd-top-10">
+        <div class="flex flex-1">
+            <fieldset class="w-100">
+                <button onclick="toggleMobileMenu()" class="btn btn-normal menu-button" value="menu"></button>
+                <nav class="menu menu-mobile-collapse">
+                    <ul id="documentation-menu">
+                            <li class="documentation-item">
+        <a href="refference.html#toggleTheme">toggleTheme</a>
     </li>
     <li class="documentation-item">
-        <a href="#initToggleTheme">initToggleTheme</a>
+        <a href="refference.html#initToggleTheme">initToggleTheme</a>
     </li>
-                        </ul>
-                    </nav>
-                </fieldset>
-            </div>
-            <div class="column flex-3">
-                <div class="breadcrumb">
-                    <ul>
-                        <li>
-                            <a href="../../../documentation/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./index.html">Documentation Manager</a>
-                        </li>
-                        <li>
-                            <a href="./refference.html">Refferences</a>
-                        </li>
                     </ul>
-                </div>
-                <div class="row">
-                    <h1>Refferences</h1>
-                </div>
-
-                <div class="row align-self-center">
-                    <ul id="documentation">
-                            <li class="documentation-item">
+                </nav>
+            </fieldset>
+        </div>
+        <div class="flex row flex-column flex-3">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="../../../documentation/index.html"><button class="btn btn-link" value="home"></button></a></li>
+                    <li><a href="./index.html">Toggle Theme</a></li>
+                    <li><a href="./refference.html">Refferences</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <h1>Refferences</h1>
+            </div>
+            <div class="row align-self-center">
+                <ul id="documentation">
+                        <li class="documentation-item">
         <a class="anchor" id="toggleTheme"></a>
         <h2 class="item-title">toggleTheme</h2>
         <h5 class="item-signature">function toggleTheme(e = '')</h5>
@@ -76,14 +62,20 @@
             <pre>function toggleTheme(e = '') {
     e != '' ?? e.preventDefault();
     darkTheme = !darkTheme;
-    if (darkTheme) {
-        document.querySelector("button.toggle-theme i").classList.remove("fa-moon");
-        document.querySelector("button.toggle-theme i").classList.add("fa-sun");
+    if (darkTheme) {     &#xD;
+    //   document.querySelector("button.toggle-theme i").classList.remove("fa-moon");
+    //   document.querySelector("button.toggle-theme i").classList.add("fa-sun");
+
+        document.documentElement.style.removeProperty("--toggle-theme-icon");
+        document.documentElement.style.setProperty("--toggle-theme-icon", '"sun"');
         document.querySelector(":root").classList.add("dark");
     } else {
         document.querySelector(":root").classList.remove("dark");
-        document.querySelector("button.toggle-theme i").classList.add("fa-moon");
-        document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
+        document.documentElement.style.removeProperty("--toggle-theme-icon");
+        document.documentElement.style.setProperty("--toggle-theme-icon", '"moon"');
+
+        // document.querySelector("button.toggle-theme i").classList.add("fa-moon");
+        // document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
     }
    &#xD;
     SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());
@@ -132,13 +124,18 @@ btnToggleTheme.addEventListener("click", e => toggleTheme(e));</pre>
         </div>
     </li>
 
-                    </ul>
-                </div>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
+<footer>
+    <div class="container mg-top-auto">
+        <hr>
+        <a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+    </div>
+</footer>
 </body>
 <script src="../../../useful/main.js"></script>
 <script src="../../../useful/forms/forms.js"></script>
