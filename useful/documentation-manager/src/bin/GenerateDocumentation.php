@@ -23,6 +23,7 @@ foreach($modules as $module) {
 
 DebugMessage("Generating home.html file", true);
 $data['settings_css_path'] = '../useful/lib/style';
+$data['settings_js_path'] = '../useful';
 GenerateHomeHTML($data);
 
 function GenerateHomeHTML($data) {
@@ -41,6 +42,7 @@ foreach($modules as $module) {
     $data['documentation_list'] = $xml->itens;
     $data['meta_description'] = $xml->title . " documentation page builded by ofernandoavila access https://github.com/ofernandoavila/challenges";
     $data['settings_css_path'] = ROOT_CSS_LIB_PATH;
+    $data['settings_js_path'] = ROOT_JS_LIB_PATH;
     $data['module'] = $module;
 
     GenerateRefferenceHTML($data, $module);

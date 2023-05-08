@@ -8,4 +8,5 @@ define('DEFAULT_MENU_ITEM_URL', 'https://ofernandoavila.avilamidia.com/challenge
 define('HOME_DIR_URL', USEFUL_LIB_PATH . '/../documentation/');
 
 define('ROOT_CSS_LIB_PATH', '../../lib/style');
+define('ROOT_JS_LIB_PATH', '../..');
 define('ROOT_DOCUMENTATION_DIR_PATH', __DIR__ . '/../../../documentation');
