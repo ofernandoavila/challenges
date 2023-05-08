@@ -64,3 +64,10 @@ required to complete them while I'm into this challenge.
 | [IoT Mailbox Simulator](./10-DynamicCSSVariables/README.md)                                       | -              | ➖ |
 | [JS Input Validation](./10-DynamicCSSVariables/README.md)                                         | -              | ➖ |
 | [JSON2CSV](./17-JSON2CSV/README.md)                                                               | ⭐⭐⭐⭐      | ✔️ |
+
+
+<br /><br />
+
+## 📦 Versions
+
+[05/08/2023] - v1.0.0 - First stable version of Document Manager and CSS styles
