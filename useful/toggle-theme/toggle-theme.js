@@ -6,14 +6,20 @@
 function toggleTheme(e = '') {
     e != '' ?? e.preventDefault();
     darkTheme = !darkTheme;
-    if (darkTheme) {
-        document.querySelector("button.toggle-theme i").classList.remove("fa-moon");
-        document.querySelector("button.toggle-theme i").classList.add("fa-sun");
+    if (darkTheme) {      
+    //   document.querySelector("button.toggle-theme i").classList.remove("fa-moon");
+    //   document.querySelector("button.toggle-theme i").classList.add("fa-sun");
+
+        document.documentElement.style.removeProperty("--toggle-theme-icon");
+        document.documentElement.style.setProperty("--toggle-theme-icon", '"sun"');
         document.querySelector(":root").classList.add("dark");
     } else {
         document.querySelector(":root").classList.remove("dark");
-        document.querySelector("button.toggle-theme i").classList.add("fa-moon");
-        document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
+        document.documentElement.style.removeProperty("--toggle-theme-icon");
+        document.documentElement.style.setProperty("--toggle-theme-icon", '"moon"');
+
+        // document.querySelector("button.toggle-theme i").classList.add("fa-moon");
+        // document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
     }
     
     SaveInBrowser('ofernandoavila_challenges_prod', darkTheme.toString());

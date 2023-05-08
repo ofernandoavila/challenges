@@ -88,38 +88,43 @@ button {
     }
 
     &[value="download"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-download);
     }
     
     &[value="convert"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-convert);
     }
     
     &[value="copy2clipboard"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-copy2clipboard);
     }
     
     &[value="play"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-play);
     }
     
     &[value="start"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-start);
     }
     
     &[value="stop"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-stop);
     }
     
     &[value="remove"]::before {
-        font-family: var(--font-family-icons);
+        font-family: var(--icon-font-family-icons);
         content: var(--icon-remove);
+    }
+
+    &[value="menu"]::before {
+        font-family: var(--icon-font-family-icons);
+        content: var(--icon-menu);
     }
 }
 

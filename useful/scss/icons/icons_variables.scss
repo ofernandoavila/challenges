@@ -3,7 +3,7 @@
  * @description Defines the variables for icons
 */
 :root {
-    --font-family-icons: 'FontAwesome';
+    --icon-font-family-icons: "Font Awesome 6 Free Solid";
     --icon-download: "\f019";
     --icon-convert: "repeat";
     --icon-copy2clipboard: "copy";
@@ -13,4 +13,7 @@
     --icon-remove: "trash";
     --icon-arrow-left: "arrow-left";
     --icon-arrow-right: "arrow-right";
+    --icon-menu: "bars";
+    --icon-moon: "moon";
+    --icon-sun: "sun";
 }

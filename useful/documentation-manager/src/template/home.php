@@ -9,7 +9,7 @@ use function ofernandoavila\challenges\helpers\GetHeader;
 <header>
     <div class="container">
         <a href="../index.html">Go back - Challenges</a>
-        <button class="toggle-theme"><i class="fa-solid fa-moon"></i></button>
+        <button class="toggle-theme"></button>
     </div>
 </header>
 <div class="viewport">

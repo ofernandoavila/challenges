@@ -46,15 +46,15 @@
     }
     
     &.row-converter {
-        gap: 5rem;
+        gap: 4rem;
         
         .column:last-of-type::before {
-            font-family: var(--font-family-icons);
+            font-family: var(--icon-font-family-icons);
             content: var(--icon-arrow-right);
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: -4.8rem;
+            left: -3rem;
             
         }
     }

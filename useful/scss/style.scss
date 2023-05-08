@@ -1,3 +1,7 @@
+@import '../assets/font-awesome/6.4.0/scss/fontawesome.scss';
+@import "../assets/font-awesome/6.4.0/scss/solid.scss";
+@import "../assets/font-awesome/6.4.0/scss/brands.scss";
+
 @import './background/background_variables.scss';
 @import './border/border_variables.scss';
 @import './buttons/buttons_variables.scss';
@@ -8,6 +12,7 @@
 @import './icons/icons_variables.scss';
 @import './input-group/input-group_variables.scss';
 @import './menu/menu_variables.scss';
+@import './toggle-theme/toggle-theme_variables.scss';
 
 @import './breadcrumb/breadbrumb.scss';
 @import './buttons/buttons.scss';
@@ -32,10 +37,3 @@
 @import './menu/menu_mobile.scss';
 
 @import './reset.scss';
-
-//FontAwesome Import
-@import '../assets/font-awesome/6.4.0/scss/brands.scss';
-@import '../assets/font-awesome/6.4.0/scss/fontawesome.scss';
-@import '../assets/font-awesome/6.4.0/scss/regular.scss';
-@import '../assets/font-awesome/6.4.0/scss/solid.scss';
-@import '../assets/font-awesome/6.4.0/scss/v4-shims.scss';

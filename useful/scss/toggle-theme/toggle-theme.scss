@@ -12,14 +12,13 @@
     background: none;
     align-items: center;
     border: none;
-    font-size: 24px;
     bottom: -50px;
     right: 0;
 
-    &::before {
-        content: "Toggle theme";
-        font-size: 14px;
-        margin-right: 10px;
+    &::after {
+        font-family: var(--icon-font-family-icons);
+        content: var(--toggle-theme-icon);
+        font-size: var(--toggle-theme-icon-size);
     }
 
 
