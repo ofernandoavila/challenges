@@ -11262,9 +11262,9 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 0px;
-    bottom: 6rem;
+    bottom: 7rem;
     z-index: 999;
-    max-height: 80vh;
+    max-height: 75vh;
     overflow: auto;
   }
 }
