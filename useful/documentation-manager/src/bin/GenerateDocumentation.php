@@ -22,7 +22,7 @@ foreach($modules as $module) {
 }
 
 DebugMessage("Generating home.html file", true);
-$data['settings_root_path'] = '../..';
+$data['settings_root_path'] = '..';
 $data['settings_css_path'] = '../useful/lib/style';
 $data['settings_js_path'] = '../useful';
 GenerateHomeHTML($data);
