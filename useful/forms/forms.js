@@ -118,7 +118,7 @@ function __DefineCreateElementOptions(element, options) {
 
 			case "content":
 				if (typeof option.value == "object") {
-					if (option.value instanceof DOMException) {
+					if (option.value instanceof Error) {
 						element.innerHTML += option.value.message;
 					} else {
 						option.value.forEach((item) => {
