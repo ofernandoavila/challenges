@@ -56,13 +56,40 @@ class Customer {
 		console.log(request);
 
 		request.onupgradeneeded = function (event) {
+			console.log("Populating customers...");
 			const db = event.target.result;
-			const objectStore = db.createObjectStore("customers", {
-				keyPath: "id",
-			});
+			var version = parseInt(db.version);
+			db.close();
+			const objectStore = indexedDB.open(DBNAME, version + 1);
+
+			objectStore.onupgradeneeded = (e) => {
+				var database = e.target.result;
+				var OS = database.createObjectStore("customers", {
+					keyPath: "userid",
+				});
+
+				// Create an index to search customers by name and email
+				OS.createIndex("name", "name", { unique: false });
+				OS.createIndex("email", "email", { unique: true });
+
+				// Populate the database with the initial set of rows
+				customerData.forEach(function (customer) {
+					OS.put(customer);
+				});
+			};
+
+			objectStore.onerror = (event) => {
+				console.log(
+					"initialLoad - objectStore error: ",
+					event.target.error.code,
+					" - ",
+					event.target.error.message,
+				);
+			};
 		};
 
 		request.onerror = (event) => {
+			
 			console.log(
 				"initialLoad - Database error: ",
 				event.target.error.code,
@@ -74,27 +101,46 @@ class Customer {
 		request.onsuccess = (event) => {
 			console.log("Populating customers...");
 			const db = event.target.result;
-			const objectStore = db.createObjectStore("customers", {
-				keyPath: "userid",
-			});
-			objectStore.onerror = (event) => {
-				console.log(
-					"initialLoad - objectStore error: ",
-					event.target.error.code,
-					" - ",
-					event.target.error.message,
-				);
+			var version = parseInt(db.version);
+			db.close();
+			const objectStore = indexedDB.open(DBNAME, version + 1);
+
+			objectStore.onupgradeneeded = (e) => {
+				try {
+					// var database = e.target.result;
+
+					// var OS = database.transaction.objectStore("customers");
+					// // Create an index to search customers by name and email
+					// OS.createIndex("name", "name", { unique: false });
+					// OS.createIndex("email", "email", { unique: true });
+					// customerData.forEach(function (customer) {
+					// 	OS.put(customer);
+					// });
+				} catch (error) {
+					AddLogMessage(error);
+					AddNotification(error, "danger");
+				}
 			};
 
-			// Create an index to search customers by name and email
-			objectStore.createIndex("name", "name", { unique: false });
-			objectStore.createIndex("email", "email", { unique: true });
+			objectStore.onsuccess = (event) => {
+				try {
+					var database = event.target.result;
+					var OS = database.objectStore("customers");
+					// Create an index to search customers by name and email
+					OS.createIndex("name", "name", { unique: false });
+					OS.createIndex("email", "email", { unique: true });
 
-			// Populate the database with the initial set of rows
-			customerData.forEach(function (customer) {
-				objectStore.put(customer);
-			});
-			db.close();
+					// Populate the database with the initial set of rows
+					customerData.forEach(function (customer) {
+						OS.put(customer);
+					});
+
+					event.target.result.close();
+				} catch (error) {
+					AddLogMessage(error);
+					AddNotification(error, "danger");
+				}
+			};
 		};
 	}
 }
