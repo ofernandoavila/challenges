@@ -4,8 +4,9 @@
  * @returns {void}
  */
 function AddLogMessage(message) {
-    if(document.querySelector('p.empty-log') == undefined) throw new Error("Log container not foud!");
-    if(document.querySelector('p.empty-log') != undefined) document.querySelector('p.empty-log').remove();
+    if(document.querySelector('.log-container pre') == undefined) throw new Error("Log container not foud!");
+    if (document.querySelector('p.empty-log') != undefined) document.querySelector('p.empty-log').remove();
+    
     let finalMessage = "[" + DateToString() + "] " + message;
 
     if(logContainer.querySelectorAll('p').length > 0) {

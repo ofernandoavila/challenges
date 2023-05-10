@@ -117,10 +117,14 @@ function __DefineCreateElementOptions(element, options) {
 				break;
 
 			case "content":
-				if(typeof option.value == "object") {
-					option.value.forEach( item => {
-						element.innerHTML += item;
-					});
+				if (typeof option.value == "object") {
+					if (option.value instanceof Error) {
+						element.innerHTML += option.value.message;
+					} else {
+						option.value.forEach((item) => {
+							element.innerHTML += item.toString();
+						});
+					}
 				} else element.innerHTML = option.value;
 				break;
 

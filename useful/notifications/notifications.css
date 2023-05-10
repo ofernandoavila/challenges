@@ -1,41 +1,41 @@
 #notifications:has(p) {
-    padding: 15px 10px;
-    background-color: dodgerblue;
-    border: 1px solid #0166ca;
-    border-radius: 5px;
-    margin-bottom: 20PX;
-}
+	padding: 15px 10px;
+	background-color: dodgerblue;
+	border: 1px solid #0166ca;
+	border-radius: 5px;
+	margin-bottom: 20px;
 
-#notifications.danger {
-    background-color: rgb(255, 30, 30);
-    border-color: #ca0101;
-}
+	&.danger {
+		background-color: rgb(255, 30, 30);
+		border-color: #ca0101;
+	}
 
-#notifications.success {
-    background-color: rgb(63 149 77);
-    border-color: #2c9b00;
-}
+	&.success {
+		background-color: rgb(63 149 77);
+		border-color: #2c9b00;
+	}
 
-#notifications.warning {
-    background-color: #FFC107;
-    border-color: #dda600;
-    color: #000;
-}
+	&.warning {
+		background-color: #ffc107;
+		border-color: #dda600;
+		color: #000;
+	}
 
-#notifications.pop-notification {
-    animation: 8.3s notification-pop infinite;
-}
+	&.pop-notification {
+		animation: 8.3s notification-pop infinite;
+	}
 
-@keyframes notification-pop {
-    0% {
-        opacity: 1;
-    }
+	@keyframes notification-pop {
+		0% {
+			opacity: 1;
+		}
 
-    70% {
-        opacity: 1;
-    }
+		70% {
+			opacity: 1;
+		}
 
-    100% {
-        opacity: 0;
-    }
+		100% {
+			opacity: 0;
+		}
+	}
 }

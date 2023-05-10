@@ -1,16 +1,10 @@
-var db = new Customer('database');
-
-function StartOnLoadPage() {
-    db.initialLoad([
-        { userid: '1', name: 'Fernando', email: 'fernandoavilajunior@gmail.com' },
-        { userid: '2', name: 'Woody', email: 'woody_ocao@gmail.com' },
-        { userid: '4', name: 'Jack', email: 'jack_ocao@gmail.com' }
-    ]);
-}
-
 function LoadDB() {
-    AddLogMessage('DB loaded!');
-    AddNotification('The database was loaded!', 'success');
+	const customerData = [
+		{ userid: "444", name: "Bill", email: "bill@company.com" },
+		{ userid: "555", name: "Donna", email: "donna@home.org" },
+	];
+	let customer = new Customer(DBNAME);
+	customer.initialLoad(customerData);
 }
 
 function FetchDB() {
