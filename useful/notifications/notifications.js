@@ -3,21 +3,18 @@
  * @param {string} message Message to be added into notification container
  * @param {string} type Defines the type of message
  * @returns {void}
- */
+*/
 function AddNotification(message, type = "") {
-    if (notificationsContainer.innerHTML.trim() == "") {
-        if (notificationsContainer.classList.length > 0)
-            RemoveAllClasses(notificationsContainer);
-    } else {
-        if (notificationsContainer.classList.length > 0)
-            RemoveAllClasses(notificationsContainer);
+    if(message == "" || type == "") throw "One or more arguments are null!";
+    let notificationsContainer = document.getElementById("notifications");
+    RemoveAllClasses(notificationsContainer);
 
-        notificationsContainer.innerHTML = "";
-    }
+    if (notificationsContainer.innerHTML.trim() == "") notificationsContainer.innerHTML = "";
 
     PopMessage(message, type);
 
     setTimeout(() => {
+        
         notificationsContainer.innerHTML = "";
     }, 8000);
 }
@@ -37,6 +34,8 @@ function PopMessage(message, type) {
     )
         throw "Invalid type for notification message!";
 
+    let notificationsContainer = document.getElementById("notifications");
+
     if (notificationsContainer.innerHTML != "")
         notificationsContainer.innerHTML = "";
 
@@ -46,5 +45,3 @@ function PopMessage(message, type) {
     );
     notificationsContainer.classList.add("pop-notification");
 }
-
-const notificationsContainer = document.getElementById("notifications");

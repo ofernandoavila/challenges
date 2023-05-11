@@ -10914,6 +10914,18 @@ footer {
   margin-right: 0;
 }
 
+#logs {
+  flex: 1;
+}
+#logs fieldset {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#logs fieldset p {
+  padding: 10px 0px;
+}
+
 .mg-top-10 {
   margin-top: 10px;
 }
