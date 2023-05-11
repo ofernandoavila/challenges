@@ -1,0 +1,15 @@
+#logs {
+    flex: 1;
+
+    fieldset{
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    
+        p {
+            padding: 10px 0px;
+        }
+    }
+
+
+}
