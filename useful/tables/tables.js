@@ -15,34 +15,33 @@ function CreateTable(tableId, object) {
     ]);
 
     Object.keys(object).forEach(item => {
-        let item = createElement('li', [
+        let div = createElement('div', [
             { key: 'content', value: item }
         ]);
 
-        head.appendChild(item);
+        head.appendChild(div);
     });
 
     table.appendChild(head);
+
+    return table;
 }
 
 /**
  * @description Insert an item into the given table
  * @param {object} object The main table object
- * @param {string} tableId Table id
  */
-function CreateTableItem(object, tableId) {
+function CreateTableItem(object) {
     if (typeof object != "object") throw new Error("The object given is invalid");
-    let table = document.querySelector(`#${tableId}`);
-
     let item = createElement("div", [
 		{ key: "class", value: ["item"] },
 	]);
 
 	Object.values(object).forEach((value) => {
-		let div = createElement("li", [{ key: "content", value }]);
+		let div = createElement("div", [{ key: "content", value }]);
 
 		item.appendChild(div);
 	});
-
-	table.appendChild(item);
+    
+    return item;
 }
