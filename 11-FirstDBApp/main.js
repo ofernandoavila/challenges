@@ -7,18 +7,18 @@ async function LoadDB() {
 	// // customer.initialLoad(customerData);
 
 	AddLogMessage("Creating Database");
-	// const dbManager = new IndexedDBManager("myDatabase", "myStore");
+	const dbManager = new IndexedDBManager("myDatabase", "myStore");
 
-	// await dbManager.connect();
+	await dbManager.connect();
 
-	// const users = [
-	// 	{ userId: 2, name: "Jane Smith", email: "jane.smith@example.com" },
-	// 	{ userId: 3, name: "Bob Johnson", email: "bob.johnson@example.com" },
-	// ];
-	// const user = { userId: 1, name: "John Doe", email: "john.doe@example.com" };
-	// await dbManager.initialLoad(users);
+	const users = [
+		{ userId: 2, name: "Jane Smith", email: "jane.smith@example.com" },
+		{ userId: 3, name: "Bob Johnson", email: "bob.johnson@example.com" },
+	];
+	const user = { userId: 1, name: "John Doe", email: "john.doe@example.com" };
+	await dbManager.initialLoad(users);
 	
-	// await dbManager.insertUser(user);
+	await dbManager.insertUser(user);
 }
 
 async function FetchDB() {
@@ -28,12 +28,20 @@ async function FetchDB() {
 	await dbManager.connect();
 
 	// chame a função getAllDataFromStore para obter todos os dados na loja
-	const allData = await dbManager.getAllDataFromStore();
-
-	// imprima o resultado no console
-	console.log(allData);
     AddLogMessage('DB fetch!');
     AddNotification('The database was fetched!', 'success');
+	const allData = await dbManager.getAllDataFromStore();
+
+	
+	let container = document.querySelector('#DB-rows fieldset');
+
+	let table = CreateTable("customers", allData[0]);
+	
+	allData.forEach(element => {
+		table.appendChild(CreateTableItem(element));
+	});
+
+	container.appendChild(table);
 }
 
 function ClearDB() {
