@@ -13,7 +13,9 @@ use function ofernandoavila\challenges\helpers\GetHeader;
         </div>
         <div class="row justify-center w-40">
             <div class="column">
-                <h3 class="align-text-center">Recently Added</h3>
+                <div class="text-header">
+                    <h3 class="align-text-center">Recently Added</h3>
+                </div>
                 <div class="row row-flex-column  pd-top-10">
                     <?php foreach ($data['modules'] as $module) : ?>
                         <a href="../useful/<?= $module['path']; ?>/documentation/index.html"><?= $module['name']; ?></a>
