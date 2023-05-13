@@ -16,6 +16,7 @@ async function LoadDB() {
 		{ userId: 3, name: "Bob Johnson", email: "bob.johnson@example.com" },
 	];
 	const user = { userId: 1, name: "John Doe", email: "john.doe@example.com" };
+
 	await dbManager.initialLoad(users);
 	
 	await dbManager.insertUser(user);
@@ -35,13 +36,12 @@ async function FetchDB() {
 	
 	let container = document.querySelector('#DB-rows fieldset');
 
-	let table = CreateTable("customers", allData[0]);
+	let table = new Table("customers", allData[0], container);
+	// let table = CreateTable("customers", allData[0]);
 	
 	allData.forEach(element => {
-		table.appendChild(CreateTableItem(element));
+		table.CreateItem(element);
 	});
-
-	container.appendChild(table);
 }
 
 function ClearDB() {
