@@ -11182,24 +11182,25 @@ footer {
 }
 .table .item {
   padding: 10px 0px;
-  display: grid;
-  text-align: center;
+  flex: 1 1;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.table .item div ul {
-  display: flex;
+.table .item div {
+  text-align: center;
 }
-.table .item div ul li {
-  margin-right: 10px;
+.table .item.item-size-1 div {
+  min-width: 100px;
+  max-width: 100px;
 }
-.table .item div ul li:last-of-type {
-  margin-right: 0px;
+.table .item.item-size-2 div {
+  min-width: 200px;
+  max-width: 200px;
 }
-.table .item div:nth-child(1), .table .item div:nth-child(2) {
-  text-align: left;
-}
-.table .item div:nth-child(2) {
-  margin-left: 10px;
+.table .item.item-size-3 div {
+  min-width: 300px;
+  max-width: 300px;
 }
 
 .text-align-left {
