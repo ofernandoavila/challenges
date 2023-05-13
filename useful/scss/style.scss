@@ -1,6 +1,4 @@
-@import '../assets/font-awesome/6.4.0/scss/fontawesome.scss';
-@import "../assets/font-awesome/6.4.0/scss/solid.scss";
-@import "../assets/font-awesome/6.4.0/scss/brands.scss";
+@import './font/font.scss';
 
 @import './background/background_variables.scss';
 @import './border/border_variables.scss';
@@ -20,7 +18,6 @@
 @import './container/container.scss';
 @import './fieldset/fieldset.scss';
 @import './flexbox/flexbox.scss';
-@import './font/font.scss';
 @import './footer/footer.scss';
 @import './grid/grid.scss';
 @import './input-group/input-group.scss';

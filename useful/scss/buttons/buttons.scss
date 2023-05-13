@@ -131,5 +131,10 @@ button {
         font-family: var(--icon-font-family-icons);
         content: var(--icon-home);
     }
+
+    &[value="plus"]::before {
+        font-family: var(--icon-font-family-icons);
+        content: var(--icon-add);
+    }
 }
 
