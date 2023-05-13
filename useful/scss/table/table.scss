@@ -29,21 +29,21 @@
 			&1 {
 				div {
 					min-width: 100px;
-					max-width: 100px;
+					max-width: auto;
 				}
 			}
 
 			&2 {
 				div {
 					min-width: 200px;
-					max-width: 200px;
+					max-width: auto;
 				}
 			}
 
             &3 {
                 div {
                     min-width: 300px;
-                    max-width: 300px;
+                    max-width: auto;
                 }
             }
 		}
