@@ -11,12 +11,18 @@ function toggleTheme(e = '') {
     //   document.querySelector("button.toggle-theme i").classList.add("fa-sun");
 
         document.documentElement.style.removeProperty("--toggle-theme-icon");
-        document.documentElement.style.setProperty("--toggle-theme-icon", '"sun"');
+        document.documentElement.style.setProperty(
+			"--toggle-theme-icon",
+			"var(--icon-sun)",
+		);
         document.querySelector(":root").classList.add("dark");
     } else {
         document.querySelector(":root").classList.remove("dark");
         document.documentElement.style.removeProperty("--toggle-theme-icon");
-        document.documentElement.style.setProperty("--toggle-theme-icon", '"moon"');
+        document.documentElement.style.setProperty(
+			"--toggle-theme-icon",
+			"var(--icon-moon)",
+		);
 
         // document.querySelector("button.toggle-theme i").classList.add("fa-moon");
         // document.querySelector("button.toggle-theme i").classList.remove("fa-sun");
