@@ -115,6 +115,10 @@
 }
 
 .justify {
+    &-left {
+        justify-content: flex-start;
+    }
+
     &-center {
         justify-content: center;
     }

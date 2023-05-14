@@ -492,6 +492,9 @@ fieldset {
   align-self: flex-end;
 }
 
+.justify-left {
+  justify-content: flex-start;
+}
 .justify-center {
   justify-content: center;
 }
@@ -913,6 +916,12 @@ footer {
   margin-bottom: 10px;
   border-bottom: 1px solid var(--border-color);
 }
+.table.justify-left .item {
+  justify-content: flex-start;
+}
+.table.justify-left .item div {
+  text-align: left;
+}
 .table .item {
   padding: 10px 0px;
   flex: 1 1;
@@ -922,6 +931,10 @@ footer {
 }
 .table .item div {
   text-align: center;
+}
+.table .item ul {
+  display: flex;
+  gap: 10px;
 }
 .table .item.item-size-1 div {
   min-width: 100px;
