@@ -1,9 +1,10 @@
-@import '../../assets/font-awesome/6.4.0/scss/fontawesome.scss';
-@import "../../assets/font-awesome/6.4.0/scss/solid.scss";
-@import "../../assets/font-awesome/6.4.0/scss/brands.scss";
-
 @font-face {
-    font-family: "Font Awesome 6 Free";
-    src: url('../../assets/font-awesome/6.4.0/webfonts/fa-solid-900.woff2');
+    font-family: "Font Awesome 6 Free Solid";
+    src: url('../../assets/font-awesome/6.4.0/webfonts/fa-solid-900.woff2') format('woff2');
     font-weight: 900;
 }
+
+
+// @import '../../assets/font-awesome/6.4.0/scss/fontawesome.scss';
+// @import "../../assets/font-awesome/6.4.0/scss/solid.scss";
+// @import "../../assets/font-awesome/6.4.0/scss/brands.scss";
