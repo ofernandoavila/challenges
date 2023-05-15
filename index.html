@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
     <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="useful/lib/style/style.css">
+    <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
     <title>Challenges by ofernandoavila</title>
 </head>
 <body>
-    <header class="menu fixed menu-mobile-spry">
-        <div class="container">
+    <header class="menu fixed align-self-center menu-mobile-spry">
+        <div class="menu-container">
             <h1>ofernandoavila/challenges</h1>
             <button onclick="toggleMobileMenu()" class="menu-button" value="menu"></button>
             <nav>
@@ -22,33 +22,38 @@
             </nav>
         </div>
     </header>
-    <div class="viewport w-80 h-auto align-self-center align-items-center">
-        <section>
-            <h1>🚩 Challenges 🚩</h1>
+    <div class="viewport h-auto align-self-center align-items-center">
+        <div class="row flex-column align-items-center">
+            <div class="text-header">
+                <h1>🚩 Challenges 🚩</h1>
+            </div>
             <p>🪂 Simple solutions for <a href="https://github.com/florinpop17/app-ideas">App Ideas Collection</a> 's projects .</p>
-        </section>
-        <section>
-            <h2>❔ About</h2>
-            <p>
-                You must probably be wondering why this repository, right? 
-                so here we go:
+        </div>
+        <div class="row flex-column align-items-center">
+            <div class="text-header pd-top-50">
+                <h2>❔ About</h2>
+            </div>
+            <p class="pd-tb-20">
+                You must probably be wondering why this repository, right? So here we go:
             </p>
             
-            <ul class="list">
+            <ul class="list list-items-1">
                 <li>I don't like to go to the gym, so this is my daily exercise 💪</li>
                 <li>sometimes I write some pretties codes but I always lost them 😶</li>
                 <li>it's a perfect way to show my knowledges with code 🤓</li>
                 <li>forces me to every day add some code to this repo and keep my github pretty 😎</li>
                 <li>Feel free to download and study what ever you want 😁</li>
             </ul>
-        </section>
+        </div>
 
-        <section>
-            <h2>📜 Projects</h2>
+        <div class="row flex-column align-items-center">
+            <div class="text-header pd-top-50">
+                <h2>📜 Projects</h2>
+            </div>
             <p>
                 Projects are divided into three tiers based on my skills and experience required to complete them while I'm into this challenge.
             </p>
-            <div class="table justify-left" id="projects-legend">
+            <div class="table justify-left text-align-left" id="projects-legend">
                 <div class="item item-size-1 head">
                     <div>Tier</div>
                     <div>Developer Profile</div>
@@ -68,13 +73,20 @@
             </div>
 
             <br><br>
-            <p>Legend:</p>
-            <p>➖ : Backlog </p>
-            <p>🚧 : In development</p>
-            <p>✔️ : Done! </p>
+            <div class="row flex-column text-align-left">
+                <p>Legend:</p>
+                <p>➖ : Backlog </p>
+                <p>🚧 : In development</p>
+                <p>✔️ : Done! </p>
+            </div>
 
-            <h3>Tier 1: I'm getting confortable with the challenge idea</h3>
-            <div class="table justify-left" id="projects">
+            <div class="row">
+                <div class="text-header pd-top-50">
+                <h3 class="text-align-left">Tier 1: I'm getting confortable with the challenge idea</h3>
+            </div>
+
+            </div>
+            <div class="table justify-between" id="projects">
                 <div class="head item item-size-2">
                     <div>Project Name</div>
                     <div>Rate by me</div>
@@ -139,7 +151,7 @@
                 <div class="item item-size-2">
                     <div><a href="./6-ColorCycle/index.html">Color Cycle</a></div>
                     <div>⭐⭐⭐</div>
-                    <div>🚧</div>
+                    <div>✔️</div>
                     <div>
                         <ul>
                             <li><a href="./6-ColorCycle/index.html">Project</a></li>
@@ -183,8 +195,8 @@
 
                 <div class="item item-size-2">
                     <div><a href="./10-DynamicCSSVariables/index.html">DynamicCSSVariables</a></div>
-                    <div>-</div>
-                    <div>➖</div>
+                    <div>⭐</div>
+                    <div>✔️</div>
                     <div>
                         <ul>
                             <li><a href="./10-DynamicCSSVariables/index.html">Project</a></li>
@@ -196,7 +208,7 @@
                 <div class="item item-size-2">
                     <div><a href="./11-FirstDBApp/index.html">First DB App</a></div>
                     <div>-</div>
-                    <div>➖</div>
+                    <div>🚧</div>
                     <div>
                         <ul>
                             <li><a href="./11-FirstDBApp/index.html">Project</a></li>
@@ -277,8 +289,16 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>            
     </div>
+    <footer>
+    <div class="viewport h-auto align-self-center align-items-center">
+        <hr>
+        <div class="row justify-between align-items-center">
+            <a href="https://github.com/ofernandoavila/challenges/" class="signature">@ofernandoavila | 2023</a>
+        </div>
+    </div>
+</footer>
 </body>
 <script src="useful/main.js"></script>
 <script src="useful/toggle-theme/toggle-theme.js"></script>
