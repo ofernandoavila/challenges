@@ -52,12 +52,12 @@ required to complete them while I'm into this challenge.
 | [Calculator](./3-Calculator/README.md)                                                            | ⭐⭐⭐⭐⭐    | ✔️ |
 | [Christmas Lights](./4-ChristmasLights/README.md)                                                 | ⭐⭐⭐⭐      | ✔️ |
 | [Cause Effect App](./5-CauseEffectApp/README.md)                                                  | ⭐⭐⭐⭐⭐    | ✔️ |
-| [Color Cycle](./6-ColorCycle/README.md)                                                           | ⭐⭐⭐        | 🚧 |
+| [Color Cycle](./6-ColorCycle/README.md)                                                           | ⭐⭐⭐        | ✔️ |
 | [Countdown Timer](./7-CountdownTimer/README.md)                                                   | ⭐⭐⭐⭐⭐    | ✔️ |
-| [CSV2JSON](./8-CSV2JSON/README.md)                                                                | ⭐⭐⭐        | ➖ |
+| [CSV2JSON](./8-CSV2JSON/README.md)                                                                | ⭐⭐⭐        | ✔️ |
 | [Dollar To Cents](./9-DollarToCents/README.md)                                                    | ⭐⭐           | ✔️ |
-| [Dynamic CSS Variables](./10-DynamicCSSVariables/README.md)                                       | -              | ➖ |
-| [First DB App](./11-FirstDBApp/README.md)                                                         | -              | ➖ |
+| [Dynamic CSS Variables](./10-DynamicCSSVariables/README.md)                                       | ⭐             | ✔️ |
+| [First DB App](./11-FirstDBApp/README.md)                                                         | -              | 🚧 |
 | [Flip Image](./10-DynamicCSSVariables/README.md)                                                  | -              | ➖ |
 | [Github Status](./10-DynamicCSSVariables/README.md)                                               | -              | ➖ |
 | [Hello](./10-DynamicCSSVariables/README.md)                                                       | -              | ➖ |
