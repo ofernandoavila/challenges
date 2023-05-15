@@ -15,14 +15,14 @@
     }
 
     .row.row-converter .column:has(textarea):last-of-type::before {
-        content: "arrow-down";
+        content: var(--icon-arrow-down);
         left: 50%;
         transform: translateX(-50%);
         top: -10%;
     }
 
     .row.row-converter .column:has(input):last-of-type::before {
-        content: "arrow-down";
+        content: var(--icon-arrow-down);
         left: 50%;
         transform: translateX(-50%);
         top: -100%;

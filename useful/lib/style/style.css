@@ -106,6 +106,7 @@
   --icon-remove: "";
   --icon-arrow-left: "";
   --icon-arrow-right: "";
+  --icon-arrow-down: "";
   --icon-menu: "";
   --icon-moon: "";
   --icon-sun: "";
@@ -285,6 +286,374 @@ button[value=plus]::before {
   content: var(--icon-add);
 }
 
+fieldset {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+footer {
+  padding-top: var(--footer-padding-top);
+  padding-bottom: var(--footer-padding-bottom);
+  background-color: var(--footer-background-color);
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(1fr, var(--grid-columns));
+  grid-template-rows: repeat(1fr, var(--grid-columns));
+}
+
+/**
+ * @title Input Group
+ * @description The best way to integrate inputs in the Useful Lib
+*/
+.input-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.input-group label {
+  width: fit-content;
+  white-space: nowrap;
+}
+.input-group textarea {
+  resize: none;
+  min-height: 400px;
+  color: var(--textarea-font-color);
+}
+.input-group textarea:disabled {
+  resize: none;
+  min-height: 400px;
+  background-color: var(--textarea-background-color-disabled);
+}
+.input-group:has(textarea) label {
+  color: var(--textarea-font-color);
+}
+.input-group:has(textarea:active) label, .input-group:has(textarea:focus) label {
+  color: var(--textarea-font-color-active);
+}
+.input-group:has(textarea:disabled) label {
+  color: var(--textarea-font-color-disabled);
+}
+.input-group.invalid-group {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.input-group.invalid-group input,
+.input-group.invalid-group textarea {
+  border-color: var(--border-color-danger);
+  box-shadow: 0px 0px 5px var(--border-color-danger);
+}
+.input-group.invalid-group label {
+  color: var(--border-color-danger);
+}
+.input-group.invalid-group input + label {
+  transform: none !important;
+  top: 15% !important;
+}
+.input-group.invalid-group p {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  color: var(--font-color-danger);
+}
+.input-group.invalid-group p::before {
+  font-family: "Font Awesome 6 Free Solid";
+  content: "\f05a";
+  margin-right: 10px;
+}
+.input-group input[type=text]:focus + label, .input-group input[type=text]:active + label, .input-group input[type=text]:not(:placeholder-shown) + label, .input-group input[type=number]:focus + label, .input-group input[type=number]:active + label, .input-group input[type=number]:not(:placeholder-shown) + label, .input-group input[type=date]:focus + label, .input-group input[type=date]:active + label, .input-group input[type=date]:not(:placeholder-shown) + label, .input-group input[type=datetime-local]:focus + label, .input-group input[type=datetime-local]:active + label, .input-group input[type=datetime-local]:not(:placeholder-shown) + label, .input-group input[type=password]:focus + label, .input-group input[type=password]:active + label, .input-group input[type=password]:not(:placeholder-shown) + label, .input-group textarea:focus + label, .input-group textarea:not(:placeholder-shown) + label {
+  left: 0;
+  top: -30px;
+  transform: translateY(0);
+  color: var(--font-color-label-hover);
+}
+.input-group input[type=range] {
+  margin: 0px 25px;
+}
+.input-group.input-group-range label {
+  color: var(--font-color-label-hover);
+}
+.input-group input[type=text] + label, .input-group input[type=number] + label, .input-group input[type=date] + label, .input-group input[type=datetime-local] + label, .input-group input[type=password] + label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+.input-group textarea ~ label {
+  position: absolute;
+  top: 5%;
+  transform: translateY(-10%);
+  left: 10px;
+}
+.input-group input[type=radio] + label {
+  color: var(--font-color);
+  margin-left: 10px;
+}
+.input-group input[type=checkbox] {
+  width: fit-content;
+}
+.input-group input[type=checkbox] + label {
+  color: var(--font-color-hover);
+  margin-left: 10px;
+}
+.input-group ul.list li {
+  list-style: inside;
+  list-style-type: square;
+}
+.input-group input, .input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: none;
+}
+.input-group input[type=color] {
+  width: revert;
+  padding: 0;
+  border-radius: 0;
+}
+.input-group input[type=color] + label {
+  margin-left: 10px;
+  position: relative;
+  color: var(--font-color);
+}
+.input-group label {
+  transition: 0.3s;
+  color: var(--font-color-label);
+}
+
+.input-radio-mode {
+  flex-direction: row;
+}
+.input-radio-mode .input-group {
+  margin-right: 20px;
+}
+.input-radio-mode .input-group:last-of-type {
+  margin-right: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.list.list-items-1 {
+  gap: 10px;
+}
+.list.list-items-2 {
+  gap: 20px;
+}
+.list.list-items-3 {
+  gap: 30px;
+}
+.list.list-items-4 {
+  gap: 40px;
+}
+.list.list-items-5 {
+  gap: 50px;
+}
+
+#logs {
+  flex: 1;
+}
+#logs fieldset {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#logs fieldset p {
+  padding: 10px 0px;
+}
+
+.menu {
+  width: 100%;
+  min-height: 50px;
+  background-color: var(--menu-header-background);
+  color: var(--font-color-header-menu);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.menu .menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--container-size);
+  margin: 0 auto;
+}
+.menu.menu-mobile-collapse {
+  background-color: var(--menu-collapse-background);
+}
+.menu.fixed {
+  position: fixed;
+  z-index: 9999;
+}
+.menu.fixed .viewport fieldset {
+  margin-top: 30px;
+}
+.menu h1 {
+  font-size: 20px;
+}
+.menu .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu.horizontal ul {
+  height: 100%;
+  display: flex;
+}
+.menu.horizontal ul li {
+  margin-right: 10px;
+}
+.menu.horizontal ul li:last-of-type {
+  margin-right: 0px;
+}
+.menu .menu-button {
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  background: none;
+  color: var(--font-color-header-menu);
+  display: none;
+}
+
+#notifications:has(p) {
+  padding: 15px 10px;
+  background-color: dodgerblue;
+  border: 1px solid #0166ca;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+#notifications:has(p).danger {
+  background-color: rgb(255, 30, 30);
+  border-color: #ca0101;
+}
+#notifications:has(p).success {
+  background-color: rgb(63, 149, 77);
+  border-color: #2c9b00;
+}
+#notifications:has(p).warning {
+  background-color: #ffc107;
+  border-color: #dda600;
+  color: #000;
+}
+#notifications:has(p).pop-notification {
+  animation: 8.3s notification-pop infinite;
+}
+@keyframes notification-pop {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/**
+ * @title Table
+ * @description The best way to deal with tables!
+*/
+.table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.table .head {
+  font-weight: bold;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+.table.justify-left .item {
+  justify-content: flex-start;
+}
+.table.justify-left .item div {
+  text-align: left;
+}
+.table .item {
+  padding: 10px 0px;
+  flex: 1 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table .item div {
+  text-align: center;
+}
+.table .item ul {
+  display: flex;
+  gap: 10px;
+}
+.table .item.item-size-1 div {
+  min-width: 100px;
+  max-width: auto;
+}
+.table .item.item-size-2 div {
+  min-width: 200px;
+  max-width: auto;
+}
+.table .item.item-size-3 div {
+  min-width: 300px;
+  max-width: auto;
+}
+
+.text-align-left {
+  text-align: left !important;
+}
+.text-align-center {
+  text-align: center !important;
+}
+.text-align-right {
+  text-align: right !important;
+}
+.text-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 0px 50px 0px;
+}
+
+.menu .toggle-theme {
+  bottom: 0;
+  right: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+.toggle-theme {
+  display: flex;
+  position: absolute;
+  background: none;
+  align-items: center;
+  border: none;
+  bottom: -50px;
+  right: 0;
+}
+.toggle-theme::after {
+  font-family: var(--icon-font-family-icons);
+  content: var(--toggle-theme-icon);
+  font-size: var(--toggle-theme-icon-size);
+}
+.toggle-theme:hover {
+  cursor: pointer;
+}
+.toggle-theme:disabled {
+  color: #414141;
+}
+.toggle-theme:disabled:hover {
+  cursor: not-allowed;
+}
+
 .viewport {
   width: 100%;
   padding-top: 8rem;
@@ -397,11 +766,12 @@ button[value=plus]::before {
   width: 100% !important;
 }
 
-fieldset {
-  position: relative;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  width: auto !important;
+  position: fixed;
 }
 
 /**
@@ -507,316 +877,6 @@ fieldset {
   align-items: center;
 }
 
-footer {
-  padding-top: var(--footer-padding-top);
-  padding-bottom: var(--footer-padding-bottom);
-  background-color: var(--footer-background-color);
-}
-
-.grid {
-  width: 100%;
-  display: grid;
-  gap: var(--grid-gap);
-  grid-template-columns: repeat(1fr, var(--grid-columns));
-  grid-template-rows: repeat(1fr, var(--grid-columns));
-}
-
-/**
- * @title Input Group
- * @description The best way to integrate inputs in the Useful Lib
-*/
-.input-group {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.input-group label {
-  width: fit-content;
-  white-space: nowrap;
-}
-.input-group textarea {
-  resize: none;
-  min-height: 400px;
-  color: var(--textarea-font-color);
-}
-.input-group textarea:disabled {
-  resize: none;
-  min-height: 400px;
-  background-color: var(--textarea-background-color-disabled);
-}
-.input-group:has(textarea) label {
-  color: var(--textarea-font-color);
-}
-.input-group:has(textarea:active) label, .input-group:has(textarea:focus) label {
-  color: var(--textarea-font-color-active);
-}
-.input-group:has(textarea:disabled) label {
-  color: var(--textarea-font-color-disabled);
-}
-.input-group.invalid-group {
-  flex-direction: column;
-  align-items: flex-start;
-}
-.input-group.invalid-group input,
-.input-group.invalid-group textarea {
-  border-color: var(--border-color-danger);
-  box-shadow: 0px 0px 5px var(--border-color-danger);
-}
-.input-group.invalid-group label {
-  color: var(--border-color-danger);
-}
-.input-group.invalid-group input + label {
-  top: 25%;
-}
-.input-group.invalid-group p {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  color: var(--font-color-danger);
-}
-.input-group.invalid-group p::before {
-  font-family: "Font Awesome 6 Free Solid";
-  content: "\f05a";
-  margin-right: 10px;
-}
-.input-group input[type=text]:focus + label, .input-group input[type=text]:active + label, .input-group input[type=text]:not(:placeholder-shown) + label, .input-group input[type=number]:focus + label, .input-group input[type=number]:active + label, .input-group input[type=number]:not(:placeholder-shown) + label, .input-group input[type=date]:focus + label, .input-group input[type=date]:active + label, .input-group input[type=date]:not(:placeholder-shown) + label, .input-group input[type=datetime-local]:focus + label, .input-group input[type=datetime-local]:active + label, .input-group input[type=datetime-local]:not(:placeholder-shown) + label, .input-group input[type=password]:focus + label, .input-group input[type=password]:active + label, .input-group input[type=password]:not(:placeholder-shown) + label, .input-group textarea:focus + label, .input-group textarea:not(:placeholder-shown) + label {
-  left: 0;
-  top: -30px;
-  transform: translateY(0);
-  color: var(--font-color-label-hover);
-}
-.input-group input[type=range] {
-  margin: 0px 25px;
-}
-.input-group.input-group-range label {
-  color: var(--font-color-label-hover);
-}
-.input-group input[type=text] + label, .input-group input[type=number] + label, .input-group input[type=date] + label, .input-group input[type=datetime-local] + label, .input-group input[type=password] + label {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 10px;
-}
-.input-group textarea ~ label {
-  position: absolute;
-  top: 5%;
-  transform: translateY(-10%);
-  left: 10px;
-}
-.input-group input[type=radio] + label {
-  color: var(--font-color);
-  margin-left: 10px;
-}
-.input-group input[type=checkbox] {
-  width: fit-content;
-}
-.input-group input[type=checkbox] + label {
-  color: var(--font-color-hover);
-  margin-left: 10px;
-}
-.input-group ul.list li {
-  list-style: inside;
-  list-style-type: square;
-}
-.input-group input, .input-group textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: none;
-}
-.input-group input[type=color] {
-  width: revert;
-  padding: 0;
-  border-radius: 0;
-}
-.input-group input[type=color] + label {
-  margin-left: 10px;
-  position: relative;
-  color: var(--font-color);
-}
-.input-group label {
-  transition: 0.3s;
-  color: var(--font-color-label);
-}
-
-.input-radio-mode {
-  flex-direction: row;
-}
-.input-radio-mode .input-group {
-  margin-right: 20px;
-}
-.input-radio-mode .input-group:last-of-type {
-  margin-right: 0;
-}
-
-#logs {
-  flex: 1;
-}
-#logs fieldset {
-  max-height: 300px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-#logs fieldset p {
-  padding: 10px 0px;
-}
-
-.mg-top-10 {
-  margin-top: 10px;
-}
-.mg-top-20 {
-  margin-top: 20px;
-}
-.mg-top-30 {
-  margin-top: 30px;
-}
-.mg-top-40 {
-  margin-top: 40px;
-}
-.mg-top-50 {
-  margin-top: 50px;
-}
-.mg-top-auto {
-  margin-top: auto;
-}
-.mg-bottom-10 {
-  margin-bottom: 10px;
-}
-.mg-bottom-20 {
-  margin-bottom: 20px;
-}
-.mg-bottom-30 {
-  margin-bottom: 30px;
-}
-.mg-bottom-40 {
-  margin-bottom: 40px;
-}
-.mg-bottom-50 {
-  margin-bottom: 50px;
-}
-.mg-bottom-auto {
-  margin-bottom: auto;
-}
-.mg-right-10 {
-  margin-right: 10px;
-}
-.mg-right-20 {
-  margin-right: 20px;
-}
-.mg-right-30 {
-  margin-right: 30px;
-}
-.mg-right-40 {
-  margin-right: 40px;
-}
-.mg-right-50 {
-  margin-right: 50px;
-}
-.mg-right-auto {
-  margin-right: auto;
-}
-.mg-left-10 {
-  margin-left: 10px;
-}
-.mg-left-20 {
-  margin-left: 20px;
-}
-.mg-left-30 {
-  margin-left: 30px;
-}
-.mg-left-40 {
-  margin-left: 40px;
-}
-.mg-left-50 {
-  margin-left: 50px;
-}
-.mg-left-auto {
-  margin-left: auto;
-}
-
-.menu {
-  width: 100%;
-  min-height: 50px;
-  background-color: var(--menu-header-background);
-  color: var(--font-color-header-menu);
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.menu.menu-mobile-collapse {
-  background-color: var(--menu-collapse-background);
-}
-.menu.fixed {
-  position: fixed;
-  z-index: 9999;
-}
-.menu.fixed .viewport fieldset {
-  margin-top: 30px;
-}
-.menu h1 {
-  font-size: 20px;
-}
-.menu .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.menu.horizontal ul {
-  height: 100%;
-  display: flex;
-}
-.menu.horizontal ul li {
-  margin-right: 10px;
-}
-.menu.horizontal ul li:last-of-type {
-  margin-right: 0px;
-}
-.menu .menu-button {
-  padding: 10px;
-  border: none;
-  font-size: 20px;
-  border-radius: 5px;
-  background: none;
-  color: var(--font-color-header-menu);
-  display: none;
-}
-
-#notifications:has(p) {
-  padding: 15px 10px;
-  background-color: dodgerblue;
-  border: 1px solid #0166ca;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-#notifications:has(p).danger {
-  background-color: rgb(255, 30, 30);
-  border-color: #ca0101;
-}
-#notifications:has(p).success {
-  background-color: rgb(63, 149, 77);
-  border-color: #2c9b00;
-}
-#notifications:has(p).warning {
-  background-color: #ffc107;
-  border-color: #dda600;
-  color: #000;
-}
-#notifications:has(p).pop-notification {
-  animation: 8.3s notification-pop infinite;
-}
-@keyframes notification-pop {
-  0% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .pd-top-10 {
   padding-top: 10px;
 }
@@ -892,109 +952,108 @@ footer {
 .pd-50 {
   padding: 50px;
 }
-
-.position-absolute {
-  position: absolute;
-}
-.position-fixed {
-  width: auto !important;
-  position: fixed;
-}
-
-/**
- * @title Table
- * @description The best way to deal with tables!
-*/
-.table {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.table .head {
-  font-weight: bold;
-  padding-bottom: 20px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid var(--border-color);
-}
-.table.justify-left .item {
-  justify-content: flex-start;
-}
-.table.justify-left .item div {
-  text-align: left;
-}
-.table .item {
+.pd-tb-10 {
   padding: 10px 0px;
-  flex: 1 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-.table .item div {
-  text-align: center;
+.pd-tb-20 {
+  padding: 20px 0px;
 }
-.table .item ul {
-  display: flex;
-  gap: 10px;
+.pd-tb-30 {
+  padding: 30px 0px;
 }
-.table .item.item-size-1 div {
-  min-width: 100px;
-  max-width: auto;
+.pd-tb-40 {
+  padding: 40px 0px;
 }
-.table .item.item-size-2 div {
-  min-width: 200px;
-  max-width: auto;
+.pd-tb-50 {
+  padding: 50px 0px;
 }
-.table .item.item-size-3 div {
-  min-width: 300px;
-  max-width: auto;
+.pd-lr-10 {
+  padding: 0px 10px;
 }
-
-.text-align-left {
-  text-align: left;
+.pd-lr-20 {
+  padding: 0px 20px;
 }
-.text-align-center {
-  text-align: center;
+.pd-lr-30 {
+  padding: 0px 30px;
 }
-.text-align-right {
-  text-align: right;
+.pd-lr-40 {
+  padding: 0px 40px;
 }
-.text-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 0px 50px 0px;
+.pd-lr-50 {
+  padding: 0px 50px;
 }
 
-.menu .toggle-theme {
-  bottom: 0;
-  right: 35px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
+.mg-top-10 {
+  margin-top: 10px;
 }
-
-.toggle-theme {
-  display: flex;
-  position: absolute;
-  background: none;
-  align-items: center;
-  border: none;
-  bottom: -50px;
-  right: 0;
+.mg-top-20 {
+  margin-top: 20px;
 }
-.toggle-theme::after {
-  font-family: var(--icon-font-family-icons);
-  content: var(--toggle-theme-icon);
-  font-size: var(--toggle-theme-icon-size);
+.mg-top-30 {
+  margin-top: 30px;
 }
-.toggle-theme:hover {
-  cursor: pointer;
+.mg-top-40 {
+  margin-top: 40px;
 }
-.toggle-theme:disabled {
-  color: #414141;
+.mg-top-50 {
+  margin-top: 50px;
 }
-.toggle-theme:disabled:hover {
-  cursor: not-allowed;
+.mg-top-auto {
+  margin-top: auto;
+}
+.mg-bottom-10 {
+  margin-bottom: 10px;
+}
+.mg-bottom-20 {
+  margin-bottom: 20px;
+}
+.mg-bottom-30 {
+  margin-bottom: 30px;
+}
+.mg-bottom-40 {
+  margin-bottom: 40px;
+}
+.mg-bottom-50 {
+  margin-bottom: 50px;
+}
+.mg-bottom-auto {
+  margin-bottom: auto;
+}
+.mg-right-10 {
+  margin-right: 10px;
+}
+.mg-right-20 {
+  margin-right: 20px;
+}
+.mg-right-30 {
+  margin-right: 30px;
+}
+.mg-right-40 {
+  margin-right: 40px;
+}
+.mg-right-50 {
+  margin-right: 50px;
+}
+.mg-right-auto {
+  margin-right: auto;
+}
+.mg-left-10 {
+  margin-left: 10px;
+}
+.mg-left-20 {
+  margin-left: 20px;
+}
+.mg-left-30 {
+  margin-left: 30px;
+}
+.mg-left-40 {
+  margin-left: 40px;
+}
+.mg-left-50 {
+  margin-left: 50px;
+}
+.mg-left-auto {
+  margin-left: auto;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -1011,13 +1070,13 @@ footer {
     flex-direction: row;
   }
   .row.row-converter .column:has(textarea):last-of-type::before {
-    content: "arrow-down";
+    content: var(--icon-arrow-down);
     left: 50%;
     transform: translateX(-50%);
     top: -10%;
   }
   .row.row-converter .column:has(input):last-of-type::before {
-    content: "arrow-down";
+    content: var(--icon-arrow-down);
     left: 50%;
     transform: translateX(-50%);
     top: -100%;
@@ -1088,6 +1147,9 @@ footer {
     max-height: 6rem;
     min-height: 6rem;
   }
+  .menu .menu-container {
+    width: var(--container-mobile-size);
+  }
   .menu ul {
     display: flex;
     flex-direction: column;
@@ -1157,7 +1219,7 @@ h2 {
 
 li {
   list-style: none;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 hr {
@@ -1174,6 +1236,10 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+section {
+  width: 100%;
 }
 
 .hidden {

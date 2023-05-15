@@ -33,7 +33,7 @@ h2 {
 
 li {
     list-style: none;
-    line-height: 2rem;
+    line-height: 1.5rem;
 }
 
 hr {
@@ -50,6 +50,10 @@ main {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+
+section {
+    width: 100%;
 }
 
 .hidden {

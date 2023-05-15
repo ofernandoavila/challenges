@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    flex-direction: column;
+
+    &.list-items- {
+        &1 {
+            gap: 10px;
+        }
+
+        &2 {
+            gap: 20px;
+        }
+
+        &3 {
+            gap: 30px;
+        }
+
+        &4 {
+            gap: 40px;
+        }
+
+        &5 {
+            gap: 50px;
+        }
+    }
+}

@@ -12,6 +12,10 @@
         max-height: 6rem;
         min-height: 6rem;
 
+        .menu-container {
+            width: var(--container-mobile-size);
+        }
+
         ul {
             display: flex;
             flex-direction: column;
