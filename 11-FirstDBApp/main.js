@@ -45,6 +45,6 @@ async function FetchDB() {
 }
 
 function ClearDB() {
-    AddLogMessage('DB fetch!');
-    AddNotification('The database was fetched!', 'warning');
+	let popup = new Popup('teste', "Esta é uma mensagem de teste", () => { console.log('teste 123') });
+	popup.initPopup();
 }
