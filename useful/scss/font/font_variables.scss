@@ -1,6 +1,7 @@
 :root {
     --font-color-danger: #ff1e1e;
     --font-color: #000;
+    --font-colo-inverse: #fff;
     --font-color-label: #000;
     --font-color-label-hover: #000;
     --font-color-link: #1e90ff;
@@ -11,6 +12,7 @@
 
 :root.dark {
     --font-color: #fff;
+    --font-color-inverse: #000;
     --font-color-label: #000;
 	--font-color-header-menu: #fff;
     --font-color-link: #1e90ff;

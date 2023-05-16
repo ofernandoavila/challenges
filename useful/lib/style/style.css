@@ -5,6 +5,12 @@
   font-weight: 900;
 }
 :root {
+  --popup-message-color: #000;
+  --popup-container-size: 40%;
+  --popup-conatiner-size-mobile: 90%;
+}
+
+:root {
   --background-color: #fff;
   --background-color-primary: #eee;
   --background-color-secundary: #dddddd;
@@ -59,6 +65,7 @@
 :root {
   --font-color-danger: #ff1e1e;
   --font-color: #000;
+  --font-colo-inverse: #fff;
   --font-color-label: #000;
   --font-color-label-hover: #000;
   --font-color-link: #1e90ff;
@@ -68,6 +75,7 @@
 
 :root.dark {
   --font-color: #fff;
+  --font-color-inverse: #000;
   --font-color-label: #000;
   --font-color-header-menu: #fff;
   --font-color-link: #1e90ff;
@@ -161,10 +169,15 @@
   justify-content: center;
 }
 .popup-content {
-  width: 50%;
+  padding: 30px 20px 20px 20px;
+  width: var(--popup-container-size);
   height: 200px;
   background-color: white;
   border-radius: 5px;
+  color: var(--popup-message-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .popup-button-container {
   width: 100%;
@@ -172,8 +185,20 @@
   justify-content: flex-end;
   align-items: center;
   margin-top: auto;
+  gap: 10px;
+}
+.popup-button-container .btn {
+  width: 30%;
 }
 
+@media only screen and (max-width: 1000px) {
+  .popup-content {
+    width: var(--popup-container-size-mobile);
+  }
+  .popup-content .btn {
+    width: 40%;
+  }
+}
 .breadcrumb ul {
   display: flex;
 }
