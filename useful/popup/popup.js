@@ -3,17 +3,20 @@ class Popup {
 		this.popupId = popupId;
 	}
 
-	createPopup(id, message, buttons = []) {
+	createPopup(message, buttons = []) {
 		let parent = document.querySelector("body");
-		if (buttons.length < 1) {
-			buttons.push(
-				createElement("button", [
-					{ key: "class", value: ["btn", "btn-normal"] },
-					{ key: "content", value: "Ok" },
-					{ key: "onclick", value: "closePopup()" },
-				]),
-			);
-        }
+        buttons.push(
+            createElement("button", [
+                { key: "class", value: ["btn", "btn-normal"] },
+                { key: "content", value: "Close" },
+                { key: "onclick", value: 'Popup.closePopup("' + this.popupId + '")' },
+            ]),
+        );
+
+        let popup = createElement("div", [
+            { key: "class", value: ["popup"] },
+            { key: "id", value: this.popupId },
+        ]);
         
         let lightbox = createElement("div", [
 			{ key: "class", value: ["popup-lightbox"] },
@@ -21,31 +24,26 @@ class Popup {
         
         let content = createElement("div", [
 			{ key: "class", value: ["popup-content"] },
-			{ key: "content", value: `<p>${this.message}</p>` },
+			{ key: "content", value: `<h4>${message}</h4>` },
 		]);
 
-		let popup = createElement("div", [
-			{ key: "class", value: ["popup"] },
-			{ key: "id", value: id },
-		]);
 
 		let buttonContainer = createElement("div", [
 			{ key: "class", value: ["popup-button-container"] },
         ]);
         
-        lightbox.appendChild(content);
-
-		this.lightbox = lightbox;
-
-		parent.appendChild(lightbox);
-
 		buttons.map((item) => {
-			buttonContainer.appendChild(item);
-		});
+            buttonContainer.appendChild(item);
+        });
+        
+        content.appendChild(buttonContainer);
+        popup.appendChild(lightbox);
+        lightbox.appendChild(content);
+        parent.appendChild(popup);
 	}
 
-	closePopup() {
-		let popup = document.querySelector(".popup#" + this.popupId);
-		console.log(popup);
+	static closePopup(id) {
+		let popup = document.querySelector(".popup#" + id);
+        popup.remove();
 	}
 }
