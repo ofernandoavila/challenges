@@ -14,8 +14,10 @@ function AddNotification(message, type = "") {
     PopMessage(message, type);
 
     setTimeout(() => {
-        
         notificationsContainer.innerHTML = "";
+        notificationsContainer.classList.forEach((item) => {
+			notificationsContainer.classList.remove(item);
+		});
     }, 8000);
 }
 
