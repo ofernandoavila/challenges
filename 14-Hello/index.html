@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello</title>
+        <link rel="stylesheet" href="../useful/lib/style/style.css">
+        <link rel="stylesheet" cache-control="no-cache" pragma="no-cache" href="style.css">
+    </head>
+    <body>
+    <header class="menu fixed">
+        <div class="container">
+            <h1><a href="../index.html">Go back - Challenges</a></h1>
+            <button class="toggle-theme"></button>
+        </div>
+    </header>
+    <div class="viewport h-vh-60 align-items-center justify-center">
+        <fieldset class="w-80">
+            <div class="text-header">
+                <h2>Hello App</h2>
+            </div>
+            <div id="notifications">
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="row" id="DB-rows">
+                        <fieldset class="w-100" style="min-height: 200px;"></fieldset>
+                    </div>
+                    <div class="row">
+                        <fieldset class="w-100">
+                            <div class="row">
+                                <button class="btn btn-normal" onclick="LogIn()">Login</button>
+                                <button class="btn btn-danger" onclick="LogOut()">Logout</button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="title-header log-header">
+                        <div class="mg-bottom-20">
+                            <h4>Logs</h4>
+                        </div>
+                    </div>
+                    <div class="row" id="logs"><fieldset class="log-container w-100"><pre></pre></fieldset></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <footer>
+		<div class="container mg-top-auto">
+			<hr>
+			<a href="https://github.com/ofernandoavila/challenges/tree/master/1-%20Bin2Dec" class="signature">@ofernandoavila | 2023</a>
+		</div>
+	</footer>
+</body>
+<script src="../useful/main.js"></script>
+<script src="../useful/forms/forms.js"></script>
+<script src="../useful/toggle-theme/toggle-theme.js"></script>
+<script src="../useful/LogSystem/logsystem.js"></script>
+<script src="../useful/notifications/notifications.js"></script>
+<script src="../useful/tables/tables.js"></script>
+<script src="../useful/popup/popup.js"></script>
+<script src="Database.js"></script>
+<script src="main.js"></script>
+</html>
