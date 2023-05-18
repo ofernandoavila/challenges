@@ -44,6 +44,7 @@ class Popup {
 
 	static closePopup(id) {
 		let popup = document.querySelector(".popup#" + id);
+        if(popup == undefined || popup == null) throw new Error("The popup was not found");
         popup.remove();
 	}
 }
