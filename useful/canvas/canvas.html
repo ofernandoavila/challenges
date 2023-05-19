@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../lib/style/style.css">
+    <title>Canvas</title>
+    <script src="./tools/SelectTool.js"></script>
+    <script src="./tools/ShapeTool.js"></script>
+</head>
+<body>
+    <div class="program">
+        <div class="tools-header">
+            <div class="toolbar">
+                <ul>
+                    <li><button class="btn btn-default" value="cursor-pointer"></button></li>
+                    <li><button class="btn btn-default" value="draw-square"></button></li>
+                </ul>
+            </div>
+            <p class="output-message"></p>
+        </div>
+        <canvas id="main"></canvas>
+        <p class="coords">(x: 0, y: 0)</p>
+    </div>
+    
+</body>
+<script src="manager.js"></script>
+<script src="canvas.js"></script>
+</html>
