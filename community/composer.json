@@ -1,0 +1,17 @@
+{
+    "name": "ofernandoavila/community",
+    "description": "A simple community website system",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "ofernandoavila\\Community\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fernando Avila",
+            "email": "fernandoavilajunior@gmail.com"
+        }
+    ],
+    "require": {}
+}
