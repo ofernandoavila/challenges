@@ -120,7 +120,9 @@
   --icon-sun: "";
   --icon-home: "";
   --icon-angle-right: "";
-  --icon-add: "+" ;
+  --icon-add: "+";
+  --icon-cursor-pointer: "";
+  --icon-draw-square: "";
 }
 
 :root {
@@ -199,6 +201,32 @@
     width: 40%;
   }
 }
+.tools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tools-header .toolbar {
+  padding: 20px 0px;
+}
+.tools-header .toolbar ul {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 400px;
+}
+
+.program {
+  margin: 0 auto;
+  width: 60%;
+}
+
 .breadcrumb ul {
   display: flex;
 }
@@ -335,6 +363,15 @@ button[value=home]::before {
 button[value=plus]::before {
   font-family: var(--icon-font-family-icons);
   content: var(--icon-add);
+}
+button[value=cursor-pointer]::before {
+  font-family: var(--icon-font-family-icons);
+  content: var(--icon-cursor-pointer);
+}
+button[value=draw-square]::before {
+  font-family: var(--icon-font-family-icons);
+  content: var(--icon-draw-square);
+  font-weight: 100;
 }
 
 fieldset {
