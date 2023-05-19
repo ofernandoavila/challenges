@@ -14,9 +14,6 @@ class Core {
     private function ConfigureRequest() {
         $requestData = str_replace($this->config['prefix'], "", filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL));
         $url = explode("?", $requestData)[0];
-        
-        var_dump($_SERVER);
-        die;
 
         $this->request = array(
             'url' => $url,
@@ -24,11 +21,17 @@ class Core {
         );
 
         $this->request['data'] = $this->GetRequestData();
+
+        $apacheHeaders = apache_request_headers();
+
+        if(isset($apacheHeaders['Content-Type'])) {
+            $this->request['isJson'] = true;
+        }
     }
 
     public function Init() {
         global $router;
-        
+
         foreach($router->GetRoutes() as $route) {
             
             if($this->request['method'] == $route['method']) {
