@@ -15,7 +15,6 @@ class ShapeTool {
             x: event.clientX - this.canvas.offsetLeft,
             y: event.clientY - this.canvas.offsetTop
         }
-        console.log(this);
     }
 
     onMouseUp(event) {
