@@ -1,7 +1,11 @@
 <?php
 
+use ofernandoavila\Community\Core\BasicController;
+use ofernandoavila\Community\Core\Template;
+
 global $router;
 
 $router->get('/', function() {
-    echo '<h1>Hello World!</h1>';
+    $controller = new BasicController();
+    $controller->Render('Home');
 });
