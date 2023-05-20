@@ -9,7 +9,7 @@ class BasicController {
     protected Array $config = [];
 
     public function __construct() {
-        $this->config = require __DIR__ . '/../config/config.php'; 
+        $this->config = require __DIR__ . '/../config/config.php';
     }
 
     public function Render($path, $data = []) {

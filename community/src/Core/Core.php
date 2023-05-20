@@ -42,7 +42,7 @@ class Core {
         }
 
         if(isset($this->request['route'])) {
-            return $this->request['route']['function']();
+            return $this->request['route']['function']($this->request['data']);
         } else {
             $controller = new BasicController();
             return $controller->Render('');
@@ -53,9 +53,11 @@ class Core {
     private function GetRequestData() {
         switch($this->request['method']) {
             case "POST":
+                    return $_POST;
                 break;
             default:
                 $rawData = explode("?", str_replace($this->config['prefix'], "", filter_var($_SERVER['REQUEST_URI'])));
+                $data = [];
 
                 if(isset($rawData[1])) {
                     if($rawData[1] != '') {
@@ -63,6 +65,8 @@ class Core {
                             $item = explode("=", $item);
                             $data[$item[0]] = $item[1];
                         }
+
+                        return $data;
                     } else {
                         return [];
                     }

@@ -7,6 +7,11 @@ use ofernandoavila\Community\Core\Router;
 
 global $router, $core;
 
+session_start();
+session_regenerate_id();
+
+require_once __DIR__ . '/../src/Helper/Redirect.php';
+
 $core = new Core();
 $router = new Router();
 
