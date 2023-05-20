@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>404</h2>
-    <p>Page not found!</p>
-</body>
-</html>
+<?php ofernandoavila\Community\Core\Template::LoadTemplatePart('common/header'); ?>
+
+<div class="viewport">
+    <div class="container">
+        <div class="row flex-column justify-center align-items-center">
+            <h2>404</h2>
+            <p>Page was not found, bitch! Try to search some shit else</p>
+        </div>
+    </div>
+</div>
+
+<?php ofernandoavila\Community\Core\Template::LoadTemplatePart('common/footer'); ?>
