@@ -20,10 +20,13 @@
             <button onclick="toggleMobileMenu()" class="menu-button" value="menu"></button>
             <nav>
                 <ul>
-
-                    <li><a href="./documentation/index.html">Documentation</a></li>
+                    <li><a href="<?= $data['config']['base_url'] ?>/my-account">My Account</a></li>
                     <li><button class="toggle-theme"></button></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <div class="viewport">
+        <div class="container">
+            <?= isset($_SESSION['error_msg']) ? '<div id="notifications" class="warning"><p>' . $_SESSION['error_msg'] . '</p></div>' : '' ?>
+            <?php unset($_SESSION['error_msg']); ?>
