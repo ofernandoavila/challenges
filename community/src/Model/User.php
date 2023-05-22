@@ -2,55 +2,60 @@
 
 namespace ofernandoavila\Community\Model;
 
-class User {
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use ofernandoavila\Community\Controller\UserController;
+use ofernandoavila\Community\Core\Model;
+use ofernandoavila\Community\Repository\UserRepository;
+
+#[Entity]
+class User extends Model {
+
+    #[Column, GeneratedValue, Id]
+    public int $id;
+
+    #[Column]
     public string $username;
+
+    #[Column]
     private string $password;
+    
+    #[Column]
     public string $name;
     
     public function __construct(string $user, string $password)
     {
         $this->username = $user;
-        $this->password = $password;   
+        $this->password = $password;
+
+        parent::__construct(new UserRepository());
+    }
+
+    public function SetPassword($password) {
+        $this->password = $password;
     }
 
     public function GetPassword() {
         return $this->password;
     }
 
-    public static function CreateUser(User $user) {
-        $createdUser = [
-            'name' => $user->name,
-            'username' => $user->username,
-            'password' => password_hash($user->GetPassword(), PASSWORD_ARGON2I)
-        ];
-
-        if(isset($_SESSION['user'])) {
-            if($_SESSION['user']['username'] == $user->username) {
-                $_SESSION['error_msg'] = "Username already been used";
-                return false;
-            } else {
-                unset($_SESSION['user']);
-            }
-        }
-
-        $_SESSION['user'] = $createdUser;
-
-        return true;
-    }
-
     public static function Authenticate(User $user) {
-        if(isset($_SESSION['user'])) {
-            if ($user->username == $_SESSION['user']['username']) {
-                if(password_verify($user->GetPassword(), $_SESSION['user']['password'])) {
+        $userController = new UserController();
+
+        $tmpUser = $userController->GetUserByUsername($user->username);
+
+        if($tmpUser != null) {
+            if ($user->username == $tmpUser->username) {
+                if (password_verify($user->GetPassword(), $tmpUser->GetPassword())) {
                     return true;
                 } else {
-                    $_SESSION['error_msg'] = "Username/Password incorrect";
+                    $_SESSION['msg']['type'] = "warning";
+                    $_SESSION['msg']['text'] = "Username/Password incorrect";
                     return false;
                 }
             }
-        } else {
-            $_SESSION['error_msg'] = "There is no user saved into session";
-            return false;
         }
     }
 }
