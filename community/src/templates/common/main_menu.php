@@ -8,6 +8,6 @@
         <?php else : ?>
             <li><a href="<?= $data['config']['base_url'] ?>/login">Log In</a></li>
         <?php endif; ?>
-        <li><button class="toggle-theme"></button></li>
+        <li><button style="position: relative !important;" class="toggle-theme"></button></li>
     </ul>
 </nav>
