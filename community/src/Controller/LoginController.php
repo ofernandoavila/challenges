@@ -2,10 +2,10 @@
 
 namespace ofernandoavila\Community\Controller;
 
-use ofernandoavila\Community\Core\BasicController;
+use ofernandoavila\Community\Core\BasicViewController;
 use ofernandoavila\Community\Model\User;
 
-class LoginController extends BasicController {
+class LoginController extends BasicViewController {
     public function LoginPage()
     {
         return $this->Render('LoginPage');
@@ -15,12 +15,15 @@ class LoginController extends BasicController {
         return $this->Render('CreateAccountPage');
     }
 
-    public function MakeLogin(User $user)
+    public function Logoff()
     {
-    }
-
-    public function SignUp(User $user)
-    {
-        return User::CreateUser($user);
+        try {
+            if (SessionController::DeleteCurrentSession()) {
+                SessionController::DefineMessage("Your session was destroyed!", 'success');
+                Redirect('/');
+            }
+        } catch (\Exception $error) {
+            SessionController::DefineErrorMessage($error->getMessage());
+        }
     }
 }
