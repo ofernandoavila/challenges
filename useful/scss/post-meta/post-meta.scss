@@ -1,0 +1,46 @@
+.post-meta {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &-data .row {
+        margin-bottom: 20px;
+    }
+
+    &-thumbnail {
+        width: var(--post-meta-thumbnail-size);
+        height: var(--post-meta-thumbnail-size);
+        
+        img {
+            width: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+    }
+
+    &-author {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-info {
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        li {
+            width: fit-content;
+            background-color: gray;
+            color: #fff;
+            padding: 5px;
+        }
+    }
+}
