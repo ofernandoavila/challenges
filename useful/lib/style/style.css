@@ -964,6 +964,9 @@ footer {
   margin: 0 auto;
   align-items: center;
 }
+.align-items-end {
+  align-items: flex-end;
+}
 
 .pd-top-10 {
   padding-top: 10px;
