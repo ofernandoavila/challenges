@@ -4,7 +4,7 @@ namespace ofernandoavila\Community\Core;
 
 use Exception;
 
-class BasicController {
+class BasicViewController {
     
     protected Array $config = [];
 
@@ -12,8 +12,11 @@ class BasicController {
         $this->config = require __DIR__ . '/../config/config.php';
     }
 
-    public function Render($path, $data = []) {
+    public function Render($path, $dataTransfer = []) {
         global $data;
+
+        $data = $dataTransfer;
+
         
         if(isset($data['config'])) throw new Exception('This key is reserved to system use only');
 

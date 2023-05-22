@@ -4,6 +4,7 @@ namespace ofernandoavila\Community\Core;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Exception;
 use ofernandoavila\Community\Helper\EntityManagerCreator;
 
 class Repository
@@ -20,8 +21,16 @@ class Repository
 
     public function save(object $obj)
     {
-        $this->entityManager->persist($obj);
-        $this->entityManager->flush();
+        try {
+            $this->entityManager->persist($obj);
+            $this->entityManager->flush();
+
+            return true;
+        } catch(Exception $error) {
+            $_SESSION['msg']['type'] = "danger";
+            $_SESSION['msg']['text'] = $error->getMessage();
+            return false;
+        }
     }
 
     public function get($id)
@@ -37,5 +46,23 @@ class Repository
     public function update(object $obj)
     {
         return throw new \Exception("Este método deve ser sobrescrito!", 1);
+    }
+
+    public function removeCollection(array $collection) {
+        foreach($collection as $item) {
+            $this->entityManager->remove($item);
+        }
+
+        return $this->entityManager->flush();
+    }
+
+    public function remove(object $obj) {
+        try{
+            $this->entityManager->remove($obj);
+            $this->entityManager->flush();
+            return true;
+        } catch(Exception $error) {
+            return $error;
+        }
     }
 }

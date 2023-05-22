@@ -2,6 +2,8 @@
 
 namespace ofernandoavila\Community\Core;
 
+use ofernandoavila\Community\Controller\SessionController;
+
 class Core {
     public Array $request;
     private Array $config;
@@ -9,6 +11,17 @@ class Core {
     public function __construct() {
         $this->config = require_once __DIR__ . '/../config/config.php';
         $this->ConfigureRequest();
+        $this->GetLoggedUserData();
+    }
+
+    private function GetLoggedUserData() {
+        if(isset($_SESSION['user_session'])) {
+            $sessionController = new SessionController();
+            $session = $sessionController->GetSessionByHash($_SESSION['user_session']);
+
+            $this->request['data']['session'] = $session;
+            $this->request['data']['user'] = $session->user;
+        }
     }
 
     private function ConfigureRequest() {
@@ -41,10 +54,14 @@ class Core {
             }
         }
 
+        // echo '<pre>';
+        // var_dump($this->request);
+        // echo '</pre>';
+        // die;
         if(isset($this->request['route'])) {
             return $this->request['route']['function']($this->request['data']);
         } else {
-            $controller = new BasicController();
+            $controller = new BasicViewController();
             return $controller->Render('');
         }
 

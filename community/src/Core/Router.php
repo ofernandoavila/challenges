@@ -32,4 +32,8 @@ class Router {
     public function delete($path, $callback) {
         $this->AddRoute('DELETE', $path, $callback);
     }
+
+    public static function CheckIfUserIsLogged() {
+        if(!isset($_SESSION['user_session'])) Redirect('/');
+    }
 }
