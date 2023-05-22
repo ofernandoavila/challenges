@@ -22,6 +22,21 @@ class UserController {
         }
     }
 
+    public function DeleteUser(User $user)
+    {
+        $repo = new UserRepository();
+
+        $user = $repo->get($user->id);
+
+        if ($repo->remove($user)) {
+            $_SESSION['msg']['type'] = "success";
+            $_SESSION['msg']['text'] = "Your account was deleted! We're gonna miss you...";
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function GetUserByID(int $id)
     {
         $repo = new UserRepository();

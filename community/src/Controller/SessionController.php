@@ -74,6 +74,10 @@ class SessionController
         return $repo->remove($session);
     }
 
+    public static function ClearSession() {
+        unset($_SESSION['user_session']);
+    }
+
     public static function DeleteCurrentSession()
     {
         if(isset($_SESSION['user_session'])) {

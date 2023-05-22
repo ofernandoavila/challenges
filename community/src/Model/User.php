@@ -46,7 +46,7 @@ class User extends Model {
 
         $tmpUser = $userController->GetUserByUsername($user->username);
 
-        if($tmpUser != null) {
+        if ($tmpUser != null) {
             if ($user->username == $tmpUser->username) {
                 if (password_verify($user->GetPassword(), $tmpUser->GetPassword())) {
                     return true;
@@ -56,6 +56,10 @@ class User extends Model {
                     return false;
                 }
             }
+        } else {
+            $_SESSION['msg']['type'] = "warning";
+            $_SESSION['msg']['text'] = "Username/Password incorrect";
+            return false;
         }
     }
 }

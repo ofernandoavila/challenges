@@ -17,7 +17,14 @@ class AccountController extends BasicViewController
     public function EditAccountPage($data = [])
     {
         Router::CheckIfUserIsLogged();
-        
+
         return $this->Render('account/EditAccount', $data);
+    }
+
+    public function SettingsAccountPage($data = [])
+    {
+        Router::CheckIfUserIsLogged();
+
+        return $this->Render('account/SettingsAccount', $data);
     }
 }
