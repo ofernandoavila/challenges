@@ -7,6 +7,9 @@ use ofernandoavila\Community\Core\Router;
 
 global $router, $core;
 
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../src/config');
+$dotenv->load();
+
 session_start();
 session_regenerate_id();
 
