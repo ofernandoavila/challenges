@@ -38,7 +38,9 @@ class Session extends Model {
     }
 
     private function GenerateHashSession(User $user) {
-        return hash( 'sha256' , $user->id . $user->username . date('m/d/Y'));
+        $key = $user->id . $user->username . date('d/m/Y H:i:s');
+
+        return hash( 'sha256' , $key);
     }
 
     public static function RegisterSession(Session $session) {
