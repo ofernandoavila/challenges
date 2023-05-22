@@ -1,14 +1,22 @@
 <?php
 
 use ofernandoavila\Community\Controller\LoginController;
+use ofernandoavila\Community\Controller\SessionController;
+use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Model\User;
 
 global $router;
 
-$router->get('/login', function () {
+$router->get('/login', function ($data) {
     $loginController = new LoginController();
 
     return $loginController->LoginPage();
+});
+
+$router->get('/logoff', function ($data) {
+    $loginController = new LoginController();
+
+    return $loginController->Logoff();
 });
 
 $router->get('/create-account', function () {
@@ -18,12 +26,14 @@ $router->get('/create-account', function () {
 });
 
 $router->post('/create-account', function($data) {
-    $loginController = new LoginController();
+
+    $controller = new UserController();
 
     $user = new User($data['username'], $data['password']);
     $user->name = $data['name'];
 
-    if (User::CreateUser($user)) {
+    if ($controller->SaveUser($user)) {
+
         Redirect('/');
     } else {
         Redirect('/create-account');
@@ -31,14 +41,19 @@ $router->post('/create-account', function($data) {
 });
 
 $router->post('/login', function($data) {
-    $loginController = new LoginController();
+    $sessionController = new SessionController();
+    $userController = new UserController();
 
     $user = new User($data['username'], $data['password']);
 
-    var_dump($_SESSION);
-    die;
-
     if(User::Authenticate($user)) {
+        $user = $userController->GetUserByUsername($user->username);
+
+        $sessionController->SaveSession($user);
+
+        $_SESSION['msg']['type'] = "success";
+        $_SESSION['msg']['text'] = "Logged with success!";
+
         Redirect('/');
     } else {
         Redirect('/login');
