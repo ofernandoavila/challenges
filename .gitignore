@@ -1,3 +1,5 @@
 /useful/documentation-manager/vendor
+/useful/documentation-manager/composer.lock
 /community/vendor
+/community/composer.lock
 /community/src/config/.env
