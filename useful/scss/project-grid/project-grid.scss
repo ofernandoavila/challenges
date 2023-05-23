@@ -1,0 +1,40 @@
+.projects-grid {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .project-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .project-thumbnail {
+            width: 96px;
+            height: 96px;
+
+            img {
+                border-radius: 15px;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .project-info {
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &-name {
+                font-weight: 700;
+            }
+        }
+    }
+
+}

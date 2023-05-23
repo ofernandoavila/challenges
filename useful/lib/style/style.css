@@ -58,7 +58,7 @@
 }
 
 :root {
-  --container-size: 80%;
+  --container-size: 75%;
   --container-mobile-size: 95%;
 }
 
@@ -160,6 +160,40 @@
 
 :root {
   --post-meta-thumbnail-size: 128px;
+}
+
+.projects-grid {
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+}
+.projects-grid a {
+  text-decoration: none;
+  color: inherit;
+}
+.projects-grid .project-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projects-grid .project-item .project-thumbnail {
+  width: 96px;
+  height: 96px;
+}
+.projects-grid .project-item .project-thumbnail img {
+  border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
+}
+.projects-grid .project-item .project-info {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.projects-grid .project-item .project-info-name {
+  font-weight: 700;
 }
 
 .popup-lightbox {
