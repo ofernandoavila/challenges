@@ -8,7 +8,7 @@
                 <h3>Projects</h3>
             </div>
             <ul class="projects-grid">
-                <a href="<?= $data['config']['base_url']; ?>/project/asdasdasdasdasd">
+                <a href="<?= $data['config']['base_url']; ?>/project/view-project">
                     <li class="project-item">
                         <div class="project-thumbnail">
                             <img src="https://th.bing.com/th/id/OIP.TpKdQjArT8qZWPb3lnq3agHaHa?pid=ImgDet&rs=1" alt="">

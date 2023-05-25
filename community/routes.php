@@ -11,10 +11,6 @@ $router->get('/', function() {
     $controller->Render('Home');
 });
 
-$router->get('/project', function($data) {
-    $controller = new BasicViewController();
-    $controller->Render('project/ProjectPage');
-});
-
+require_once __DIR__ . '/routes/ProjectRoutes.php';
 require_once __DIR__ . '/routes/AccountRoutes.php';
 require_once __DIR__ . '/routes/LoginRoutes.php';
