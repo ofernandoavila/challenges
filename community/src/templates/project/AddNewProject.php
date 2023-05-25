@@ -8,7 +8,7 @@
                 <h3>Create new project</h3>
             </div>
 
-            <form class="w-50" action="<?= $data['config']['base_url'] ?>/project/AddNewProject" method="post">
+            <form class="w-50" action="<?= $data['config']['base_url'] ?>/project/add-new-project" method="post">
                 <div class="row">
                     <div class="input-group">
                         <input type="text" name="project_name" id="project_name" placeholder=" " required>
@@ -17,13 +17,13 @@
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <textarea type="text" name="project_description" id="project_description" placeholder=" " required></textarea>
+                        <textarea type="text" name="project_description" id="project_description" placeholder=" "></textarea>
                         <label for="project_description">Description</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-group">
-                        <input type="file" name="project_file" id="project_file" required>
+                        <input type="file" name="project_file" id="project_file">
                     </div>
                 </div>
                 <div class="row flex-column">

@@ -18,3 +18,10 @@ $router->get('/project/add-new-project', function($data) {
     $controller = new BasicViewController();
     $controller->Render('project/AddNewProject'); 
 });
+
+$router->post('/project/add-new-project', function ($data) {
+    $_SESSION['msg']['type'] = "success";
+    $_SESSION['msg']['text'] = "Project '" . $data['project_name'] . "' created with success!";
+
+    Redirect('/project');
+});
