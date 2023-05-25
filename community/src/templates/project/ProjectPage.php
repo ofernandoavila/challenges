@@ -2,10 +2,11 @@
 
 <div class="row justify-center align-items-start">
     <div class="column flex flex-1"><?php ofernandoavila\Community\Core\Template::LoadTemplatePart('common/aside_menu') ?></div>
-    <div class="column flex flex-3">
+    <div class="column flex flex-5">
         <fieldset>
-            <div class="text-header">
+            <div class="text-header flex justify-between">
                 <h3>Projects</h3>
+                <a href="<?= $data['config']['base_url']; ?>/project/add-new-project" class="btn btn-normal w-30">Create new project</a>
             </div>
             <ul class="projects-grid">
                 <a href="<?= $data['config']['base_url']; ?>/project/view-project">

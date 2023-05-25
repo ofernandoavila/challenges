@@ -1,5 +1,4 @@
 <?php ofernandoavila\Community\Core\Template::LoadTemplatePart('common/header') ?>
-<!-- <link rel="stylesheet" href="TemplateData/style.css"> -->
 
 <div class="row flex-column justify-center align-items-start">
     <div class="row">
