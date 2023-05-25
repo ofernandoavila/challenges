@@ -11,7 +11,7 @@ $router->get('/project/view-project', function($data) {
 
 $router->get('/project', function ($data) {
     $controller = new BasicViewController();
-    $controller->Render('project/ProjectPage');
+    $controller->Render('project/ProjectPage', $data);
 });
 
 $router->get('/project/add-new-project', function($data) {

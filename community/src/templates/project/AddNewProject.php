@@ -21,10 +21,11 @@
                         <label for="project_description">Description</label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row flex-column">
                     <div class="input-group">
                         <input type="file" name="project_file" id="project_file">
                     </div>
+                    <p>Your project need to be a .zip file!</p>
                 </div>
                 <div class="row flex-column">
                     <div class="input-group">

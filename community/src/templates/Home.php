@@ -2,7 +2,7 @@
 
 <div class="row justify-center align-items-start">
     <div class="column flex flex-1"><?php ofernandoavila\Community\Core\Template::LoadTemplatePart('common/aside_menu') ?></div>
-    <div class="column flex flex-3">
+    <div class="column flex flex-5">
         <fieldset>
             
         </fieldset>

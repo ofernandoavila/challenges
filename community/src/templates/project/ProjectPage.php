@@ -6,7 +6,9 @@
         <fieldset>
             <div class="text-header flex justify-between">
                 <h3>Projects</h3>
-                <a href="<?= $data['config']['base_url']; ?>/project/add-new-project" class="btn btn-normal w-30">Create new project</a>
+                <?php if(isset($data['user'])): ?>
+                    <a href="<?= $data['config']['base_url']; ?>/project/add-new-project" class="btn btn-normal w-30">Create new project</a>
+                <?php endif; ?>
             </div>
             <ul class="projects-grid">
                 <a href="<?= $data['config']['base_url']; ?>/project/view-project">
