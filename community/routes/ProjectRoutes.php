@@ -13,3 +13,8 @@ $router->get('/project', function ($data) {
     $controller = new BasicViewController();
     $controller->Render('project/ProjectPage');
 });
+
+$router->get('/project/add-new-project', function($data) {
+    $controller = new BasicViewController();
+    $controller->Render('project/AddNewProject'); 
+});
