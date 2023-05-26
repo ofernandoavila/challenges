@@ -6,12 +6,15 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\UnderscoreNamingStrategy;
 use Doctrine\ORM\ORMSetup;
+use ofernandoavila\Community\Core\Config;
 
 class EntityManagerCreator
 {
     public static function createEntityManager()
     {
-        $systemConfig = require __DIR__ . '/../config/config.php';
+        global $applicationMode;
+
+        $systemConfig = Config::GetConfigs($applicationMode);
         // Create a simple "default" Doctrine ORM configuration for Attributes
         $config = ORMSetup::createAttributeMetadataConfiguration(
             paths: array(__DIR__ . "/../Model", __DIR__ . "/../Core"),

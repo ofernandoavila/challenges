@@ -7,7 +7,7 @@
                 <h3>[GAME_NAME]</h3>
             </div>
             <div class="row justify-center">
-                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="http://localhost/games/teste/index.html" frameborder="0"></iframe>
+                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="http://localhost/games/teste3/index.html" frameborder="0"></iframe>
             </div>
         </fieldset>
     </div>
@@ -20,7 +20,7 @@
                 <div class="post-meta">
                     <div class="post-meta-author">
                         <div class="post-meta-thumbnail">
-                            <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/xcropped-138798512_3706164436112179_1414491971049075834_n.jpg.pagespeed.ic.BUfPox5Pwj.webp" alt="">
+                            <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
                         </div>
                         <div class="post-meta-author-info">
                             <h3>ofernandoavila</h3>

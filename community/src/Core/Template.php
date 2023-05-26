@@ -6,7 +6,8 @@ use Exception;
 
 class Template {
     public static function LoadTemplatePart($path) {
-        $config = require __DIR__ . '/../config/config.php';
+        global $applicationMode;
+        $config = Config::GetConfigs($applicationMode);
 
         $filePath = $config['template_dir'] . $path . '.php';
 

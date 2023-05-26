@@ -8,8 +8,10 @@ class Core {
     public Array $request;
     private Array $config;
 
-    public function __construct() {
-        $this->config = require_once __DIR__ . '/../config/config.php';
+    public function __construct(string $mode = '') {
+        $this->config = Config::GetConfigs($mode);
+
+        $this->request['config'] = $this->config;
         $this->ConfigureRequest();
         $this->GetLoggedUserData();
     }

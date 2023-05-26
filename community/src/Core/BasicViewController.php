@@ -9,7 +9,8 @@ class BasicViewController {
     protected Array $config = [];
 
     public function __construct() {
-        $this->config = require __DIR__ . '/../config/config.php';
+        global $applicationMode;
+        $this->config = Config::GetConfigs($applicationMode);
     }
 
     public function Render($path, $dataTransfer = []) {
