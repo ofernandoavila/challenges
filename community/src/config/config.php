@@ -9,7 +9,7 @@ return array(
         'host' => $_ENV['DB_HOST'],
         'user' => $_ENV['DB_USER'],
         'password' => $_ENV['DB_PASSWORD'] ?? '',
-        'database' => $_ENV['DB_DATABASE']
-
+        'database' => $_ENV['DB_DATABASE'],
+        'port' => 3306
     ]
 );
