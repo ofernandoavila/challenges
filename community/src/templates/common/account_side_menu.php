@@ -1,6 +1,9 @@
 <?php global $data; ?>
 <ul class="row flex-column">
     <li>
+        <a href="<?= $data['config']['base_url']; ?>/my-account/dashboard">Dashboard</a>
+    </li>
+    <li>
         <a href="<?= $data['config']['base_url']; ?>/my-account/edit-account">Edit account</a>
     </li>
     <li>
