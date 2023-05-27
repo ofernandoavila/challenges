@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Exception;
+use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Core\Model;
 use ofernandoavila\Community\Model\User;
 use ofernandoavila\Community\Repository\SessionRepository;
@@ -45,5 +47,13 @@ class Session extends Model {
 
     public static function RegisterSession(Session $session) {
         $_SESSION['user_session'] = $session->hash;
+    }
+
+    public static function GetCurrentUser() {
+        if(!isset($_SESSION['user_session'])) throw new Exception('There is no user session saved');
+
+        $userController = new UserController();
+
+        return $userController->GetUserBySessionHash($_SESSION['user_session']);
     }
 }

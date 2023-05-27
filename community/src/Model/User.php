@@ -2,10 +2,13 @@
 
 namespace ofernandoavila\Community\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\OneToMany;
 use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Core\Model;
 use ofernandoavila\Community\Repository\UserRepository;
@@ -24,11 +27,16 @@ class User extends Model {
     
     #[Column]
     public string $name;
+
+    #[OneToMany(targetEntity: Project::class, mappedBy: 'owner', fetch: 'EAGER')]
+    public $projects;
     
     public function __construct(string $user, string $password)
     {
         $this->username = $user;
         $this->password = $password;
+
+        $this->projects = new ArrayCollection();
 
         parent::__construct(new UserRepository());
     }
@@ -39,6 +47,10 @@ class User extends Model {
 
     public function GetPassword() {
         return $this->password;
+    }
+
+    public function AddProject(Project $project) {
+        $this->projects[] = $project;
     }
 
     public static function Authenticate(User $user) {
@@ -61,5 +73,9 @@ class User extends Model {
             $_SESSION['msg']['text'] = "Username/Password incorrect";
             return false;
         }
+    }
+
+    public function GetProjects() {
+        return $this->projects;
     }
 }

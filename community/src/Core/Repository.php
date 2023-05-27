@@ -2,6 +2,7 @@
 
 namespace ofernandoavila\Community\Core;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Exception;
@@ -45,24 +46,33 @@ class Repository
 
     public function update(object $obj)
     {
-        return throw new \Exception("Este método deve ser sobrescrito!", 1);
+        throw new \Exception("Este método deve ser sobrescrito!", 1);
     }
 
-    public function removeCollection(array $collection) {
-        foreach($collection as $item) {
-            $this->entityManager->remove($item);
-        }
+    public function removeCollection($collection) {
+        try {
+            foreach ($collection as $item) {
+                $item = $this->entityManager->find(get_class($item), $item->id);
 
-        return $this->entityManager->flush();
+                $this->entityManager->remove($item);
+            }
+
+            return $this->entityManager->flush();
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
     public function remove(object $obj) {
-        try{
+        try {
+            $obj = $this->entityManager->find(get_class($obj), $obj->id);
+
             $this->entityManager->remove($obj);
             $this->entityManager->flush();
+
             return true;
         } catch(Exception $error) {
-            return $error;
+            throw $error;
         }
     }
 }

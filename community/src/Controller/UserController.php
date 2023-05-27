@@ -4,6 +4,7 @@ namespace ofernandoavila\Community\Controller;
 
 use Exception;
 use ofernandoavila\Community\Model\User;
+use ofernandoavila\Community\Repository\ProjectRepository;
 use ofernandoavila\Community\Repository\SessionRepository;
 use ofernandoavila\Community\Repository\UserRepository;
 
@@ -26,7 +27,21 @@ class UserController {
     {
         $repo = new UserRepository();
 
+        /**
+         * @var User $user
+         */
         $user = $repo->get($user->id);
+
+        if($user->GetProjects()->count() > 0) {
+            foreach($user->GetProjects() as $project) {
+                $projectRepo = new ProjectRepository();
+                $projectRepo->remove($project);
+            }
+        }
+
+        $sessionController = new SessionController();
+        $sessionController->DeleteSessionsByUser($user);
+        SessionController::ClearSession();
 
         if ($repo->remove($user)) {
             $_SESSION['msg']['type'] = "success";
@@ -40,8 +55,8 @@ class UserController {
     public function GetUserByID(int $id)
     {
         $repo = new UserRepository();
-
         $user = $repo->get($id);
+
         return $user;
     }
 
