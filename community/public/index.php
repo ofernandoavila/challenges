@@ -2,6 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
+use ofernandoavila\Community\Core\Config;
 use ofernandoavila\Community\Core\Core;
 use ofernandoavila\Community\Core\Router;
 
@@ -22,4 +23,15 @@ $router = new Router();
 
 require_once __DIR__ . '/../routes.php';
 
-$core->Init();
+try {
+    $core->Init();
+} catch (\Exception $e) {
+    global $data;
+
+    $data['config'] = Config::GetConfigs();
+
+    ofernandoavila\Community\Core\Template::LoadTemplatePart('common/header');
+    echo '<pre>';
+    throw $e;
+    ofernandoavila\Community\Core\Template::LoadTemplatePart('common/footer');
+}
