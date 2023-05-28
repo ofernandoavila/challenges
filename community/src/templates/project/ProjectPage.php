@@ -11,17 +11,19 @@
                 <?php endif; ?>
             </div>
             <ul class="projects-grid">
-                <a href="<?= $data['config']['base_url']; ?>/project/view-project">
+                <?php foreach($data['projects'] as $project): ?>
+                <a href="<?= $data['config']['base_url']; ?>/project?id=<?= $project->projectHash; ?>">
                     <li class="project-item">
                         <div class="project-thumbnail">
                             <img src="https://th.bing.com/th/id/OIP.TpKdQjArT8qZWPb3lnq3agHaHa?pid=ImgDet&rs=1" alt="">
                         </div>
                         <div class="project-info">
-                            <span class="project-info-name">RPG</span>
+                            <span class="project-info-name"><?= $project->name; ?></span>
                             <span class="project-info-rating">5</span>
                         </div>
                     </li>
                 </a>
+                <?php endforeach; ?>
             </ul>
         </fieldset>
     </div>

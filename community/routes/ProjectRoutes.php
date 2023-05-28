@@ -1,5 +1,7 @@
 <?php
 
+use ofernandoavila\Community\Controller\ProjectController;
+use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Core\BasicViewController;
 use ofernandoavila\Community\Helper\EntityManagerCreator;
 use ofernandoavila\Community\Model\Project;
@@ -13,10 +15,49 @@ $router->get('/project/view-project', function($data) {
     $controller->Render('project/ViewProject');
 });
 
-$router->get('/project', function ($data) {
-    $controller = new BasicViewController();
-    $controller->Render('project/ProjectPage', $data);
+$router->get('/projects', function ($data) {
+    $controller = new ProjectController();
+    $controller->RenderProjects($data);
 });
+
+$router->get('/project', function ($data) {
+    $controller = new ProjectController();
+
+    if(!isset($data['id'])) Redirect('/projects');
+
+    $controller->RenderProject($data);
+});
+
+$router->get('/project/delete', function ($data) {
+    try {
+        $controller = new ProjectController();
+        $userController = new UserController();
+
+        $project = $controller->GetProjectById($data['id']);
+
+        $loggedUser = $userController->GetUserBySessionHash($data['session']->hash);
+
+        if ($project->IsOwner($loggedUser)) {
+            $controller->DeleteProject($project);
+
+            $_SESSION['msg']['type'] = 'success';
+            $_SESSION['msg']['text'] = 'Project deleted successfully';
+
+            Redirect('/my-account/dashboard');
+        } else {
+            $_SESSION['msg']['type'] = 'danger';
+            $_SESSION['msg']['text'] = 'You need to be the project owner to delete this';
+
+            Redirect('/my-account/dashboard');
+        }
+    } catch (Exception $e) {
+        $_SESSION['msg']['type'] = 'danger';
+        $_SESSION['msg']['message'] = $e->getMessage();
+
+        Redirect('/my-account/dashboard');
+    }
+});
+
 
 $router->get('/project/add-new-project', function($data) {
     $controller = new BasicViewController();
