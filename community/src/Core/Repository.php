@@ -34,6 +34,14 @@ class Repository
         }
     }
 
+    public function getCollectionBy(string $property, string $value) {
+        return $this->repository->findBy([$property => $value]);
+    }
+
+    public function getBy(string $property, mixed $value) {
+        return $this->repository->findOneBy([$property => $value]);
+    }
+
     public function get($id)
     {
         return $this->repository->find($id);
