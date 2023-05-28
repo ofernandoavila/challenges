@@ -10,6 +10,8 @@ global $router, $core, $applicationMode;
 
 $applicationMode = 'dev';
 
+date_default_timezone_set('America/Sao_Paulo');
+
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../src/config');
 $dotenv->load();
 
@@ -17,6 +19,7 @@ session_start();
 session_regenerate_id();
 
 require_once __DIR__ . '/../src/Helper/Redirect.php';
+require_once __DIR__ . '/../src/Helper/Debug.php';
 
 $core = new Core($applicationMode);
 $router = new Router();
