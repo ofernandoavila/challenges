@@ -33,8 +33,9 @@ $router->get('/project/delete', function ($data) {
         $controller = new ProjectController();
         $userController = new UserController();
 
-        $project = $controller->GetProjectById($data['id']);
+        $project = $controller->GetProjectByHash($data['id']);
 
+        
         $loggedUser = $userController->GetUserBySessionHash($data['session']->hash);
 
         if ($project->IsOwner($loggedUser)) {
