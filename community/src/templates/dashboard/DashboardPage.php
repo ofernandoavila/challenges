@@ -34,8 +34,9 @@
                             <div>
                                 <ul>
                                     <li>
-                                        <a href="<?= $data['config']['base_url'] ?>/project/edit-project/<?= $project->id ?>">Edit</a>
-                                        <a href="<?= $data['config']['base_url'] ?>/project/delete-project/<?= $project->id ?>">Delete</a>
+                                        <a href="<?= $data['config']['base_url'] ?>/project?id=<?= $project->projectHash ?>">View</a>
+                                        <a href="<?= $data['config']['base_url'] ?>/project/edit?id=<?= $project->projectHash ?>">Edit</a>
+                                        <a href="<?= $data['config']['base_url'] ?>/project/delete?id=<?= $project->projectHash ?>">Delete</a>
                                     </li>
                                 </ul>
                             </div>
