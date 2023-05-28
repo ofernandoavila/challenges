@@ -29,7 +29,10 @@ class EntityManagerCreator
             'user' => $systemConfig['database']['user'],
             'password' => $systemConfig['database']['password'],
             'host' => $systemConfig['database']['host'],
-            'driver' => 'pdo_mysql'
+            'driver' => 'pdo_mysql',
+            'driverOptions' => [
+                \PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone = '-03:00'"
+            ]
         ], $config);
 
         // obtaining the entity manager
