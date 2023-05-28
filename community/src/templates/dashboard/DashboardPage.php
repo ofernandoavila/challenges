@@ -17,6 +17,7 @@
                     <div class="item head item-size-1">
                         <div>ID</div>
                         <div>Name</div>
+                        <div>Pub date</div>
                         <div>Is Public?</div>
                         <div>Actions</div>
                     </div>
@@ -28,6 +29,7 @@
                             <div>
                                 <?= $project->name; ?>
                             </div>
+                            <div><?= $project->GetUploadDate(); ?></div>
                             <div>
                                 <?= $project->isPublic ? 'Public' : 'Private'; ?>
                             </div>
