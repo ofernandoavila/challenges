@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= $data['config']['scripts_dir'] ?>/lib/style/style.css">
+    <link rel="stylesheet" href="<?= $data['config']['base_url'] ?>/public/styles/main.css">
     <title><?= $data['page_title'] ?? 'ofernandoavila | Community' ?></title>
 </head>
 
@@ -30,6 +31,7 @@
             <button onclick="toggleMobileMenu()" class="menu-button" value="menu"></button>
         </div>
     </header>
+
     <div class="viewport">
         <div class="container">
             <?= isset($_SESSION['msg']) ? '<div id="notifications" class="' .  $_SESSION['msg']['type'] . '"><p>' . $_SESSION['msg']['text'] . '</p></div>' : '' ?>
