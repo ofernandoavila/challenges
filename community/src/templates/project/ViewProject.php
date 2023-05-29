@@ -39,7 +39,19 @@
                         </div>
                         <div class="row">
                             <div class="column">Rating</div>
-                            <div class="column">4</div>
+                            <div class="column">
+                                <div class="flex">
+                                    <?php if ($data['project']->rating != null) : ?>
+                                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                                            <?php if ($i < $data['project']->rating) : ?>
+                                                <i class="fa-solid fa-star"></i>
+                                            <?php else : ?>
+                                                <i class="fa-regular fa-star"></i>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>
