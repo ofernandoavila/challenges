@@ -7,7 +7,7 @@
                 <h3><?= $data['project']->name; ?></h3>
             </div>
             <div class="row justify-center">
-                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="http://localhost/games/teste/index.html" frameborder="0"></iframe>
+                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="<?= $data['config']['cdn_url'] . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
             </div>
         </fieldset>
     </div>
