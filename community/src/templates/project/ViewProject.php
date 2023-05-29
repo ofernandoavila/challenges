@@ -23,7 +23,7 @@
                             <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
                         </div>
                         <div class="post-meta-author-info">
-                            <h3><?= $data['user']->username; ?></h3>
+                            <h3>@<?= $data['project']->owner->username; ?></h3>
                             <span>Administrator</span>
                         </div>
                     </div>
