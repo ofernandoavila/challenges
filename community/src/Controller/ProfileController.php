@@ -14,8 +14,11 @@ class ProfileController extends Controller {
     public function ProfilePage($data = []) {
 
         $user = new UserController();
+        $project = new ProjectController();
 
         $data['user'] = $user->GetUserByUsername($data['username']);
+
+        if($data['user'] != null) $data['projects'] = $project->GetProjectsByUser($data['user']);
 
         return $this->render('profile/ProfilePage', $data);
     }
