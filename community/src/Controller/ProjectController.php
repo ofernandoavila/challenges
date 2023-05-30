@@ -36,6 +36,10 @@ class ProjectController extends Controller {
         return $this->repository->getCollectionBy('isPublic', true);
     }
 
+    public function GetProjectsByUser(User $user) {
+        return $this->repository->getCollectionBy('owner', $user);
+    }
+
     public function RenderProject($data) {
         $data['project'] = $this->GetProjectByHash($data['id']);
 
