@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Core\Model;
@@ -30,6 +31,9 @@ class User extends Model {
 
     #[OneToMany(targetEntity: Project::class, mappedBy: 'owner', fetch: 'EAGER')]
     public $projects;
+
+    #[ManyToMany(targetEntity: Project::class, inversedBy: 'userLikes')]
+    public $likes;
     
     public function __construct(string $user, string $password)
     {
@@ -37,8 +41,24 @@ class User extends Model {
         $this->password = $password;
 
         $this->projects = new ArrayCollection();
+        $this->likes = new ArrayCollection();
 
         parent::__construct(new UserRepository());
+    }
+
+    public function AddLike(Project $project)
+    {
+        if (!$this->likes->contains($project)) {
+            $this->likes[] = $project;
+            $project->AddLike($this);
+        }
+    }
+
+    public function RemoveLike(Project $project) {
+        if($this->likes->contains($project)) {
+            $this->likes->removeElement($project);
+            $project->RemoveLike($this);
+        }
     }
 
     public function SetPassword($password) {

@@ -16,6 +16,7 @@ $router->get('/', function($data) {
     $controller->Render('Home', $data);
 });
 
+require_once __DIR__ . '/routes/UserRoutes.php';
 require_once __DIR__ . '/routes/ProfileRoutes.php';
 require_once __DIR__ . '/routes/DashboardRoutes.php';
 require_once __DIR__ . '/routes/ProjectRoutes.php';

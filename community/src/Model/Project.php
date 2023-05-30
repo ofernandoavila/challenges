@@ -3,24 +3,23 @@
 namespace ofernandoavila\Community\Model;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\PrePersist;
 
 #[Entity, HasLifecycleCallbacks]
 class Project
 {
-
     #[Column, GeneratedValue, Id]
     public int $id;
-
     #[ManyToOne(targetEntity: User::class, inversedBy: 'projects')]
     public User $owner;
-    
     #[Column]
     public string $name;
     #[Column]
@@ -29,18 +28,34 @@ class Project
     public string $filePath;
     #[Column]
     public bool $isPublic;
-
     #[Column]
     public string $projectHash;
-
     #[Column(type: 'datetime')]
     public $uploadDate;
-
     #[Column(nullable: true)]
     public string $iconPath;
-
     #[Column(nullable: true)]
     public float $rating;
+    #[ManyToMany(targetEntity: User::class, mappedBy: 'likes')]
+    public $userLikes;
+
+    public function __construct() {
+        $this->userLikes = new ArrayCollection();
+    }
+
+    public function AddLike(User $user) {
+        if(!$this->userLikes->contains($user)) {
+            $this->userLikes[] = $user;
+            $user->AddLike($this);
+        }
+    }
+
+    public function RemoveLike(User $user) {
+        if($this->userLikes->contains($user)) {
+            $this->userLikes->removeElement($user);
+            $user->RemoveLike($this);
+        }
+    }
 
     public function setOwner(User $user) {
         $this->owner = $user;
