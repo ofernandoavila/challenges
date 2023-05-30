@@ -42,6 +42,8 @@ class Core {
         
         if(isset($apacheHeaders['Content-Type'])) {
             $this->request['isJson'] = true;
+        } else {
+            $this->request['isJson'] = false;
         }
         
         $this->request['data'] = $this->GetRequestData();
