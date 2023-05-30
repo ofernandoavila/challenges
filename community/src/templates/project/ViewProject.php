@@ -18,15 +18,17 @@
                     <h3>Author</h3>
                 </div>
                 <div class="post-meta">
-                    <div class="post-meta-author">
-                        <div class="post-meta-thumbnail">
-                            <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                    <a href="<?= $data['config']['base_url'] ?>/profile?username=<?= $data['project']->owner->username; ?>">
+                        <div class="post-meta-author">
+                            <div class="post-meta-thumbnail">
+                                <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                            </div>
+                            <div class="post-meta-author-info">
+                                <h3>@<?= $data['project']->owner->username; ?></h3>
+                                <span>Administrator</span>
+                            </div>
                         </div>
-                        <div class="post-meta-author-info">
-                            <h3>@<?= $data['project']->owner->username; ?></h3>
-                            <span>Administrator</span>
-                        </div>
-                    </div>
+                    </a>
                     <hr>
                     <div class="post-meta-data">
                         <div class="row">
