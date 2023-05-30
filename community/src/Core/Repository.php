@@ -34,7 +34,7 @@ class Repository
         }
     }
 
-    public function getCollectionBy(string $property, string $value) {
+    public function getCollectionBy(string $property, mixed $value) {
         return $this->repository->findBy([$property => $value]);
     }
 
