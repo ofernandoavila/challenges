@@ -147,5 +147,11 @@ button {
         content: var(--icon-draw-square);
         font-weight: 100;
     }
+
+    &[value="config"]::before {
+        font-family: var(--icon-font-family-icons);
+        content: var(--icon-cogs);
+        font-weight: 100;
+    }
 }
 

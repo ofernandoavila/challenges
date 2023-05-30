@@ -123,6 +123,7 @@
   --icon-add: "+";
   --icon-cursor-pointer: "";
   --icon-draw-square: "";
+  --icon-cogs: "";
 }
 
 :root {
@@ -449,6 +450,11 @@ button[value=cursor-pointer]::before {
 button[value=draw-square]::before {
   font-family: var(--icon-font-family-icons);
   content: var(--icon-draw-square);
+  font-weight: 100;
+}
+button[value=config]::before {
+  font-family: var(--icon-font-family-icons);
+  content: var(--icon-cogs);
   font-weight: 100;
 }
 
