@@ -10,18 +10,19 @@ class Core {
 
     public function __construct(string $mode = '') {
         $this->config = Config::GetConfigs($mode);
+        $this->request['data'] = [];
 
         $this->request['config'] = $this->config;
         $this->ConfigureRequest();
-        $this->GetLoggedUserData();
+        if(!$this->request['isJson']) $this->GetLoggedUserData();
     }
 
     private function GetLoggedUserData() {
         if(isset($_SESSION['user_session'])) {
             $sessionController = new SessionController();
             $session = $sessionController->GetSessionByHash($_SESSION['user_session']);
-
-            $this->request['data']['session'] = $session;
+            
+            if($session != null) $this->request['data']['session'] = $session;
             $this->request['data']['user'] = $session->user;
         }
     }
@@ -35,13 +36,15 @@ class Core {
             'method' => $_SERVER['REQUEST_METHOD']
         );
 
-        $this->request['data'] = $this->GetRequestData();
-
+        
         $apacheHeaders = apache_request_headers();
-
+        
+        
         if(isset($apacheHeaders['Content-Type'])) {
             $this->request['isJson'] = true;
         }
+        
+        $this->request['data'] = $this->GetRequestData();
     }
 
     public function Init() {
@@ -72,6 +75,10 @@ class Core {
     private function GetRequestData() {
         switch($this->request['method']) {
             case "POST":
+                    if($this->request['isJson']) {
+                        $out = json_decode( file_get_contents('php://input'), true );
+                        return $out;
+                    }
                     return $_POST;
                 break;
             default:
