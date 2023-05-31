@@ -25,10 +25,8 @@
                 let currentValue = parseInt(document.querySelector('#followers-total').innerHTML);
 
                 if(data.following) {
-                    document.querySelector('#follow-button').innerHTML = "Following";
                     document.querySelector('#followers-total').innerHTML = currentValue + 1;
                 } else {
-                    document.querySelector('#follow-button').innerHTML = "Follow";
                     document.querySelector('#followers-total').innerHTML = currentValue - 1;
                 }
 
@@ -58,9 +56,8 @@
                                     id="follow-button"
                                     data-following="<?= $data['isFollowing'] ? 'true' : 'false' ?>"
                                     class="btn btn-normal w-100"
-                                    value="plus"
                                     onclick="Follow(<?= $data['user']->id ?? 'null'; ?>, <?= $data['profile_user']->id; ?>)"
-                                ><?= $data['isFollowing'] ? 'Following' : 'Follow' ?></button>
+                                ></button>
                             <?php endif; ?>
                         </div>
                         <div class="row">

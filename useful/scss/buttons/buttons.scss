@@ -207,3 +207,27 @@ button[data-liked="false"].btn  {
     }
 }
 
+button[data-following="true"].btn  {
+    background-color: var(--buttons-default);
+    border-color: var(--buttons-default-border);
+    color: #000;
+    &::after {
+        content: 'Following';
+    }
+    
+    &:hover {
+        color: #fff;
+        background-color: var(--buttons-danger);
+        border-color: var(--buttons-danger-border);
+
+        &::after {
+            content: 'Unfollow';
+        }
+    }
+}
+
+button[data-following="false"].btn  {
+    &::after {
+        content: 'Follow';
+    }
+}

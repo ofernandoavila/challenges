@@ -127,6 +127,7 @@
   --icon-cogs: "";
   --icon-like: "";
   --icon-unlike: "";
+  --icon-check: "";
 }
 
 :root {
@@ -490,6 +491,27 @@ button[data-liked=false].btn:hover::before {
   font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-like);
   font-weight: 100;
+}
+
+button[data-following=true].btn {
+  background-color: var(--buttons-default);
+  border-color: var(--buttons-default-border);
+  color: #000;
+}
+button[data-following=true].btn::after {
+  content: "Following";
+}
+button[data-following=true].btn:hover {
+  color: #fff;
+  background-color: var(--buttons-danger);
+  border-color: var(--buttons-danger-border);
+}
+button[data-following=true].btn:hover::after {
+  content: "Unfollow";
+}
+
+button[data-following=false].btn::after {
+  content: "Follow";
 }
 
 fieldset {
