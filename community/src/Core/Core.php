@@ -39,8 +39,7 @@ class Core {
         
         $apacheHeaders = apache_request_headers();
         
-        
-        if(isset($apacheHeaders['Content-Type'])) {
+        if(isset($apacheHeaders['Content-Type']) && $apacheHeaders['Content-Type'] == "application/json") {
             $this->request['isJson'] = true;
         } else {
             $this->request['isJson'] = false;
