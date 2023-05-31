@@ -52,13 +52,16 @@ class ProjectController extends Controller {
         $userController = new UserController();
 
         $project = $this->GetProjectById($data['project']->id);
-        $user = $userController->GetUserByID($data['user']->id);
 
-        if($this->CheckIfUserLikes($project, $user)) {
-            $data['isProjectLikedByUser'] = true;
-        } else {
-            $data['isProjectLikedByUser'] = false;
-        }
+        if(isset($data['user'])) {
+            $user = $userController->GetUserByID($data['user']->id);
+            
+            if($this->CheckIfUserLikes($project, $user)) {
+                $data['isProjectLikedByUser'] = true;
+            } else {
+                $data['isProjectLikedByUser'] = false;
+            }
+        } else $data['isProjectLikedByUser'] = false;       
 
         if($data['project'] == null) {
             $_SESSION['msg']['type'] = 'warning';
