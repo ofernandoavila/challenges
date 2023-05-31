@@ -104,7 +104,8 @@
  * @description Defines the variables for icons
 */
 :root {
-  --icon-font-family-icons: "Font Awesome 6 Free Solid";
+  --icon-font-family-icons-solid: "Font Awesome 6 Free Solid";
+  --icon-font-family-icons-regular: "Font Awesome 6 Free Regular";
   --icon-download: "";
   --icon-convert: "";
   --icon-copy2clipboard: "";
@@ -124,6 +125,8 @@
   --icon-cursor-pointer: "";
   --icon-draw-square: "";
   --icon-cogs: "";
+  --icon-like: "";
+  --icon-unlike: "";
 }
 
 :root {
@@ -337,7 +340,7 @@ canvas {
   align-items: center;
   justify-content: center;
   padding: 1em;
-  width: 100%;
+  width: fit-content;
   color: var(--buttons-font-color);
   border-radius: 5px;
   transition: 0.2s ease-in-out;
@@ -404,57 +407,88 @@ button:not(:empty)::before {
   margin-right: 10px;
 }
 button[value=download]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-download);
 }
 button[value=convert]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-convert);
 }
 button[value=copy2clipboard]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-copy2clipboard);
 }
 button[value=play]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-play);
 }
 button[value=start]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-start);
 }
 button[value=stop]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-stop);
 }
 button[value=remove]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-remove);
 }
 button[value=menu]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-menu);
 }
 button[value=home]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-home);
 }
 button[value=plus]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-add);
 }
 button[value=cursor-pointer]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-cursor-pointer);
 }
 button[value=draw-square]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-draw-square);
   font-weight: 100;
 }
 button[value=config]::before {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-cogs);
+  font-weight: 100;
+}
+button[value=like]::before {
+  font-family: var(--icon-font-family-icons-regular);
+  content: var(--icon-like);
+  font-weight: 100;
+}
+
+button[data-liked=true].btn::before {
+  font-family: var(--icon-font-family-icons-solid);
+  content: var(--icon-like);
+  font-weight: 100;
+}
+button[data-liked=true].btn:hover {
+  background-color: var(--buttons-danger);
+  border-color: var(--buttons-danger-border);
+}
+button[data-liked=true].btn:hover::before {
+  font-family: var(--icon-font-family-icons-solid);
+  content: var(--icon-unlike);
+  font-weight: 100;
+}
+
+button[data-liked=false].btn::before {
+  font-family: var(--icon-font-family-icons-regular);
+  content: var(--icon-like);
+  font-weight: 100;
+}
+button[data-liked=false].btn:hover::before {
+  font-family: var(--icon-font-family-icons-solid);
+  content: var(--icon-like);
   font-weight: 100;
 }
 

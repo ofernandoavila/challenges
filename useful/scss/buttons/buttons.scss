@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     padding: 1em;
-    width: 100%;
+    width: fit-content;
     color: var(--buttons-font-color);
     border-radius: 5px;
     transition: 0.2s ease-in-out;
@@ -88,70 +88,122 @@ button {
     }
 
     &[value="download"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-download);
     }
     
     &[value="convert"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-convert);
     }
     
     &[value="copy2clipboard"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-copy2clipboard);
     }
     
     &[value="play"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-play);
     }
     
     &[value="start"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-start);
     }
     
     &[value="stop"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-stop);
     }
     
     &[value="remove"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-remove);
     }
 
     &[value="menu"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-menu);
     }
 
     &[value="home"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-home);
     }
 
     &[value="plus"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-add);
     }
 
     &[value="cursor-pointer"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-cursor-pointer);
     }
 
     &[value="draw-square"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-draw-square);
         font-weight: 100;
     }
 
     &[value="config"]::before {
-        font-family: var(--icon-font-family-icons);
+        font-family: var(--icon-font-family-icons-solid);
         content: var(--icon-cogs);
         font-weight: 100;
+    }
+    
+    &[value="like"]::before {
+        font-family: var(--icon-font-family-icons-regular);
+        content: var(--icon-like);
+        font-weight: 100;
+    }
+}
+
+$like-button: (
+    font-family: var(--icon-font-family-icons-solid),
+    content: var(--icon-like),
+    font-weight: 100
+);
+
+$unlike-button: (
+    font-family: var(--icon-font-family-icons-solid),
+    content: var(--icon-unlike),
+    font-weight: 100
+);
+
+button[data-liked="true"].btn  {
+    &::before {
+        @each $property, $value in $like-button {
+            #{$property}: $value;
+        }
+    }
+
+    &:hover {
+        background-color: var(--buttons-danger);
+        border-color: var(--buttons-danger-border);
+
+        &::before {
+            @each $property, $value in $unlike-button {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+button[data-liked="false"].btn  {
+    &::before {
+        font-family: var(--icon-font-family-icons-regular);
+        content: var(--icon-like);
+        font-weight: 100;
+    }
+    &:hover {
+        &::before {
+            @each $property, $value in $like-button {
+                #{$property}: $value;
+            }
+        }
     }
 }
 

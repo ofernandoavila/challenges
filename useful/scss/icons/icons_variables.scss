@@ -3,7 +3,8 @@
  * @description Defines the variables for icons
 */
 :root {
-    --icon-font-family-icons: "Font Awesome 6 Free Solid";
+    --icon-font-family-icons-solid: "Font Awesome 6 Free Solid";
+    --icon-font-family-icons-regular: "Font Awesome 6 Free Regular";
     --icon-download: "\f019";
     --icon-convert: "\f363";
     --icon-copy2clipboard: "\f0c5";
@@ -23,4 +24,6 @@
     --icon-cursor-pointer: "\f245";
     --icon-draw-square: "\f61f";
     --icon-cogs: "\f085";
+    --icon-like: "\f004";
+    --icon-unlike: "\f7a9";
 }
