@@ -132,6 +132,7 @@
   --icon-check: "";
   --icon-user: "";
   --icon-logout: "";
+  --icon-return: "";
 }
 
 :root {
@@ -517,6 +518,11 @@ button[value=user]::before {
 button[value=logout]::before {
   font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-logout);
+  font-weight: 100;
+}
+button[value=return]::before {
+  font-family: var(--icon-font-family-icons-solid);
+  content: var(--icon-return);
   font-weight: 100;
 }
 
@@ -1048,6 +1054,9 @@ footer {
 }
 .h-20 {
   min-height: 20% !important;
+}
+.h-vh-100 {
+  min-height: 100vh !important;
 }
 .h-vh-80 {
   min-height: 80vh !important;

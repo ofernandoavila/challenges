@@ -85,6 +85,10 @@
     }
 
     &-vh {
+        &-100 {
+            min-height: 100vh !important;
+        }
+
         &-80 {
             min-height: 80vh !important;
         }

@@ -14,8 +14,8 @@ class LoginDisplayViewController extends BasicViewController implements IDisplay
         return $this->Render('LoginPage', $data);
     }
 
-    public function CreateAccountPage() {
-        return $this->Render('CreateAccountPage');
+    public function CreateAccountPage($data = []) {
+        return $this->Render('CreateAccountPage', $data);
     }
 
     public function Logoff()
