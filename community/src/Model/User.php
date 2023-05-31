@@ -47,6 +47,8 @@ class User extends Model {
 
     #[ManyToMany(targetEntity: User::class, mappedBy: "followings")]
     private $followers;
+
+    public bool $currentUserFollow;
     
     public function __construct(string $user, string $password)
     {
@@ -130,7 +132,7 @@ class User extends Model {
     }
 
     public function IsFollowing(User $user) {
-        $followings = $this->getFollowings();
+        $followings = $this->GetFollowings();
 
         return $followings->contains($user);
     }
