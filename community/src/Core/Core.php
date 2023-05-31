@@ -65,6 +65,8 @@ class Core {
         // echo '</pre>';
         // die;
         if(isset($this->request['route'])) {
+            $this->request['data']['config'] = $this->config;
+
             return $this->request['route']['function']($this->request['data']);
         } else {
             $controller = new BasicViewController();

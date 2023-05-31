@@ -1,11 +1,13 @@
 <?php
 
-namespace ofernandoavila\Community\Controller;
+namespace ofernandoavila\Community\Controller\DisplayView;
 
 use ofernandoavila\Community\Core\BasicViewController;
 use ofernandoavila\Community\Core\Router;
+use ofernandoavila\Community\Interfaces\IDisplayView;
 
-class DashboardController extends BasicViewController {
+class DashboardDisplayViewController extends BasicViewController implements IDisplayView {
+    public function BasicContext($data = []) {}
     public function DashboardPage($data = []) {
         Router::CheckIfUserIsLogged();
 

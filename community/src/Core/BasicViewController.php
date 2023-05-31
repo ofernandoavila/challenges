@@ -18,12 +18,7 @@ class BasicViewController {
 
         $data = $dataTransfer;
 
-        
-        if(isset($data['config'])) throw new Exception('This key is reserved to system use only');
-
         $filePath = $this->config['template_dir'] . $path . '.php';
-
-        $data['config'] = $this->config;
 
         if(file_exists($filePath)) {
             require_once $filePath;

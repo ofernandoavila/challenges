@@ -1,6 +1,6 @@
 <?php
 
-use ofernandoavila\Community\Controller\LoginController;
+use ofernandoavila\Community\Controller\DisplayView\LoginDisplayViewController;
 use ofernandoavila\Community\Controller\SessionController;
 use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Model\User;
@@ -8,21 +8,21 @@ use ofernandoavila\Community\Model\User;
 global $router;
 
 $router->get('/login', function ($data) {
-    $loginController = new LoginController();
+    $loginController = new LoginDisplayViewController();
 
-    return $loginController->LoginPage();
+    return $loginController->LoginPage($data);
 });
 
 $router->get('/logoff', function ($data) {
-    $loginController = new LoginController();
+    $loginController = new LoginDisplayViewController();
 
     return $loginController->Logoff();
 });
 
-$router->get('/create-account', function () {
-    $loginController = new LoginController();
+$router->get('/create-account', function ($data) {
+    $loginController = new LoginDisplayViewController();
 
-    return $loginController->CreateAccountPage();
+    return $loginController->CreateAccountPage($data);
 });
 
 $router->post('/create-account', function($data) {

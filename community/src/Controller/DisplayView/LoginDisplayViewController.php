@@ -1,14 +1,17 @@
 <?php
 
-namespace ofernandoavila\Community\Controller;
+namespace ofernandoavila\Community\Controller\DisplayView;
 
+use ofernandoavila\Community\Controller\SessionController;
 use ofernandoavila\Community\Core\BasicViewController;
+use ofernandoavila\Community\Interfaces\IDisplayView;
 use ofernandoavila\Community\Model\User;
 
-class LoginController extends BasicViewController {
-    public function LoginPage()
+class LoginDisplayViewController extends BasicViewController implements IDisplayView {
+    public function BasicContext($data = []) {}
+    public function LoginPage($data)
     {
-        return $this->Render('LoginPage');
+        return $this->Render('LoginPage', $data);
     }
 
     public function CreateAccountPage() {
