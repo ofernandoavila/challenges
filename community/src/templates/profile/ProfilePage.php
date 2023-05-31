@@ -32,8 +32,12 @@
                             <div class="column"><?= sizeof($data['user']->GetProjects()); ?></div>
                         </div>
                         <div class="row">
+                            <div class="column">Projects Likes</div>
+                            <div class="column"><?= $data['user']->TotalProjectsLikes(); ?></div>
+                        </div>
+                        <div class="row">
                             <div class="column">Faves</div>
-                            <div class="column">0</div>
+                            <div class="column"><?= $data['user']->GetTotalFaves(); ?></div>
                         </div>
                     </div>
                 </div>

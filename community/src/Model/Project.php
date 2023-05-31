@@ -50,6 +50,10 @@ class Project
         }
     }
 
+    public function GetTotalLikes() {
+        return $this->userLikes->count();
+    }
+
     public function RemoveLike(User $user) {
         if($this->userLikes->contains($user)) {
             $this->userLikes->removeElement($user);

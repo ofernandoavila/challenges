@@ -54,6 +54,20 @@ class User extends Model {
         }
     }
 
+    public function TotalProjectsLikes():int {
+        $out = 0;
+        
+        foreach($this->projects as $project) {
+            $out += $project->GetTotalLikes();
+        }
+
+        return $out;
+    }
+
+    public function GetTotalFaves():int {
+        return $this->likes->count();
+    }
+
     public function RemoveLike(Project $project) {
         if($this->likes->contains($project)) {
             $this->likes->removeElement($project);
