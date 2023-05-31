@@ -3,12 +3,16 @@
 namespace ofernandoavila\Community\Controller;
 
 use Exception;
+use ofernandoavila\Community\Core\Controller;
 use ofernandoavila\Community\Model\User;
 use ofernandoavila\Community\Repository\ProjectRepository;
 use ofernandoavila\Community\Repository\SessionRepository;
 use ofernandoavila\Community\Repository\UserRepository;
 
-class UserController {
+class UserController extends Controller {
+    public function __construct() {
+        parent::__construct(new UserRepository());
+    }
     public function SaveUser(User $user) {
         $repo = new UserRepository();
 
@@ -50,6 +54,14 @@ class UserController {
         } else {
             return false;
         }
+    }
+
+    public function Follow(User $user, User $target):bool {
+        return $this->repository->follow($user->id, $target->id);
+    }
+
+    public function IsFollowing(User $user, User $target):bool {
+        return $this->repository->isFollowing($user->id, $target->id);
     }
 
     public function GetUserByID(int $id)

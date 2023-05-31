@@ -3,11 +3,15 @@
 namespace ofernandoavila\Community\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\InverseJoinColumn;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use ofernandoavila\Community\Controller\UserController;
@@ -34,6 +38,15 @@ class User extends Model {
 
     #[ManyToMany(targetEntity: Project::class, inversedBy: 'userLikes')]
     public $likes;
+
+    #[ManyToMany(targetEntity: User::class, inversedBy: "followers")]
+    #[JoinTable(name: "user_follows")]
+    #[JoinColumn(name: "user_id", referencedColumnName: "id")]
+    #[InverseJoinColumn(name: "follower_id", referencedColumnName: "id")]
+    private $followings;
+
+    #[ManyToMany(targetEntity: User::class, mappedBy: "followings")]
+    private $followers;
     
     public function __construct(string $user, string $password)
     {
@@ -42,6 +55,9 @@ class User extends Model {
 
         $this->projects = new ArrayCollection();
         $this->likes = new ArrayCollection();
+
+        $this->followings = new ArrayCollection();
+        $this->followers = new ArrayCollection();
 
         parent::__construct(new UserRepository());
     }
@@ -111,5 +127,59 @@ class User extends Model {
 
     public function GetProjects() {
         return $this->projects;
+    }
+
+    public function IsFollowing(User $user) {
+        $followings = $this->getFollowings();
+
+        return $followings->contains($user);
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function GetFollowings(): Collection
+    {
+        return $this->followings;
+    }
+
+    public function GetFollowingsCount(): int {
+        return $this->followings->count();
+    }
+
+    public function AddFollowing(User $user): void
+    {
+        if (!$this->followings->contains($user)) {
+            $this->followings[] = $user;
+        }
+    }
+
+    public function RemoveFollowing(User $user): void
+    {
+        $this->followings->removeElement($user);
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function GetFollowers(): Collection
+    {
+        return $this->followers;
+    }
+
+    public function GetFollowersCount(): int {
+            return $this->followers->count();
+        }
+
+    public function AddFollower(User $user): void
+    {
+        if (!$this->followers->contains($user)) {
+            $this->followers[] = $user;
+        }
+    }
+
+    public function RemoveFollower(User $user): void
+    {
+        $this->followers->removeElement($user);
     }
 }
