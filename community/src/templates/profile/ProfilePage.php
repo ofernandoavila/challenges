@@ -50,7 +50,7 @@
                         </div>
                         <div class="row mg-top-20">
                             <?php if(isset($data['session']->user->username) && $data['session']->user->username == $data['profile_user']->username): ?>
-                                <a href="<?= $data['config']['base_url'] ?>/my-account/edit-account"><button class="btn btn-default" value="config">Manage profile</button></a>
+                                <a class="w-100" href="<?= $data['config']['base_url'] ?>/my-account/edit-account"><button class="btn btn-default w-100" value="config">Manage profile</button></a>
                             <?php else: ?>
                                 <button
                                     id="follow-button"

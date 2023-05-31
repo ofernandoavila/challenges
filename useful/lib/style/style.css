@@ -1438,6 +1438,7 @@ pre {
 a {
   line-height: 1.5rem;
   color: var(--font-color-link);
+  text-decoration: none;
 }
 
 h1 {
