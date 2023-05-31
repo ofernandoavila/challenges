@@ -14,9 +14,11 @@
                 })
             }).then(res => res.json())
             .then(data => {
-                console.log(data);
+                let btn = document.querySelector('#like-button');
+                btn.setAttribute("data-liked", data.like.toString());
             });
     }
+
 </script>
 
 <div class="row flex-column justify-center align-items-start">
@@ -24,7 +26,13 @@
         <fieldset class="w-100">
             <div class="text-header">
                 <h3><?= $data['project']->name; ?></h3>
-                <button class="btn btn-normal w-20" id="like-button" value="like" onclick="LikeProject(<?= $data['session']->user->id ?>, '<?= $data['project']->projectHash; ?>' )">Like</button>
+                <button 
+                    data-liked="<?= $data['isProjectLikedByUser'] ? "true" : "false" ?>"
+                    class="btn btn-normal"
+                    id="like-button"
+                    value="like"
+                    onclick="LikeProject(<?= $data['session']->user->id ?? '' ?>, '<?= $data['project']->projectHash; ?>' )"
+                ></button>
             </div>
             <div class="row justify-center">
                 <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="<?= $data['config']['storage_url'] . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
