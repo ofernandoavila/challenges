@@ -846,7 +846,7 @@ footer {
   right: 0;
 }
 .toggle-theme::after {
-  font-family: var(--icon-font-family-icons);
+  font-family: var(--icon-font-family-icons-solid);
   content: var(--toggle-theme-icon);
   font-size: var(--toggle-theme-icon-size);
 }
