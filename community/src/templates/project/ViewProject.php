@@ -39,7 +39,7 @@
                 ></button>
             </div>
             <div class="row justify-center">
-                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; cursor: default;" src="<?= $data['config']['storage_url'] . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
+                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: default;" src="<?= $data['config']['storage_url'] . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
             </div>
         </fieldset>
     </div>

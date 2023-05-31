@@ -1,35 +1,35 @@
 <?php global $data; ?>
 <?php if (sizeof($data['games']) != 0) : ?>
-    <ul class="game-list">
-        <?php
-        /**
-         * @var Project $game
-         */
-        foreach ($data['games'] as $game) : ?>
-            <li>
-                <a href="<?= $data['config']['base_url'] . '/project?id=' . $game->projectHash; ?>">
-                    <div class="game-thumbnail"><img src="<?= $data['config']['storage_url'] . '/games/' . $game->projectHash; ?>/icon.png" alt=""></div>
-                    <div class="game-info">
-                        <div class="game-meta">
-                            <div class="game-rating">
-                                <?php if ($game->rating != null) : ?>
-                                    <?php for ($i = 0; $i < 5; $i++) : ?>
-                                        <?php if ($i < $game->rating) : ?>
-                                            <i class="fa-solid fa-star"></i>
-                                        <?php else : ?>
-                                            <i class="fa-regular fa-star"></i>
-                                        <?php endif; ?>
-                                    <?php endfor; ?>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="game-title">
-                            <span><?= $game->name; ?></span>
-                            <span>by <?= $game->owner->username; ?></span>
-                        </div>
-                    </div>
-                </a>
+    <ul class="projects-grid">
+        <?php foreach($data['games'] as $project): ?>
+        <a href="<?= $data['config']['base_url']; ?>/project?id=<?= $project->projectHash; ?>">
+            <li class="project-item">
+                <div class="project-info-rating">
+                    <?php if ($project->rating != null) : ?>
+                        <?php for ($i = 0; $i < 5; $i++) : ?>
+                            <?php if ($i < $project->rating) : ?>
+                                <i class="fa-solid fa-star"></i>
+                            <?php else : ?>
+                                <i class="fa-regular fa-star"></i>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                    <?php else: ?>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    <?php endif; ?>
+                </div>
+                <div class="project-thumbnail">
+                    <img src="<?= $data['config']['storage_url'] . '/games/' . $project->projectHash; ?>/icon.png" alt="">
+                </div>
+                <div class="project-info">
+                    <span class="project-info-name"><?= $project->name; ?></span>
+                    <p>by <?= $project->owner->username; ?></p>
+                </div>
             </li>
+        </a>
         <?php endforeach; ?>
     </ul>
 <?php else : ?>
