@@ -27,6 +27,15 @@
         cursor: pointer;
     }
 
+    &.btn-transparent {
+        background: none;
+        border: none;
+
+        &::before {
+            font-size: 24px;
+        }
+    }
+
     &.btn-normal {
         background-color: var(--buttons-normal);
         border: 1px solid var(--buttons-normal-border);
@@ -157,6 +166,18 @@ button {
     &[value="like"]::before {
         font-family: var(--icon-font-family-icons-regular);
         content: var(--icon-like);
+        font-weight: 100;
+    }
+
+    &[value="user"]::before {
+        font-family: var(--icon-font-family-icons-solid);
+        content: var(--icon-user);
+        font-weight: 100;
+    }
+
+    &[value="logout"]::before {
+        font-family: var(--icon-font-family-icons-solid);
+        content: var(--icon-logout);
         font-weight: 100;
     }
 }

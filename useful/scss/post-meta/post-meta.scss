@@ -23,6 +23,15 @@
         flex-direction: column;
         align-items: center;
 
+        a {
+            color: inherit;
+        }
+
+        span {
+            font-weight: 800;
+            font-size: 20px;
+        }
+
         &-info {
             padding-top: 10px;
             display: flex;

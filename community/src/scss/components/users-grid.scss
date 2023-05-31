@@ -1,0 +1,27 @@
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 50px;
+
+    .users-list-item, .users-list-item a {
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-info {
+        font-weight: 800;
+        padding: 20px 0px;
+    }
+
+    .user-image {
+        width: 128px;
+        height: 128px;
+
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+}
