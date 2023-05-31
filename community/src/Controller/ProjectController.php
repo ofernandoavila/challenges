@@ -2,6 +2,7 @@
 
 namespace ofernandoavila\Community\Controller;
 use ofernandoavila\Community\Core\Controller;
+use ofernandoavila\Community\Helper\EntityManagerCreator;
 use ofernandoavila\Community\Model\Project;
 use ofernandoavila\Community\Model\User;
 use ofernandoavila\Community\Repository\ProjectRepository;
@@ -40,8 +41,24 @@ class ProjectController extends Controller {
         return $this->repository->getCollectionBy('owner', $user);
     }
 
+    public function CheckIfUserLikes(Project $project, User $user) {
+        /** @var ProjectRepository $repository */
+        return $this->repository->CheckIfUserLikes($user->id, $project->id);
+    }
+
     public function RenderProject($data) {
         $data['project'] = $this->GetProjectByHash($data['id']);
+
+        $userController = new UserController();
+
+        $project = $this->GetProjectById($data['project']->id);
+        $user = $userController->GetUserByID($data['user']->id);
+
+        if($this->CheckIfUserLikes($project, $user)) {
+            $data['isProjectLikedByUser'] = true;
+        } else {
+            $data['isProjectLikedByUser'] = false;
+        }
 
         if($data['project'] == null) {
             $_SESSION['msg']['type'] = 'warning';

@@ -57,6 +57,14 @@ class Project
         }
     }
 
+    public function CheckLike(User $user) {
+        if($this->userLikes->contains($user)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function setOwner(User $user) {
         $this->owner = $user;
     }
@@ -79,5 +87,9 @@ class Project
 
     public function GetUploadDate() {
         return $this-> uploadDate->format('m/d/Y H:i:s');
+    }
+
+    public function GetUsersLiked():ArrayCollection {
+        return new ArrayCollection($this->userLikes->toArray());
     }
 }
