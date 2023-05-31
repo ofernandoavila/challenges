@@ -2,6 +2,10 @@
 
 <script>
     async function LikeProject(userId, projectHash) {
+        if (userId == null) {
+            return Login.openLoginPopup();
+        }
+
         await fetch('<?= $data['config']['base_url'] ?>/likeProject', {
                 method: 'POST',
                 headers: {
@@ -31,7 +35,7 @@
                     class="btn btn-normal"
                     id="like-button"
                     value="like"
-                    onclick="LikeProject(<?= $data['session']->user->id ?? '' ?>, '<?= $data['project']->projectHash; ?>' )"
+                    onclick="LikeProject(<?= $data['session']->user->id ?? 'null' ?>, '<?= $data['project']->projectHash; ?>' )"
                 ></button>
             </div>
             <div class="row justify-center">
