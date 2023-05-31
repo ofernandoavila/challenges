@@ -62,7 +62,7 @@ $router->get('/project/delete', function ($data) {
 
 $router->get('/project/add-new-project', function($data) {
     $controller = new BasicViewController();
-    $controller->Render('project/AddNewProject'); 
+    $controller->Render('project/AddNewProject', $data); 
 });
 
 $router->post('/project/add-new-project', function ($data) {
@@ -75,6 +75,7 @@ $router->post('/project/add-new-project', function ($data) {
         $project->description = $data['project_description'];
         $project->filePath = 'teste123';
         $project->isPublic = $data['project_public'] == 'public' ? true : false;
+        $project->rating = 0;
 
         $user = Session::GetCurrentUser();
         $user = $em->find(User::class, $user->id);

@@ -105,7 +105,7 @@
                         <a href="<?= $data['config']['base_url']; ?>/project?id=<?= $project->projectHash; ?>">
                             <li class="project-item">
                                 <div class="project-thumbnail">
-                                    <img src="https://th.bing.com/th/id/OIP.TpKdQjArT8qZWPb3lnq3agHaHa?pid=ImgDet&rs=1" alt="">
+                                    <img src="<?= $data['config']['storage_url'] . '/games/' . $project->projectHash; ?>/icon.png" alt="">
                                 </div>
                                 <div class="project-info">
                                     <span class="project-info-name"><?= $project->name; ?></span>

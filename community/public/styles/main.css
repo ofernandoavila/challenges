@@ -1,6 +1,8 @@
 ul.game-list {
+  color: var(--font-color-white);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 ul.game-list a {
   color: inherit;
