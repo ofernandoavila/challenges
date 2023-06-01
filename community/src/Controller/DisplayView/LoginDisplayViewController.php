@@ -27,6 +27,7 @@ class LoginDisplayViewController extends BasicViewController implements IDisplay
             }
         } catch (\Exception $error) {
             SessionController::DefineErrorMessage($error->getMessage());
+            throw $error;
         }
     }
 }
