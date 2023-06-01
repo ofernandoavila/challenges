@@ -6,6 +6,10 @@ use Exception;
 
 class Config {
     public static function GetConfigs($mode = '') {
+        global $applicationMode;
+
+        $mode = $mode != '' ? $mode : $applicationMode;
+
         if($mode == 'prod') {
             if(file_exists(__DIR__ . '/../config/config_prod.php')) {
                 return require __DIR__ . '/../config/config_prod.php';

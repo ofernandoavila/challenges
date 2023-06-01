@@ -16,7 +16,9 @@ class Repository
     public function __construct(
         string $repositoryName
     ) {
-        $this->entityManager = EntityManagerCreator::createEntityManager();
+        global $em;
+        
+        $this->entityManager = $em;
         $this->repository = $this->entityManager->getRepository($repositoryName);
     }
 
