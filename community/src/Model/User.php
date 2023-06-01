@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\PrePersist;
 use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Core\Model;
 use ofernandoavila\Community\Repository\UserRepository;
@@ -32,6 +33,14 @@ class User extends Model {
     
     #[Column]
     public string $name;
+
+    #[Column]
+    public string $userHash;
+
+    #[Column(nullable: true)]
+    public ?string $profileImage;
+
+    
 
     #[OneToMany(targetEntity: Project::class, mappedBy: 'owner', fetch: 'EAGER')]
     public $projects;
@@ -62,6 +71,11 @@ class User extends Model {
         $this->followers = new ArrayCollection();
 
         parent::__construct(new UserRepository());
+    }
+
+    #[PrePersist]
+    public function setUserHash() {
+        $this->userHash = sha1(uniqid(mt_rand(), true));
     }
 
     public function AddLike(Project $project)

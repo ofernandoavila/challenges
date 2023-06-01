@@ -13,6 +13,17 @@
                 </div>
                 <form class="w-50" action="<?= $data['config']['base_url'] ?>/my-account/edit-account" method="post">
                     <div class="row">
+                        
+                        <div class="input-group">
+                            <input type="file" name="profileImage" id="profileImage">
+                            <label for="profileImage">
+                                <div class="profile-image">
+                                    <img src="<?= $data['config']['storage_url']; ?><?= $data['user']->profileImage ?? ''; ?>" alt="">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="input-group">
                             <input type="text" name="name" id="name" placeholder=" " value="<?= $data['user']->name ?? ''; ?>">
                             <label for="name">Name</label>
