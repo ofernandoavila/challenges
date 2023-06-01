@@ -47,18 +47,31 @@
                                         <div class="user-username">@<?= $following->username; ?></div>
                                     </div>
                                 </a>
-                                <?php if($following->username != $data['user']->username): ?>
-                                <button
-                                    id="follow-button-<?= $following->id; ?>"
-                                    data-following="<?= $following->currentUserFollow ? 'true' : 'false' ?>"
-                                    class="btn btn-normal w-100"
-                                    onclick="Follow(<?= $data['user']->id ?? 'null'; ?>, <?= $following->id; ?>, 'follow-button-<?= $following->id; ?>')"
-                                ></button>
-                                <?php else: ?>
-                                    <a href="<?= $data['config']['base_url']; ?>/profile?username=<?= $data['user']->username; ?>" class="w-100">
-                                        <button class="btn btn-default w-100">My Profile</button>
-                                    </a>
-                                <?php endif; ?>
+                                <?php if(isset($data['user'])): ?>
+                                    <?php if($following->username != $data['user']->username): ?>
+                                    <button
+                                        id="follow-button-<?= $following->id; ?>"
+                                        <?php if (isset($data['user']) && $data['user']->id != null) : ?>
+                                            data-following="<?= $follower->currentUserFollow ? 'true' : 'false' ?>"
+                                            <?php else: ?>
+                                                data-following="false"
+                                        <?php endif; ?>
+                                        class="btn btn-normal w-100"
+                                        onclick="Follow(<?= $data['user']->id ?? 'null'; ?>, <?= $following->id; ?>, 'follow-button-<?= $following->id; ?>')"
+                                    ></button>
+                                    <?php else: ?>
+                                        <a href="<?= $data['config']['base_url']; ?>/profile?username=<?= $data['user']->username; ?>" class="w-100">
+                                            <button class="btn btn-default w-100">My Profile</button>
+                                        </a>
+                                    <?php endif; ?>
+                                    <?php else: ?>
+                                    <button
+                                        id="follow-button-<?= $following->id; ?>"
+                                        data-following="false"
+                                        class="btn btn-normal w-100"
+                                        onclick="Follow(<?= $data['user']->id ?? 'null'; ?>, <?= $following->id; ?>, 'follow-button-<?= $following->id; ?>')"
+                                        ></button>
+                                    <?php endif; ?>
                             </li>
                         <?php endforeach;?>
                     </ul>

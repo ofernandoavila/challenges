@@ -48,8 +48,12 @@
                                     </div>
                                 </a>
                                 <button
-                                    id="follow-button-<?= $follower->id; ?>"
-                                    data-following="<?= $follower->currentUserFollow ? 'true' : 'false' ?>"
+                                id="follow-button-<?= $follower->id; ?>"
+                                    <?php if (isset($data['user']) && $data['user']->id != null) : ?>
+                                        data-following="<?= $follower->currentUserFollow ? 'true' : 'false' ?>"
+                                        <?php else: ?>
+                                            data-following="false"
+                                    <?php endif; ?>
                                     class="btn btn-normal w-100"
                                     onclick="Follow(<?= $data['user']->id ?? 'null'; ?>, <?= $follower->id; ?>, 'follow-button-<?= $follower->id; ?>')"
                                 ></button>
