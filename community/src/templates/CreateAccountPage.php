@@ -6,7 +6,7 @@
     </div>
     <div class="flex flex-5 align-items-center justify-center">
         <button style="position: absolute; top: 30px; right: 30px" class="toggle-theme"></button>
-        <fieldset>
+        <fieldset class="w-40">
             <div class="text-header">
                 <h3>Create Account</h3>
             </div>

@@ -6,7 +6,7 @@
     </div>
     <div class="flex flex-5 align-items-center justify-center">
         <button style="position: absolute; top: 30px; right: 30px" class="toggle-theme"></button>
-        <fieldset>
+        <fieldset class="w-30">
             <div class="text-header">
                 <h3>Login</h3>
             </div>
