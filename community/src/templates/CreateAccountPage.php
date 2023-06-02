@@ -23,6 +23,11 @@
                 </div>
                 <div class="row">
                     <div class="input-group">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
                         <input type="password" name="password" id="password" placeholder="Password">
                     </div>
                 </div>

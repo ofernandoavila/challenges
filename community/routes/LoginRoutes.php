@@ -27,16 +27,24 @@ $router->get('/create-account', function ($data) {
 
 $router->post('/create-account', function($data) {
 
-    $controller = new UserController();
+    try {
+        $controller = new UserController();
+        
+        if ($controller->SaveUser($data['name'], $data['username'], $data['email'], $data['password'])) {
 
-    $user = new User($data['username'], $data['password']);
-    $user->name = $data['name'];
+            $createdUser = $controller->GetUserByUsername($data['username']);
+            
+            if($controller->CreateDirectoryStructure($createdUser->userHash)) {
+                Redirect('/');
+            } else {
+                throw new \Exception('Could not create directory structure');
+            }
 
-    if ($controller->SaveUser($user)) {
-
-        Redirect('/');
-    } else {
-        Redirect('/create-account');
+        } else {
+            Redirect('/create-account');
+        }
+    } catch (Exception $e) {
+        throw $e;
     }
 });
 

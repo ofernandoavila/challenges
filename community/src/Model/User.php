@@ -4,10 +4,10 @@ namespace ofernandoavila\Community\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\ArrayType;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\InverseJoinColumn;
 use Doctrine\ORM\Mapping\JoinColumn;
@@ -16,10 +16,11 @@ use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\PrePersist;
 use ofernandoavila\Community\Controller\UserController;
+use ofernandoavila\Community\Core\FileManager;
 use ofernandoavila\Community\Core\Model;
 use ofernandoavila\Community\Repository\UserRepository;
 
-#[Entity]
+#[Entity, HasLifecycleCallbacks]
 class User extends Model {
 
     #[Column, GeneratedValue, Id]
@@ -35,12 +36,12 @@ class User extends Model {
     public string $name;
 
     #[Column]
+    public string $email;
+
+    #[Column]
     public string $userHash;
 
-    #[Column(nullable: true)]
     public ?string $profileImage;
-
-    
 
     #[OneToMany(targetEntity: Project::class, mappedBy: 'owner', fetch: 'EAGER')]
     public $projects;
@@ -197,5 +198,13 @@ class User extends Model {
     public function RemoveFollower(User $user): void
     {
         $this->followers->removeElement($user);
+    }
+
+    public function GetProfilePicture() {
+        if(FileManager::CheckIfFileExists('/users/' . $this->userHash . '/media/profile_image.png')) {
+            return '/users/'. $this->userHash. '/media/profile_image.png';
+        } else {
+            return '/assets/profile_image.png';
+        }
     }
 }
