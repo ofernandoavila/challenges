@@ -5,6 +5,7 @@ return array(
     'template_dir' => __DIR__ . '/../templates/',
     'base_url' => 'https://ofernandoavila.avilamidia.com/challenges/community',
     'storage_url' => 'https://ofernandoavila.avilamidia.com/community_storage',
+    'storage_dir' => $_ENV['LOCAL_STORAGE_DIR_PROD'],
     'scripts_dir' => 'https://ofernandoavila.avilamidia.com/challenges/useful',
     'database' => [
         'host' => $_ENV['DB_HOST_PROD'],
