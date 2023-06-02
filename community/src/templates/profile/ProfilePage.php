@@ -56,10 +56,16 @@
                                                 <i class="fa-regular fa-star"></i>
                                             <?php endif; ?>
                                         <?php endfor; ?>
+                                    <?php else: ?>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
                                     <?php endif; ?>
                                 </div>
                                 <div class="project-thumbnail">
-                                    <img src="<?= $data['config']['storage_url'] . '/games/' . $project->projectHash; ?>/icon.png" alt="">
+                                    <img src="<?= $data['config']['storage_url'] . '/users/' . $project->owner->userHash . '/games/' . $project->projectHash; ?>/icon.png" alt="">
                                 </div>
                                 <div class="project-info">
                                     <span class="project-info-name"><?= $project->name; ?></span>

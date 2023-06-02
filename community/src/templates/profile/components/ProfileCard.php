@@ -8,7 +8,7 @@
         <div class="post-meta-author">
             <a href="<?= $data['config']['base_url'] ?>/profile?username=<?= $data['profile_user']->username; ?>">
                 <div class="post-meta-thumbnail">
-                    <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                    <img src="<?= $data['config']['storage_url'] . $data['profile_user']->GetProfilePicture(); ?>" alt="">
                 </div>
             </a>
             <div class="post-meta-author-info">

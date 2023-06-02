@@ -39,7 +39,7 @@
                 ></button>
             </div>
             <div class="row justify-center">
-                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: default;" src="<?= $data['config']['storage_url'] . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
+                <iframe style="display: flex; justify-content: center; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: default;" src="<?= $data['config']['storage_url'] . '/users/' . $data['project']->owner->userHash . '/games/' . $data['project']->projectHash; ?>/index.html" frameborder="0"></iframe>
             </div>
         </fieldset>
     </div>
@@ -53,7 +53,7 @@
                     <a href="<?= $data['config']['base_url'] ?>/profile?username=<?= $data['project']->owner->username; ?>">
                         <div class="post-meta-author">
                             <div class="post-meta-thumbnail">
-                                <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                                <img src="<?= $data['config']['storage_url'] . $data['project']->owner->GetProfilePicture(); ?>" alt="">
                             </div>
                             <div class="post-meta-author-info">
                                 <h3>@<?= $data['project']->owner->username; ?></h3>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="row">
                             <div class="column">Faves</div>
-                            <div class="column">34</div>
+                            <div class="column"><?= $data['project']->GetTotalLikes() ?></div>
                         </div>
                         <div class="row">
                             <div class="column">Rating</div>
@@ -83,6 +83,12 @@
                                                 <i class="fa-regular fa-star"></i>
                                             <?php endif; ?>
                                         <?php endfor; ?>
+                                    <?php else: ?>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
                                     <?php endif; ?>
                                 </div>
                             </div>

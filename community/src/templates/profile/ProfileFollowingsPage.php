@@ -41,7 +41,7 @@
                             <li class="users-list-item">
                                 <a href="<?= $data['config']['base_url']; ?>/profile?username=<?= $following->username; ?>">
                                     <div class="user-image">
-                                        <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                                        <img src="<?= $data['config']['storage_url'] . $data['profile_user']->GetProfilePicture(); ?>" alt="">
                                     </div>
                                     <div class="user-info">
                                         <div class="user-username">@<?= $following->username; ?></div>
@@ -52,7 +52,7 @@
                                     <button
                                         id="follow-button-<?= $following->id; ?>"
                                         <?php if (isset($data['user']) && $data['user']->id != null) : ?>
-                                            data-following="<?= $follower->currentUserFollow ? 'true' : 'false' ?>"
+                                            data-following="<?= $following->currentUserFollow ? 'true' : 'false' ?>"
                                             <?php else: ?>
                                                 data-following="false"
                                         <?php endif; ?>

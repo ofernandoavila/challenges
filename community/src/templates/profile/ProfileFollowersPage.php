@@ -41,7 +41,7 @@
                             <li class="users-list-item">
                                 <a href="<?= $data['config']['base_url']; ?>/profile?username=<?= $follower->username; ?>">
                                     <div class="user-image">
-                                        <img src="http://ofernandoavila.avilamidia.com/wp-content/uploads/2022/04/cropped-138798512_3706164436112179_1414491971049075834_n.jpg" alt="">
+                                        <img src="<?= $data['config']['storage_url'] . $data['profile_user']->GetProfilePicture(); ?>" alt="">
                                     </div>
                                     <div class="user-info">
                                         <div class="user-username">@<?= $follower->username; ?></div>
