@@ -64,6 +64,10 @@ class Core {
         // var_dump($this->request);
         // echo '</pre>';
         // die;
+        if($this->request['isJson']) {
+            header('Content-Type: application/json');
+        }
+
         if(isset($this->request['route'])) {
             $this->request['data']['config'] = $this->config;
 
@@ -78,12 +82,25 @@ class Core {
     private function GetRequestData() {
         switch($this->request['method']) {
             case "POST":
-                    if($this->request['isJson']) {
-                        $out = json_decode( file_get_contents('php://input'), true );
-                        return $out;
+                $out = [];
+                if($this->request['isJson'] && file_get_contents('php://input') != null) {
+                    $out = json_decode( file_get_contents('php://input'), true );
+                    return $out;
+                }
+
+                if(sizeof($_FILES) > 0) {
+                    foreach($_FILES as $key => $value) {
+                        $out[$key] = $value;
                     }
-                    return $_POST;
-                break;
+                }
+
+                if(sizeof($_POST) > 0) {
+                    foreach($_POST as $key => $value) {
+                        $out[$key] = $value;
+                    }
+                }
+
+                return $out;
             default:
                 $rawData = explode("?", str_replace($this->config['prefix'], "", filter_var($_SERVER['REQUEST_URI'])));
                 $data = [];
