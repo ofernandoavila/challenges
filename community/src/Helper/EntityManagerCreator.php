@@ -12,9 +12,9 @@ class EntityManagerCreator
 {
     public static function createEntityManager()
     {
-        global $applicationMode;
+        global $configs;
 
-        $systemConfig = Config::GetConfigs($applicationMode);
+        $systemConfig = $configs ?? Config::GetConfigs();
         // Create a simple "default" Doctrine ORM configuration for Attributes
         $config = ORMSetup::createAttributeMetadataConfiguration(
             paths: array(__DIR__ . "/../Model", __DIR__ . "/../Core"),
