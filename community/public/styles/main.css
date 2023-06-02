@@ -1,3 +1,38 @@
+.profile-image {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  position: relative;
+}
+.profile-image-label {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.profile-image-label.hidden {
+  display: none;
+}
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-image:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.profile-image:hover .profile-image-label.hidden {
+  display: flex !important;
+}
+
 .users-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);

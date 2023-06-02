@@ -1,0 +1,47 @@
+.profile {
+    &-image {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        position: relative;
+
+        &-label {
+            top: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba($color: #000000, $alpha: .7);
+            z-index: 99999;
+                
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            .profile-image-label {
+                &.hidden {
+                    display: flex !important;
+                }
+            }
+            
+            transform: scale(1.05);
+            
+        }
+    }
+}

@@ -133,6 +133,7 @@
   --icon-user: "";
   --icon-logout: "";
   --icon-return: "";
+  --icon-edit: "";
 }
 
 :root {
@@ -288,7 +289,8 @@
 }
 .post-meta-thumbnail img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
 }
 .post-meta-author {
@@ -523,6 +525,11 @@ button[value=logout]::before {
 button[value=return]::before {
   font-family: var(--icon-font-family-icons-solid);
   content: var(--icon-return);
+  font-weight: 100;
+}
+button[value=edit]::before {
+  font-family: var(--icon-font-family-icons-solid);
+  content: var(--icon-edit);
   font-weight: 100;
 }
 

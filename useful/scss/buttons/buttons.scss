@@ -186,6 +186,12 @@ button {
         content: var(--icon-return);
         font-weight: 100;
     }
+
+    &[value="edit"]::before {
+        font-family: var(--icon-font-family-icons-solid);
+        content: var(--icon-edit);
+        font-weight: 100;
+    }
 }
 
 $like-button: (
