@@ -2,6 +2,7 @@
 
 use ofernandoavila\Community\Controller\UserController;
 use ofernandoavila\Community\Helper\EntityManagerCreator;
+use ofernandoavila\Community\Model\File;
 use ofernandoavila\Community\Model\Project;
 use ofernandoavila\Community\Model\User;
 
@@ -40,6 +41,8 @@ $router->post('/likeProject', function ($data) {
 });
 
 $router->post('/follow', function($data) {
+    header('Content-Type: application/json');
+
     $userController = new UserController();
 
     if(!isset($data['userId']) &&!isset($data['targetUserId'])) {
@@ -57,5 +60,27 @@ $router->post('/follow', function($data) {
         echo json_encode([
             'following' => false
         ]);
+    }
+});
+
+$router->post('/update-profile-picture', function($data) {
+    header('Content-Type: application/json');
+
+    $userController = new UserController();
+
+    $file = new File($data['profileImage']);
+    $file->type = 'image/png';
+    $user = $userController->GetUserByHash($data['userHash']);
+
+    if($user != null) {
+        if($userController->UpdateProfileImage($user, $file)) {
+            echo json_encode([
+                'url' => $userController->GetUsersStorageUrl() . '/' . $user->userHash . '/media/profile_image.png'
+            ]);
+        } else {
+            echo json_encode([
+                'url' => 'error'
+            ]);
+        }
     }
 });
