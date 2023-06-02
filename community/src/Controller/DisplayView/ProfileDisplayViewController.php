@@ -47,8 +47,8 @@ class ProfileDisplayViewController extends Controller implements IDisplayView {
                 $follower->currentUserFollow = $userController->IsFollowing($currentUser, $follower);
             }
 
-            foreach($data['profile_user']->GetFollowings() as $follower) {
-                $follower->currentUserFollow = $userController->IsFollowing($currentUser, $follower);
+            foreach($data['profile_user']->GetFollowings() as $following) {
+                $following->currentUserFollow = $userController->IsFollowing($currentUser, $following);
             }
             
             $data['isFollowing'] = $userController->IsFollowing($currentUser, $data['profile_user']);

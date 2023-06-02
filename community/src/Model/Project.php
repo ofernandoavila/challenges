@@ -34,6 +34,7 @@ class Project
     public $uploadDate;
     #[Column(nullable: true)]
     public string $iconPath;
+
     #[Column(nullable: true)]
     public float $rating;
     #[ManyToMany(targetEntity: User::class, mappedBy: 'likes')]
@@ -81,6 +82,11 @@ class Project
     #[PrePersist]
     public function setProjectHash() {
         $this->projectHash = sha1(uniqid(mt_rand(), true));
+    }
+
+    #[PrePersist]
+    public function setInitialRating() {
+        $this->rating = 0;
     }
 
     public function IsOwner(User $user) {

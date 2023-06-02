@@ -32,7 +32,7 @@ class Repository
         } catch(Exception $error) {
             $_SESSION['msg']['type'] = "danger";
             $_SESSION['msg']['text'] = $error->getMessage();
-            return false;
+            throw $error;
         }
     }
 
