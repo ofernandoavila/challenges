@@ -7,7 +7,7 @@ use ofernandoavila\Community\Core\Core;
 use ofernandoavila\Community\Core\Router;
 use ofernandoavila\Community\Helper\EntityManagerCreator;
 
-global $router, $core, $applicationMode, $em;
+global $router, $core, $applicationMode, $em, $configs;
 
 $applicationMode = 'dev';
 
@@ -19,6 +19,8 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../src/config');
 $dotenv->load();
+
+$configs = Config::GetConfigs($applicationMode);
 
 $em = EntityManagerCreator::createEntityManager();
 
